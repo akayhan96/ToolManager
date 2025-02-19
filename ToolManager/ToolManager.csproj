@@ -46,14 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Business\BusinessManager.cs" />
+    <Compile Include="DataAccess\XmlSerialization.cs" />
+    <Compile Include="Entity\BushCfg.cs" />
+    <Compile Include="Entity\DBOutfits.cs" />
+    <Compile Include="Entity\TecData.cs" />
+    <Compile Include="Entity\ToolData.cs" />
+    <Compile Include="Entity\ToolTecno.cs" />
+    <Compile Include="Entity\ToolTree.cs" />
+    <Compile Include="form_ToolManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="form_ToolManager.Designer.cs">
+      <DependentUpon>form_ToolManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="form_ToolManager.resx">
+      <DependentUpon>form_ToolManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,5 +87,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

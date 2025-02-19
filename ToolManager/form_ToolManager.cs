@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ToolManager
 {
-    public partial class Form1 : Form
+    public partial class form_ToolManager : Form
     {
-        public Form1()
+        public form_ToolManager()
         {
             InitializeComponent();
         }
