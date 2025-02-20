@@ -10,10 +10,10 @@ namespace ToolManager.DataAccess
 {
     public class XmlSerialization
     {
-        public static T Deserialize<T>(string xmlData)
+        public static T Deserialize<T>(string xmlFile)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (StringReader reader = new StringReader(xmlData))
+            using (StreamReader reader = new StreamReader(xmlFile))
             {
                 return (T)serializer.Deserialize(reader);
             }
