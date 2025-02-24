@@ -52,7 +52,7 @@
     <Compile Include="Entity\BushCfg.cs" />
     <Compile Include="Entity\DBOutfits.cs" />
     <Compile Include="Entity\TecData.cs" />
-    <Compile Include="Entity\ToolData.cs" />
+    <Compile Include="Entity\DBTools.cs" />
     <Compile Include="Entity\ToolTecno.cs" />
     <Compile Include="Entity\ToolTree.cs" />
     <Compile Include="form_ToolManager.cs">
@@ -64,6 +64,7 @@
     <Compile Include="Globals.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlFileRead.cs" />
     <EmbeddedResource Include="form_ToolManager.resx">
       <DependentUpon>form_ToolManager.cs</DependentUpon>
     </EmbeddedResource>

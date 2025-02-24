@@ -12,5 +12,13 @@ namespace ToolManager
         public static BusinessManager serviceManager; 
 
         public static string XmlToolTree = @"C:\Albatros\system\Tecno\ToolTree.xml";
+        public static string XmlToolTecno = @"C:\Albatros\system\Tecno\ToolTecno.xml";
+        public static string XmlToolData = @"C:\Albatros\system\Tecno\ToolData.xml";
+
+        public static string XmlngEscBoard = @"C:\Albatros\system\Esc\LngFiles\EscBoard.xmlng";
+        public static string XmlngToolTecno = @"C:\Albatros\system\Tecno\ToolTecno.xmlng";
+
+        public static string CurLang = "TRK";
+        public static string SelectWorkValue = "";
     }
 }

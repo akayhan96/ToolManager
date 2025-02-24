@@ -7,197 +7,193 @@ using System.Xml.Serialization;
 
 namespace ToolManager.Entity
 {
-    // using System.Xml.Serialization;
-    // XmlSerializer serializer = new XmlSerializer(typeof(Tecno));
-    // using (StringReader reader = new StringReader(xml))
-    // {
-    //    var test = (Tecno)serializer.Deserialize(reader);
-    // }
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Xml.Serialization;
 
-    [XmlRoot(ElementName = "message")]
+    [XmlRoot("tecno")]
+    public class ToolTecno
+    {
+        [XmlElement("msgdef")]
+        public MsgDef MsgDef { get; set; }
+
+        [XmlElement("tooldef")]
+        public ToolDef ToolDef { get; set; }
+
+        [XmlElement("toolview")]
+        public ToolView ToolView { get; set; }
+    }
+
+    // 🔹 1️⃣ Mesaj Tanımları (msgdef)
+    public class MsgDef
+    {
+        [XmlElement("message")]
+        public List<Message> Messages { get; set; }
+    }
+
     public class Message
     {
-
-        [XmlAttribute(AttributeName = "name")]
+        [XmlAttribute("name")]
         public string Name { get; set; }
 
-        [XmlAttribute(AttributeName = "id")]
+        [XmlAttribute("id")]
         public int Id { get; set; }
     }
 
-    [XmlRoot(ElementName = "msgdef")]
-    public class Msgdef
+    // 🔹 2️⃣ Takım Tanımları (tooldef)
+    public class ToolDef
     {
+        [XmlElement("tool")]
+        public Tool Tool { get; set; }
 
-        [XmlElement(ElementName = "message")]
-        public List<Message> Message { get; set; }
+        [XmlElement("fielddef")]
+        public List<FieldDef> FieldDefs { get; set; }
     }
 
-    [XmlRoot(ElementName = "tool")]
     public class Tool
     {
-
-        [XmlElement(ElementName = "field")]
-        public List<Field> Field { get; set; }
-
-        [XmlAttribute(AttributeName = "version")]
+        [XmlAttribute("version")]
         public int Version { get; set; }
 
-        [XmlElement(ElementName = "key")]
-        public List<Key> Key { get; set; }
-
-        [XmlElement(ElementName = "display")]
-        public Display Display { get; set; }
-
-        [XmlElement(ElementName = "item")]
-        public Item Item { get; set; }
-
-        [XmlElement(ElementName = "assign")]
-        public List<Assign> Assign { get; set; }
-
-        [XmlElement(ElementName = "group")]
-        public List<Group> Group { get; set; }
-
-        [XmlAttribute(AttributeName = "codWork")]
-        public string CodWork { get; set; }
-
-        [XmlAttribute(AttributeName = "codSide")]
-        public string CodSide { get; set; }
-
-        [XmlAttribute(AttributeName = "codSubWork")]
-        public string CodSubWork { get; set; }
+        [XmlElement("field")]
+        public List<Field> Fields { get; set; }
     }
 
-    [XmlRoot(ElementName = "subs")]
-    public class Subs
+    public class Field
     {
+        [XmlAttribute("id")]
+        public int Id { get; set; }
 
-        [XmlAttribute(AttributeName = "value")]
-        public int Value { get; set; }
-
-        [XmlAttribute(AttributeName = "name")]
+        [XmlAttribute("name")]
         public string Name { get; set; }
 
-        [XmlAttribute(AttributeName = "messageId")]
+        [XmlAttribute("type")]
+        public string Type { get; set; }
+
+        [XmlAttribute("length")]
+        public int Length { get; set; }
+
+        [XmlAttribute("comment")]
+        public string Comment { get; set; }
+    }
+
+    public class FieldDef
+    {
+        [XmlAttribute("field")]
+        public string Field { get; set; }
+
+        [XmlAttribute("key")]
+        public int Key { get; set; }
+
+        [XmlElement("subs")]
+        public List<SubField> SubFields { get; set; }
+    }
+
+    public class SubField
+    {
+        [XmlAttribute("value")]
+        public int Value { get; set; }
+
+        [XmlAttribute("name")]
+        public string Name { get; set; }
+
+        [XmlAttribute("messageId")]
         public string MessageId { get; set; }
 
-        [XmlAttribute(AttributeName = "imageName")]
+        [XmlAttribute("imageName")]
         public string ImageName { get; set; }
     }
 
-    [XmlRoot(ElementName = "fielddef")]
-    public class Fielddef
+    // 🔹 3️⃣ ToolView Tanımları
+    public class ToolView
     {
-
-        [XmlElement(ElementName = "subs")]
-        public List<Subs> Subs { get; set; }
-
-        [XmlAttribute(AttributeName = "field")]
-        public string Field { get; set; }
-
-        [XmlAttribute(AttributeName = "key")]
-        public int Key { get; set; }
+        [XmlElement("tool")]
+        public List<ToolViewItem> Tools { get; set; }
     }
 
-    [XmlRoot(ElementName = "tooldef")]
-    public class Tooldef
+    public class ToolViewItem
     {
+        [XmlAttribute("codWork")]
+        public string CodWork { get; set; }
 
-        [XmlElement(ElementName = "tool")]
-        public Tool Tool { get; set; }
+        [XmlAttribute("codSide")]
+        public string CodSide { get; set; }
 
-        [XmlElement(ElementName = "fielddef")]
-        public List<Fielddef> Fielddef { get; set; }
+        [XmlAttribute("codSubWork")]
+        public string CodSubWork { get; set; }
+
+        [XmlElement("key")]
+        public List<KeyField> Keys { get; set; }
+
+        [XmlElement("display")]
+        public DisplayField Display { get; set; }
+
+        [XmlElement("item")]
+        public List<ItemField> Items { get; set; }
+
+        [XmlElement("assign")]
+        public List<AssignField> Assigns { get; set; }
+
+        [XmlElement("group")]
+        public List<GroupField> Groups { get; set; }
     }
 
-    [XmlRoot(ElementName = "key")]
-    public class Key
+    public class KeyField
     {
-
-        [XmlAttribute(AttributeName = "field")]
+        [XmlAttribute("field")]
         public string Field { get; set; }
 
-        [XmlAttribute(AttributeName = "messageId")]
+        [XmlAttribute("messageId")]
         public string MessageId { get; set; }
     }
 
-    [XmlRoot(ElementName = "display")]
-    public class Display
+    public class DisplayField
     {
-
-        [XmlAttribute(AttributeName = "field")]
+        [XmlAttribute("field")]
         public string Field { get; set; }
     }
 
-    [XmlRoot(ElementName = "item")]
-    public class Item
+    public class ItemField
     {
-
-        [XmlAttribute(AttributeName = "field")]
+        [XmlAttribute("field")]
         public string Field { get; set; }
 
-        [XmlAttribute(AttributeName = "messageId")]
+        [XmlAttribute("messageId")]
         public string MessageId { get; set; }
 
-        [XmlAttribute(AttributeName = "min")]
-        public int Min { get; set; }
-
-        [XmlAttribute(AttributeName = "max")]
-        public int Max { get; set; }
-
-        [XmlAttribute(AttributeName = "suffix")]
+        [XmlAttribute("suffix")]
         public string Suffix { get; set; }
 
-        [XmlAttribute(AttributeName = "values")]
+        [XmlAttribute("min")]
+        public int Min { get; set; }
+
+        [XmlAttribute("max")]
+        public int Max { get; set; }
+
+        [XmlAttribute("values")]
         public string Values { get; set; }
 
-        [XmlAttribute(AttributeName = "defValue")]
-        public int DefValue { get; set; }
     }
 
-    [XmlRoot(ElementName = "assign")]
-    public class Assign
+    public class AssignField
     {
-
-        [XmlAttribute(AttributeName = "field")]
+        [XmlAttribute("field")]
         public string Field { get; set; }
 
-        [XmlAttribute(AttributeName = "value")]
+        [XmlAttribute("value")]
         public int Value { get; set; }
     }
 
-    [XmlRoot(ElementName = "group")]
-    public class Group
+    public class GroupField
     {
-
-        [XmlElement(ElementName = "item")]
-        public List<Item> Item { get; set; }
-
-        [XmlAttribute(AttributeName = "messageId")]
+        [XmlAttribute("messageId")]
         public string MessageId { get; set; }
+
+        [XmlElement("item")]
+        public List<ItemField> Items { get; set; }
     }
 
-    [XmlRoot(ElementName = "toolview")]
-    public class Toolview
-    {
-
-        [XmlElement(ElementName = "tool")]
-        public List<Tool> Tool { get; set; }
-    }
-
-    [XmlRoot(ElementName = "tecno")]
-    public class Tecno
-    {
-
-        [XmlElement(ElementName = "msgdef")]
-        public Msgdef Msgdef { get; set; }
-
-        [XmlElement(ElementName = "tooldef")]
-        public Tooldef Tooldef { get; set; }
-
-        [XmlElement(ElementName = "toolview")]
-        public Toolview Toolview { get; set; }
-    }
 
 
 }

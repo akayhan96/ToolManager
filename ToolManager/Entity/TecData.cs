@@ -224,7 +224,7 @@ namespace ToolManager.Entity
     }
 
     [XmlRoot(ElementName = "Field")]
-    public class Field
+    public class MachineField
     {
 
         [XmlElement(ElementName = "OffsetX")]
@@ -248,7 +248,7 @@ namespace ToolManager.Entity
     {
 
         [XmlElement(ElementName = "Field")]
-        public List<Field> Field { get; set; }
+        public List<MachineField> Field { get; set; }
 
         [XmlAttribute(AttributeName = "Index")]
         public int Index { get; set; }
