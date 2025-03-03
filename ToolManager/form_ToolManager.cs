@@ -28,6 +28,8 @@ namespace ToolManager
             CheckToolEnabled();
 
             LoadToolTree(toolFresa);
+
+            LoadFeedTools();
         }
 
         private void CheckToolEnabled()
@@ -317,6 +319,67 @@ namespace ToolManager
                 if (toolsCfg.ShowDialog() == DialogResult.OK)
                 {
                     LoadToolTree(Globals.SelectWorkValue, true);
+                }
+            }
+        }
+
+        private void LoadFeedTools()
+        {
+            ShowFeedGroups();
+
+            var feeds = Globals.serviceManager.GetFeeds();
+            foreach (var feed in feeds)
+            {
+                string pos = feed.Position.ToString();
+                Control findedGroup = FindFeedGroup(pos);
+                string cbName = findedGroup.Name.Replace("gb","cb");
+                Control cbTool = findedGroup.Controls.Find(cbName, true).FirstOrDefault();
+                (cbTool as ComboBox).SelectedItem = feed.Value;
+            }
+        }
+
+        private Control FindFeedGroup(string text)
+        {
+            foreach (Control item in pnlFeedUnit.Controls)
+            {
+                if(item.Text == text)
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
+        private void ShowFeedGroups()
+        {
+            var spindles = Globals.serviceManager.GetCorrectors();
+            int gbCount = 1;
+
+            foreach (var spindle in spindles)
+            {
+                if (spindle.CorrectorZ != 0 || spindle.RelativeAggregate > 0 )
+                {
+                    string ctrlGbName = $"gbTool{gbCount}";
+                    Control gbControl = pnlFeedUnit.Controls.Find(ctrlGbName, true).FirstOrDefault();
+                    (gbControl as GroupBox).Text = spindle.Index.ToString();
+                    (gbControl as GroupBox).Visible = true;
+
+                    var tools = Globals.serviceManager.GetToolsForFeedTools(2, spindle.SideMask);
+                    var descriptions = tools
+                        .SelectMany(t => t.ToolFields) // Tüm ToolField'leri tek listeye al
+                        .Where(f => f.Name == "description") // Sadece "description" olanları filtrele
+                        .Select(f => f.Value) // Sadece değerleri al
+                        .Distinct() // Aynı olanları kaldır
+                        .ToList();
+
+                    string ctrlCbName = $"cbTool{gbCount}";
+                    Control cbControl = gbControl.Controls.Find(ctrlCbName, true).FirstOrDefault();
+                    (cbControl as ComboBox).DataSource = descriptions;
+                    (cbControl as ComboBox).Tag = spindle.Index.ToString();
+                       
+
+                    gbCount++;
                 }
             }
         }

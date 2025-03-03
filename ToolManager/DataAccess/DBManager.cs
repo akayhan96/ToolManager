@@ -13,12 +13,16 @@ namespace ToolManager.DataAccess
         private ToolTree toolTree;
         private ToolTecno toolTecno;
         private DBTools toolData;
+        private DBOutfits outfitData;
+        private TecData tecData;
 
         public DBManager()
         {
             toolTree = XmlSerialization.Deserialize<ToolTree>(Globals.XmlToolTree);
             toolTecno = XmlSerialization.Deserialize<ToolTecno>(Globals.XmlToolTecno);
             toolData = XmlSerialization.Deserialize<DBTools>(Globals.XmlToolData);
+            outfitData = XmlSerialization.Deserialize<DBOutfits>(Globals.XmlOutfData);
+            tecData = XmlSerialization.Deserialize<TecData>(Globals.XmlTecData);
         }
 
         public List<Node> GetToolTree(Expression<Func<Node, bool>> filter = null)
@@ -62,14 +66,9 @@ namespace ToolManager.DataAccess
             return fieldDef.SubFields;
         }
 
-        public List<ToolData> GetTools(int workValue, int sideValue, int subWorkValue)
+        public List<ToolData> GetTools(Expression<Func<ToolData, bool>> filter)
         {
-            return toolData.ToolDataList
-                            .Where(tData =>
-                                tData.ToolFields.Any(f => f.Name == "codWork" && f.Value == workValue.ToString()) &&
-                                tData.ToolFields.Any(f => f.Name == "codSide" && f.Value == sideValue.ToString()) &&
-                                tData.ToolFields.Any(f => f.Name == "codSubWork" && f.Value == subWorkValue.ToString()))
-                            .ToList(); ;
+            return toolData.ToolDataList.AsQueryable().Where(filter).ToList();
         }
 
         public ToolViewItem GetViews(string work, string side, string subWork)
@@ -111,6 +110,17 @@ namespace ToolManager.DataAccess
         public List<Field> GetToolFields()
         {
             return toolTecno.ToolDef.Tool.Fields;
+        }
+
+        public List<ToolName> GetOutfData(int index)
+        {
+            return outfitData.Outfits.FirstOrDefault(o => o.Index == index).ToolNames;
+        }
+
+        public List<Spindle> GetCorrectors()
+        {
+            var corrector = tecData.Correctors.Corrector.FirstOrDefault(c => c.Group == 1);
+            return corrector.Spindle;
         }
     }
 }

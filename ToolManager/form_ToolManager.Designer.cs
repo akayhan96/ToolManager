@@ -65,6 +65,66 @@
             this.pbExit = new System.Windows.Forms.PictureBox();
             this.lblVersion = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.gbTool1 = new System.Windows.Forms.GroupBox();
+            this.gbTool2 = new System.Windows.Forms.GroupBox();
+            this.gbTool3 = new System.Windows.Forms.GroupBox();
+            this.gbTool6 = new System.Windows.Forms.GroupBox();
+            this.gbTool5 = new System.Windows.Forms.GroupBox();
+            this.gbTool4 = new System.Windows.Forms.GroupBox();
+            this.gbTool9 = new System.Windows.Forms.GroupBox();
+            this.gbTool8 = new System.Windows.Forms.GroupBox();
+            this.gbTool7 = new System.Windows.Forms.GroupBox();
+            this.gbTool12 = new System.Windows.Forms.GroupBox();
+            this.gbTool11 = new System.Windows.Forms.GroupBox();
+            this.gbTool10 = new System.Windows.Forms.GroupBox();
+            this.gbTool15 = new System.Windows.Forms.GroupBox();
+            this.gbTool14 = new System.Windows.Forms.GroupBox();
+            this.gbTool13 = new System.Windows.Forms.GroupBox();
+            this.cbTool1 = new System.Windows.Forms.ComboBox();
+            this.pbShowTool1 = new System.Windows.Forms.PictureBox();
+            this.pbPlaceTool1 = new System.Windows.Forms.PictureBox();
+            this.pbPlaceTool2 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool2 = new System.Windows.Forms.PictureBox();
+            this.cbTool2 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool3 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool3 = new System.Windows.Forms.PictureBox();
+            this.cbTool3 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool6 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool6 = new System.Windows.Forms.PictureBox();
+            this.cbTool6 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool9 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool9 = new System.Windows.Forms.PictureBox();
+            this.cbTool9 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool12 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool12 = new System.Windows.Forms.PictureBox();
+            this.cbTool12 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool15 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool15 = new System.Windows.Forms.PictureBox();
+            this.cbTool15 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool14 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool14 = new System.Windows.Forms.PictureBox();
+            this.cbTool14 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool13 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool13 = new System.Windows.Forms.PictureBox();
+            this.cbTool13 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool10 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool10 = new System.Windows.Forms.PictureBox();
+            this.cbTool10 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool11 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool11 = new System.Windows.Forms.PictureBox();
+            this.cbTool11 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool8 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool8 = new System.Windows.Forms.PictureBox();
+            this.cbTool8 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool7 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool7 = new System.Windows.Forms.PictureBox();
+            this.cbTool7 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool4 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool4 = new System.Windows.Forms.PictureBox();
+            this.cbTool4 = new System.Windows.Forms.ComboBox();
+            this.pbPlaceTool5 = new System.Windows.Forms.PictureBox();
+            this.pbShowTool5 = new System.Windows.Forms.PictureBox();
+            this.cbTool5 = new System.Windows.Forms.ComboBox();
             this.pnlTools.SuspendLayout();
             this.pnlToolDashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfigureTools)).BeginInit();
@@ -89,6 +149,51 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
+            this.gbTool1.SuspendLayout();
+            this.gbTool2.SuspendLayout();
+            this.gbTool3.SuspendLayout();
+            this.gbTool6.SuspendLayout();
+            this.gbTool5.SuspendLayout();
+            this.gbTool4.SuspendLayout();
+            this.gbTool9.SuspendLayout();
+            this.gbTool8.SuspendLayout();
+            this.gbTool7.SuspendLayout();
+            this.gbTool12.SuspendLayout();
+            this.gbTool11.SuspendLayout();
+            this.gbTool10.SuspendLayout();
+            this.gbTool15.SuspendLayout();
+            this.gbTool14.SuspendLayout();
+            this.gbTool13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool5)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTools
@@ -365,10 +470,25 @@
             // pnlFeedUnit
             // 
             this.pnlFeedUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlFeedUnit.Controls.Add(this.gbTool15);
+            this.pnlFeedUnit.Controls.Add(this.gbTool12);
+            this.pnlFeedUnit.Controls.Add(this.gbTool14);
+            this.pnlFeedUnit.Controls.Add(this.gbTool9);
+            this.pnlFeedUnit.Controls.Add(this.gbTool13);
+            this.pnlFeedUnit.Controls.Add(this.gbTool11);
+            this.pnlFeedUnit.Controls.Add(this.gbTool6);
+            this.pnlFeedUnit.Controls.Add(this.gbTool10);
+            this.pnlFeedUnit.Controls.Add(this.gbTool8);
+            this.pnlFeedUnit.Controls.Add(this.gbTool3);
+            this.pnlFeedUnit.Controls.Add(this.gbTool7);
+            this.pnlFeedUnit.Controls.Add(this.gbTool5);
+            this.pnlFeedUnit.Controls.Add(this.gbTool2);
+            this.pnlFeedUnit.Controls.Add(this.gbTool4);
+            this.pnlFeedUnit.Controls.Add(this.gbTool1);
             this.pnlFeedUnit.Controls.Add(this.pnlFeedUnitHeader);
-            this.pnlFeedUnit.Location = new System.Drawing.Point(934, 89);
+            this.pnlFeedUnit.Location = new System.Drawing.Point(935, 89);
             this.pnlFeedUnit.Name = "pnlFeedUnit";
-            this.pnlFeedUnit.Size = new System.Drawing.Size(310, 596);
+            this.pnlFeedUnit.Size = new System.Drawing.Size(448, 620);
             this.pnlFeedUnit.TabIndex = 3;
             // 
             // pnlFeedUnitHeader
@@ -379,7 +499,7 @@
             this.pnlFeedUnitHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFeedUnitHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlFeedUnitHeader.Name = "pnlFeedUnitHeader";
-            this.pnlFeedUnitHeader.Size = new System.Drawing.Size(308, 62);
+            this.pnlFeedUnitHeader.Size = new System.Drawing.Size(446, 62);
             this.pnlFeedUnitHeader.TabIndex = 0;
             // 
             // lblFeedUnitTitle
@@ -397,6 +517,7 @@
             this.pnlAppHeader.BackColor = System.Drawing.Color.CornflowerBlue;
             this.pnlAppHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAppHeader.Controls.Add(this.pbToolSettings);
+            this.pnlAppHeader.Controls.Add(this.lblVersion);
             this.pnlAppHeader.Controls.Add(this.pbSave);
             this.pnlAppHeader.Controls.Add(this.lblAppTitle);
             this.pnlAppHeader.Controls.Add(this.pbMinimize);
@@ -404,13 +525,13 @@
             this.pnlAppHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAppHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlAppHeader.Name = "pnlAppHeader";
-            this.pnlAppHeader.Size = new System.Drawing.Size(1256, 83);
+            this.pnlAppHeader.Size = new System.Drawing.Size(1397, 83);
             this.pnlAppHeader.TabIndex = 4;
             // 
             // pbToolSettings
             // 
             this.pbToolSettings.Image = ((System.Drawing.Image)(resources.GetObject("pbToolSettings.Image")));
-            this.pbToolSettings.Location = new System.Drawing.Point(986, 10);
+            this.pbToolSettings.Location = new System.Drawing.Point(1123, 11);
             this.pbToolSettings.Name = "pbToolSettings";
             this.pbToolSettings.Size = new System.Drawing.Size(60, 60);
             this.pbToolSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -420,7 +541,7 @@
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(1052, 10);
+            this.pbSave.Location = new System.Drawing.Point(1189, 11);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(60, 60);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -440,7 +561,7 @@
             // pbMinimize
             // 
             this.pbMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pbMinimize.Image")));
-            this.pbMinimize.Location = new System.Drawing.Point(1118, 10);
+            this.pbMinimize.Location = new System.Drawing.Point(1255, 11);
             this.pbMinimize.Name = "pbMinimize";
             this.pbMinimize.Size = new System.Drawing.Size(60, 60);
             this.pbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -451,7 +572,7 @@
             // pbExit
             // 
             this.pbExit.Image = ((System.Drawing.Image)(resources.GetObject("pbExit.Image")));
-            this.pbExit.Location = new System.Drawing.Point(1184, 10);
+            this.pbExit.Location = new System.Drawing.Point(1321, 11);
             this.pbExit.Name = "pbExit";
             this.pbExit.Size = new System.Drawing.Size(60, 60);
             this.pbExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -462,9 +583,10 @@
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(1209, 736);
+            this.lblVersion.Font = new System.Drawing.Font("Calibri", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblVersion.Location = new System.Drawing.Point(16, 55);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(34, 13);
+            this.lblVersion.Size = new System.Drawing.Size(33, 13);
             this.lblVersion.TabIndex = 5;
             this.lblVersion.Text = "v1.00";
             // 
@@ -476,14 +598,628 @@
             this.textBox1.Size = new System.Drawing.Size(256, 249);
             this.textBox1.TabIndex = 6;
             // 
+            // gbTool1
+            // 
+            this.gbTool1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gbTool1.Controls.Add(this.pbPlaceTool1);
+            this.gbTool1.Controls.Add(this.pbShowTool1);
+            this.gbTool1.Controls.Add(this.cbTool1);
+            this.gbTool1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool1.Location = new System.Drawing.Point(5, 70);
+            this.gbTool1.Name = "gbTool1";
+            this.gbTool1.Size = new System.Drawing.Size(140, 100);
+            this.gbTool1.TabIndex = 1;
+            this.gbTool1.TabStop = false;
+            this.gbTool1.Text = "Tool 1";
+            this.gbTool1.Visible = false;
+            // 
+            // gbTool2
+            // 
+            this.gbTool2.BackColor = System.Drawing.Color.White;
+            this.gbTool2.Controls.Add(this.pbPlaceTool2);
+            this.gbTool2.Controls.Add(this.pbShowTool2);
+            this.gbTool2.Controls.Add(this.cbTool2);
+            this.gbTool2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool2.Location = new System.Drawing.Point(153, 69);
+            this.gbTool2.Name = "gbTool2";
+            this.gbTool2.Size = new System.Drawing.Size(140, 103);
+            this.gbTool2.TabIndex = 2;
+            this.gbTool2.TabStop = false;
+            this.gbTool2.Text = "Tool 2";
+            this.gbTool2.Visible = false;
+            // 
+            // gbTool3
+            // 
+            this.gbTool3.BackColor = System.Drawing.Color.White;
+            this.gbTool3.Controls.Add(this.pbPlaceTool3);
+            this.gbTool3.Controls.Add(this.pbShowTool3);
+            this.gbTool3.Controls.Add(this.cbTool3);
+            this.gbTool3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool3.Location = new System.Drawing.Point(298, 69);
+            this.gbTool3.Name = "gbTool3";
+            this.gbTool3.Size = new System.Drawing.Size(140, 103);
+            this.gbTool3.TabIndex = 3;
+            this.gbTool3.TabStop = false;
+            this.gbTool3.Text = "Tool 3";
+            this.gbTool3.Visible = false;
+            // 
+            // gbTool6
+            // 
+            this.gbTool6.BackColor = System.Drawing.Color.White;
+            this.gbTool6.Controls.Add(this.pbPlaceTool6);
+            this.gbTool6.Controls.Add(this.pbShowTool6);
+            this.gbTool6.Controls.Add(this.cbTool6);
+            this.gbTool6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool6.Location = new System.Drawing.Point(298, 178);
+            this.gbTool6.Name = "gbTool6";
+            this.gbTool6.Size = new System.Drawing.Size(140, 103);
+            this.gbTool6.TabIndex = 6;
+            this.gbTool6.TabStop = false;
+            this.gbTool6.Text = "Tool 6";
+            this.gbTool6.Visible = false;
+            // 
+            // gbTool5
+            // 
+            this.gbTool5.BackColor = System.Drawing.Color.White;
+            this.gbTool5.Controls.Add(this.pbPlaceTool5);
+            this.gbTool5.Controls.Add(this.pbShowTool5);
+            this.gbTool5.Controls.Add(this.cbTool5);
+            this.gbTool5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool5.Location = new System.Drawing.Point(153, 178);
+            this.gbTool5.Name = "gbTool5";
+            this.gbTool5.Size = new System.Drawing.Size(140, 103);
+            this.gbTool5.TabIndex = 5;
+            this.gbTool5.TabStop = false;
+            this.gbTool5.Text = "Tool 5";
+            this.gbTool5.Visible = false;
+            // 
+            // gbTool4
+            // 
+            this.gbTool4.BackColor = System.Drawing.Color.White;
+            this.gbTool4.Controls.Add(this.pbPlaceTool4);
+            this.gbTool4.Controls.Add(this.pbShowTool4);
+            this.gbTool4.Controls.Add(this.cbTool4);
+            this.gbTool4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool4.Location = new System.Drawing.Point(6, 178);
+            this.gbTool4.Name = "gbTool4";
+            this.gbTool4.Size = new System.Drawing.Size(140, 103);
+            this.gbTool4.TabIndex = 4;
+            this.gbTool4.TabStop = false;
+            this.gbTool4.Text = "Tool 4";
+            this.gbTool4.Visible = false;
+            // 
+            // gbTool9
+            // 
+            this.gbTool9.BackColor = System.Drawing.Color.White;
+            this.gbTool9.Controls.Add(this.pbPlaceTool9);
+            this.gbTool9.Controls.Add(this.pbShowTool9);
+            this.gbTool9.Controls.Add(this.cbTool9);
+            this.gbTool9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool9.Location = new System.Drawing.Point(298, 287);
+            this.gbTool9.Name = "gbTool9";
+            this.gbTool9.Size = new System.Drawing.Size(140, 103);
+            this.gbTool9.TabIndex = 9;
+            this.gbTool9.TabStop = false;
+            this.gbTool9.Text = "Tool 9";
+            this.gbTool9.Visible = false;
+            // 
+            // gbTool8
+            // 
+            this.gbTool8.BackColor = System.Drawing.Color.White;
+            this.gbTool8.Controls.Add(this.pbPlaceTool8);
+            this.gbTool8.Controls.Add(this.pbShowTool8);
+            this.gbTool8.Controls.Add(this.cbTool8);
+            this.gbTool8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool8.Location = new System.Drawing.Point(153, 287);
+            this.gbTool8.Name = "gbTool8";
+            this.gbTool8.Size = new System.Drawing.Size(140, 103);
+            this.gbTool8.TabIndex = 8;
+            this.gbTool8.TabStop = false;
+            this.gbTool8.Text = "Tool 8";
+            this.gbTool8.Visible = false;
+            // 
+            // gbTool7
+            // 
+            this.gbTool7.BackColor = System.Drawing.Color.White;
+            this.gbTool7.Controls.Add(this.pbPlaceTool7);
+            this.gbTool7.Controls.Add(this.pbShowTool7);
+            this.gbTool7.Controls.Add(this.cbTool7);
+            this.gbTool7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool7.Location = new System.Drawing.Point(6, 287);
+            this.gbTool7.Name = "gbTool7";
+            this.gbTool7.Size = new System.Drawing.Size(140, 103);
+            this.gbTool7.TabIndex = 7;
+            this.gbTool7.TabStop = false;
+            this.gbTool7.Text = "Tool 7";
+            this.gbTool7.Visible = false;
+            // 
+            // gbTool12
+            // 
+            this.gbTool12.BackColor = System.Drawing.Color.White;
+            this.gbTool12.Controls.Add(this.pbPlaceTool12);
+            this.gbTool12.Controls.Add(this.pbShowTool12);
+            this.gbTool12.Controls.Add(this.cbTool12);
+            this.gbTool12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool12.Location = new System.Drawing.Point(298, 396);
+            this.gbTool12.Name = "gbTool12";
+            this.gbTool12.Size = new System.Drawing.Size(140, 103);
+            this.gbTool12.TabIndex = 12;
+            this.gbTool12.TabStop = false;
+            this.gbTool12.Text = "Tool 12";
+            this.gbTool12.Visible = false;
+            // 
+            // gbTool11
+            // 
+            this.gbTool11.BackColor = System.Drawing.Color.White;
+            this.gbTool11.Controls.Add(this.pbPlaceTool11);
+            this.gbTool11.Controls.Add(this.pbShowTool11);
+            this.gbTool11.Controls.Add(this.cbTool11);
+            this.gbTool11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool11.Location = new System.Drawing.Point(153, 396);
+            this.gbTool11.Name = "gbTool11";
+            this.gbTool11.Size = new System.Drawing.Size(140, 103);
+            this.gbTool11.TabIndex = 11;
+            this.gbTool11.TabStop = false;
+            this.gbTool11.Text = "Tool 11";
+            this.gbTool11.Visible = false;
+            // 
+            // gbTool10
+            // 
+            this.gbTool10.BackColor = System.Drawing.Color.White;
+            this.gbTool10.Controls.Add(this.pbPlaceTool10);
+            this.gbTool10.Controls.Add(this.pbShowTool10);
+            this.gbTool10.Controls.Add(this.cbTool10);
+            this.gbTool10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool10.Location = new System.Drawing.Point(6, 396);
+            this.gbTool10.Name = "gbTool10";
+            this.gbTool10.Size = new System.Drawing.Size(140, 103);
+            this.gbTool10.TabIndex = 10;
+            this.gbTool10.TabStop = false;
+            this.gbTool10.Text = "Tool 10";
+            this.gbTool10.Visible = false;
+            // 
+            // gbTool15
+            // 
+            this.gbTool15.BackColor = System.Drawing.Color.White;
+            this.gbTool15.Controls.Add(this.pbPlaceTool15);
+            this.gbTool15.Controls.Add(this.pbShowTool15);
+            this.gbTool15.Controls.Add(this.cbTool15);
+            this.gbTool15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool15.Location = new System.Drawing.Point(300, 505);
+            this.gbTool15.Name = "gbTool15";
+            this.gbTool15.Size = new System.Drawing.Size(140, 103);
+            this.gbTool15.TabIndex = 15;
+            this.gbTool15.TabStop = false;
+            this.gbTool15.Text = "Tool 15";
+            this.gbTool15.Visible = false;
+            // 
+            // gbTool14
+            // 
+            this.gbTool14.BackColor = System.Drawing.Color.White;
+            this.gbTool14.Controls.Add(this.pbPlaceTool14);
+            this.gbTool14.Controls.Add(this.pbShowTool14);
+            this.gbTool14.Controls.Add(this.cbTool14);
+            this.gbTool14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool14.Location = new System.Drawing.Point(153, 505);
+            this.gbTool14.Name = "gbTool14";
+            this.gbTool14.Size = new System.Drawing.Size(140, 103);
+            this.gbTool14.TabIndex = 14;
+            this.gbTool14.TabStop = false;
+            this.gbTool14.Text = "Tool 14";
+            this.gbTool14.Visible = false;
+            // 
+            // gbTool13
+            // 
+            this.gbTool13.BackColor = System.Drawing.Color.White;
+            this.gbTool13.Controls.Add(this.pbPlaceTool13);
+            this.gbTool13.Controls.Add(this.pbShowTool13);
+            this.gbTool13.Controls.Add(this.cbTool13);
+            this.gbTool13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbTool13.Location = new System.Drawing.Point(6, 505);
+            this.gbTool13.Name = "gbTool13";
+            this.gbTool13.Size = new System.Drawing.Size(140, 103);
+            this.gbTool13.TabIndex = 13;
+            this.gbTool13.TabStop = false;
+            this.gbTool13.Text = "Tool 13";
+            this.gbTool13.Visible = false;
+            // 
+            // cbTool1
+            // 
+            this.cbTool1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool1.FormattingEnabled = true;
+            this.cbTool1.Location = new System.Drawing.Point(10, 23);
+            this.cbTool1.Name = "cbTool1";
+            this.cbTool1.Size = new System.Drawing.Size(121, 26);
+            this.cbTool1.TabIndex = 0;
+            // 
+            // pbShowTool1
+            // 
+            this.pbShowTool1.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool1.Name = "pbShowTool1";
+            this.pbShowTool1.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool1.TabIndex = 1;
+            this.pbShowTool1.TabStop = false;
+            // 
+            // pbPlaceTool1
+            // 
+            this.pbPlaceTool1.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool1.Name = "pbPlaceTool1";
+            this.pbPlaceTool1.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool1.TabIndex = 2;
+            this.pbPlaceTool1.TabStop = false;
+            // 
+            // pbPlaceTool2
+            // 
+            this.pbPlaceTool2.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool2.Name = "pbPlaceTool2";
+            this.pbPlaceTool2.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool2.TabIndex = 5;
+            this.pbPlaceTool2.TabStop = false;
+            // 
+            // pbShowTool2
+            // 
+            this.pbShowTool2.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool2.Name = "pbShowTool2";
+            this.pbShowTool2.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool2.TabIndex = 4;
+            this.pbShowTool2.TabStop = false;
+            // 
+            // cbTool2
+            // 
+            this.cbTool2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool2.FormattingEnabled = true;
+            this.cbTool2.Location = new System.Drawing.Point(10, 23);
+            this.cbTool2.Name = "cbTool2";
+            this.cbTool2.Size = new System.Drawing.Size(121, 26);
+            this.cbTool2.TabIndex = 3;
+            // 
+            // pbPlaceTool3
+            // 
+            this.pbPlaceTool3.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool3.Name = "pbPlaceTool3";
+            this.pbPlaceTool3.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool3.TabIndex = 5;
+            this.pbPlaceTool3.TabStop = false;
+            // 
+            // pbShowTool3
+            // 
+            this.pbShowTool3.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool3.Name = "pbShowTool3";
+            this.pbShowTool3.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool3.TabIndex = 4;
+            this.pbShowTool3.TabStop = false;
+            // 
+            // cbTool3
+            // 
+            this.cbTool3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool3.FormattingEnabled = true;
+            this.cbTool3.Location = new System.Drawing.Point(10, 23);
+            this.cbTool3.Name = "cbTool3";
+            this.cbTool3.Size = new System.Drawing.Size(121, 26);
+            this.cbTool3.TabIndex = 3;
+            // 
+            // pbPlaceTool6
+            // 
+            this.pbPlaceTool6.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool6.Name = "pbPlaceTool6";
+            this.pbPlaceTool6.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool6.TabIndex = 5;
+            this.pbPlaceTool6.TabStop = false;
+            // 
+            // pbShowTool6
+            // 
+            this.pbShowTool6.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool6.Name = "pbShowTool6";
+            this.pbShowTool6.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool6.TabIndex = 4;
+            this.pbShowTool6.TabStop = false;
+            // 
+            // cbTool6
+            // 
+            this.cbTool6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool6.FormattingEnabled = true;
+            this.cbTool6.Location = new System.Drawing.Point(10, 23);
+            this.cbTool6.Name = "cbTool6";
+            this.cbTool6.Size = new System.Drawing.Size(121, 26);
+            this.cbTool6.TabIndex = 3;
+            // 
+            // pbPlaceTool9
+            // 
+            this.pbPlaceTool9.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool9.Name = "pbPlaceTool9";
+            this.pbPlaceTool9.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool9.TabIndex = 5;
+            this.pbPlaceTool9.TabStop = false;
+            // 
+            // pbShowTool9
+            // 
+            this.pbShowTool9.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool9.Name = "pbShowTool9";
+            this.pbShowTool9.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool9.TabIndex = 4;
+            this.pbShowTool9.TabStop = false;
+            // 
+            // cbTool9
+            // 
+            this.cbTool9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool9.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool9.FormattingEnabled = true;
+            this.cbTool9.Location = new System.Drawing.Point(10, 23);
+            this.cbTool9.Name = "cbTool9";
+            this.cbTool9.Size = new System.Drawing.Size(121, 26);
+            this.cbTool9.TabIndex = 3;
+            // 
+            // pbPlaceTool12
+            // 
+            this.pbPlaceTool12.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool12.Name = "pbPlaceTool12";
+            this.pbPlaceTool12.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool12.TabIndex = 5;
+            this.pbPlaceTool12.TabStop = false;
+            // 
+            // pbShowTool12
+            // 
+            this.pbShowTool12.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool12.Name = "pbShowTool12";
+            this.pbShowTool12.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool12.TabIndex = 4;
+            this.pbShowTool12.TabStop = false;
+            // 
+            // cbTool12
+            // 
+            this.cbTool12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool12.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool12.FormattingEnabled = true;
+            this.cbTool12.Location = new System.Drawing.Point(10, 23);
+            this.cbTool12.Name = "cbTool12";
+            this.cbTool12.Size = new System.Drawing.Size(121, 26);
+            this.cbTool12.TabIndex = 3;
+            // 
+            // pbPlaceTool15
+            // 
+            this.pbPlaceTool15.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool15.Name = "pbPlaceTool15";
+            this.pbPlaceTool15.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool15.TabIndex = 5;
+            this.pbPlaceTool15.TabStop = false;
+            // 
+            // pbShowTool15
+            // 
+            this.pbShowTool15.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool15.Name = "pbShowTool15";
+            this.pbShowTool15.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool15.TabIndex = 4;
+            this.pbShowTool15.TabStop = false;
+            // 
+            // cbTool15
+            // 
+            this.cbTool15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool15.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool15.FormattingEnabled = true;
+            this.cbTool15.Location = new System.Drawing.Point(10, 23);
+            this.cbTool15.Name = "cbTool15";
+            this.cbTool15.Size = new System.Drawing.Size(121, 26);
+            this.cbTool15.TabIndex = 3;
+            // 
+            // pbPlaceTool14
+            // 
+            this.pbPlaceTool14.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool14.Name = "pbPlaceTool14";
+            this.pbPlaceTool14.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool14.TabIndex = 5;
+            this.pbPlaceTool14.TabStop = false;
+            // 
+            // pbShowTool14
+            // 
+            this.pbShowTool14.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool14.Name = "pbShowTool14";
+            this.pbShowTool14.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool14.TabIndex = 4;
+            this.pbShowTool14.TabStop = false;
+            // 
+            // cbTool14
+            // 
+            this.cbTool14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool14.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool14.FormattingEnabled = true;
+            this.cbTool14.Location = new System.Drawing.Point(10, 23);
+            this.cbTool14.Name = "cbTool14";
+            this.cbTool14.Size = new System.Drawing.Size(121, 26);
+            this.cbTool14.TabIndex = 3;
+            // 
+            // pbPlaceTool13
+            // 
+            this.pbPlaceTool13.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool13.Name = "pbPlaceTool13";
+            this.pbPlaceTool13.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool13.TabIndex = 5;
+            this.pbPlaceTool13.TabStop = false;
+            // 
+            // pbShowTool13
+            // 
+            this.pbShowTool13.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool13.Name = "pbShowTool13";
+            this.pbShowTool13.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool13.TabIndex = 4;
+            this.pbShowTool13.TabStop = false;
+            // 
+            // cbTool13
+            // 
+            this.cbTool13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool13.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool13.FormattingEnabled = true;
+            this.cbTool13.Location = new System.Drawing.Point(10, 23);
+            this.cbTool13.Name = "cbTool13";
+            this.cbTool13.Size = new System.Drawing.Size(121, 26);
+            this.cbTool13.TabIndex = 3;
+            // 
+            // pbPlaceTool10
+            // 
+            this.pbPlaceTool10.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool10.Name = "pbPlaceTool10";
+            this.pbPlaceTool10.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool10.TabIndex = 5;
+            this.pbPlaceTool10.TabStop = false;
+            // 
+            // pbShowTool10
+            // 
+            this.pbShowTool10.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool10.Name = "pbShowTool10";
+            this.pbShowTool10.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool10.TabIndex = 4;
+            this.pbShowTool10.TabStop = false;
+            // 
+            // cbTool10
+            // 
+            this.cbTool10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool10.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool10.FormattingEnabled = true;
+            this.cbTool10.Location = new System.Drawing.Point(10, 23);
+            this.cbTool10.Name = "cbTool10";
+            this.cbTool10.Size = new System.Drawing.Size(121, 26);
+            this.cbTool10.TabIndex = 3;
+            // 
+            // pbPlaceTool11
+            // 
+            this.pbPlaceTool11.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool11.Name = "pbPlaceTool11";
+            this.pbPlaceTool11.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool11.TabIndex = 5;
+            this.pbPlaceTool11.TabStop = false;
+            // 
+            // pbShowTool11
+            // 
+            this.pbShowTool11.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool11.Name = "pbShowTool11";
+            this.pbShowTool11.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool11.TabIndex = 4;
+            this.pbShowTool11.TabStop = false;
+            // 
+            // cbTool11
+            // 
+            this.cbTool11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool11.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool11.FormattingEnabled = true;
+            this.cbTool11.Location = new System.Drawing.Point(10, 23);
+            this.cbTool11.Name = "cbTool11";
+            this.cbTool11.Size = new System.Drawing.Size(121, 26);
+            this.cbTool11.TabIndex = 3;
+            // 
+            // pbPlaceTool8
+            // 
+            this.pbPlaceTool8.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool8.Name = "pbPlaceTool8";
+            this.pbPlaceTool8.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool8.TabIndex = 5;
+            this.pbPlaceTool8.TabStop = false;
+            // 
+            // pbShowTool8
+            // 
+            this.pbShowTool8.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool8.Name = "pbShowTool8";
+            this.pbShowTool8.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool8.TabIndex = 4;
+            this.pbShowTool8.TabStop = false;
+            // 
+            // cbTool8
+            // 
+            this.cbTool8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool8.FormattingEnabled = true;
+            this.cbTool8.Location = new System.Drawing.Point(10, 23);
+            this.cbTool8.Name = "cbTool8";
+            this.cbTool8.Size = new System.Drawing.Size(121, 26);
+            this.cbTool8.TabIndex = 3;
+            // 
+            // pbPlaceTool7
+            // 
+            this.pbPlaceTool7.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool7.Name = "pbPlaceTool7";
+            this.pbPlaceTool7.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool7.TabIndex = 5;
+            this.pbPlaceTool7.TabStop = false;
+            // 
+            // pbShowTool7
+            // 
+            this.pbShowTool7.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool7.Name = "pbShowTool7";
+            this.pbShowTool7.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool7.TabIndex = 4;
+            this.pbShowTool7.TabStop = false;
+            // 
+            // cbTool7
+            // 
+            this.cbTool7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool7.FormattingEnabled = true;
+            this.cbTool7.Location = new System.Drawing.Point(10, 23);
+            this.cbTool7.Name = "cbTool7";
+            this.cbTool7.Size = new System.Drawing.Size(121, 26);
+            this.cbTool7.TabIndex = 3;
+            // 
+            // pbPlaceTool4
+            // 
+            this.pbPlaceTool4.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool4.Name = "pbPlaceTool4";
+            this.pbPlaceTool4.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool4.TabIndex = 5;
+            this.pbPlaceTool4.TabStop = false;
+            // 
+            // pbShowTool4
+            // 
+            this.pbShowTool4.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool4.Name = "pbShowTool4";
+            this.pbShowTool4.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool4.TabIndex = 4;
+            this.pbShowTool4.TabStop = false;
+            // 
+            // cbTool4
+            // 
+            this.cbTool4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool4.FormattingEnabled = true;
+            this.cbTool4.Location = new System.Drawing.Point(10, 23);
+            this.cbTool4.Name = "cbTool4";
+            this.cbTool4.Size = new System.Drawing.Size(121, 26);
+            this.cbTool4.TabIndex = 3;
+            // 
+            // pbPlaceTool5
+            // 
+            this.pbPlaceTool5.Location = new System.Drawing.Point(60, 55);
+            this.pbPlaceTool5.Name = "pbPlaceTool5";
+            this.pbPlaceTool5.Size = new System.Drawing.Size(40, 40);
+            this.pbPlaceTool5.TabIndex = 5;
+            this.pbPlaceTool5.TabStop = false;
+            // 
+            // pbShowTool5
+            // 
+            this.pbShowTool5.Location = new System.Drawing.Point(13, 55);
+            this.pbShowTool5.Name = "pbShowTool5";
+            this.pbShowTool5.Size = new System.Drawing.Size(40, 40);
+            this.pbShowTool5.TabIndex = 4;
+            this.pbShowTool5.TabStop = false;
+            // 
+            // cbTool5
+            // 
+            this.cbTool5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTool5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbTool5.FormattingEnabled = true;
+            this.cbTool5.Location = new System.Drawing.Point(10, 23);
+            this.cbTool5.Name = "cbTool5";
+            this.cbTool5.Size = new System.Drawing.Size(121, 26);
+            this.cbTool5.TabIndex = 3;
+            // 
             // form_ToolManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1256, 752);
+            this.ClientSize = new System.Drawing.Size(1397, 752);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.pnlAppHeader);
             this.Controls.Add(this.pnlFeedUnit);
             this.Controls.Add(this.pbToolInfo);
@@ -521,6 +1257,51 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
+            this.gbTool1.ResumeLayout(false);
+            this.gbTool2.ResumeLayout(false);
+            this.gbTool3.ResumeLayout(false);
+            this.gbTool6.ResumeLayout(false);
+            this.gbTool5.ResumeLayout(false);
+            this.gbTool4.ResumeLayout(false);
+            this.gbTool9.ResumeLayout(false);
+            this.gbTool8.ResumeLayout(false);
+            this.gbTool7.ResumeLayout(false);
+            this.gbTool12.ResumeLayout(false);
+            this.gbTool11.ResumeLayout(false);
+            this.gbTool10.ResumeLayout(false);
+            this.gbTool15.ResumeLayout(false);
+            this.gbTool14.ResumeLayout(false);
+            this.gbTool13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowTool5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,6 +1345,66 @@
         private System.Windows.Forms.PictureBox pbCopyTool;
         private System.Windows.Forms.PictureBox pbAddTool;
         private System.Windows.Forms.PictureBox pbRemoveTool;
+        private System.Windows.Forms.GroupBox gbTool15;
+        private System.Windows.Forms.GroupBox gbTool12;
+        private System.Windows.Forms.GroupBox gbTool14;
+        private System.Windows.Forms.GroupBox gbTool9;
+        private System.Windows.Forms.GroupBox gbTool13;
+        private System.Windows.Forms.GroupBox gbTool11;
+        private System.Windows.Forms.GroupBox gbTool6;
+        private System.Windows.Forms.GroupBox gbTool10;
+        private System.Windows.Forms.GroupBox gbTool8;
+        private System.Windows.Forms.GroupBox gbTool3;
+        private System.Windows.Forms.GroupBox gbTool7;
+        private System.Windows.Forms.GroupBox gbTool5;
+        private System.Windows.Forms.GroupBox gbTool2;
+        private System.Windows.Forms.GroupBox gbTool4;
+        private System.Windows.Forms.GroupBox gbTool1;
+        private System.Windows.Forms.PictureBox pbPlaceTool1;
+        private System.Windows.Forms.PictureBox pbShowTool1;
+        private System.Windows.Forms.ComboBox cbTool1;
+        private System.Windows.Forms.PictureBox pbPlaceTool15;
+        private System.Windows.Forms.PictureBox pbShowTool15;
+        private System.Windows.Forms.ComboBox cbTool15;
+        private System.Windows.Forms.PictureBox pbPlaceTool12;
+        private System.Windows.Forms.PictureBox pbShowTool12;
+        private System.Windows.Forms.ComboBox cbTool12;
+        private System.Windows.Forms.PictureBox pbPlaceTool14;
+        private System.Windows.Forms.PictureBox pbShowTool14;
+        private System.Windows.Forms.ComboBox cbTool14;
+        private System.Windows.Forms.PictureBox pbPlaceTool9;
+        private System.Windows.Forms.PictureBox pbShowTool9;
+        private System.Windows.Forms.ComboBox cbTool9;
+        private System.Windows.Forms.PictureBox pbPlaceTool13;
+        private System.Windows.Forms.PictureBox pbShowTool13;
+        private System.Windows.Forms.ComboBox cbTool13;
+        private System.Windows.Forms.PictureBox pbPlaceTool11;
+        private System.Windows.Forms.PictureBox pbShowTool11;
+        private System.Windows.Forms.ComboBox cbTool11;
+        private System.Windows.Forms.PictureBox pbPlaceTool6;
+        private System.Windows.Forms.PictureBox pbShowTool6;
+        private System.Windows.Forms.ComboBox cbTool6;
+        private System.Windows.Forms.PictureBox pbPlaceTool10;
+        private System.Windows.Forms.PictureBox pbShowTool10;
+        private System.Windows.Forms.ComboBox cbTool10;
+        private System.Windows.Forms.PictureBox pbPlaceTool8;
+        private System.Windows.Forms.PictureBox pbShowTool8;
+        private System.Windows.Forms.ComboBox cbTool8;
+        private System.Windows.Forms.PictureBox pbPlaceTool3;
+        private System.Windows.Forms.PictureBox pbShowTool3;
+        private System.Windows.Forms.ComboBox cbTool3;
+        private System.Windows.Forms.PictureBox pbPlaceTool7;
+        private System.Windows.Forms.PictureBox pbShowTool7;
+        private System.Windows.Forms.ComboBox cbTool7;
+        private System.Windows.Forms.PictureBox pbPlaceTool5;
+        private System.Windows.Forms.PictureBox pbShowTool5;
+        private System.Windows.Forms.ComboBox cbTool5;
+        private System.Windows.Forms.PictureBox pbPlaceTool2;
+        private System.Windows.Forms.PictureBox pbShowTool2;
+        private System.Windows.Forms.ComboBox cbTool2;
+        private System.Windows.Forms.PictureBox pbPlaceTool4;
+        private System.Windows.Forms.PictureBox pbShowTool4;
+        private System.Windows.Forms.ComboBox cbTool4;
     }
 }
 

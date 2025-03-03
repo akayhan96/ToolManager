@@ -84,5 +84,22 @@ namespace ToolManager
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        bool isClickedChekbox = false;
+        private void twToolTree_BeforeCheck(object sender, TreeViewCancelEventArgs e)
+        {
+            isClickedChekbox = true;
+        }
+
+        private void twToolTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (isClickedChekbox) { isClickedChekbox = false; return; }
+
+            if (e.Node.IsExpanded)
+                e.Node.Collapse();
+            else
+                e.Node.Expand();
+
+        }
     }
 }

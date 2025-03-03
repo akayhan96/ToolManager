@@ -13,12 +13,15 @@ namespace ToolManager.Business
     public class BusinessManager
     {
         private DBManager dbManager;
+       
+        #region Constructor
         public BusinessManager()
         {
             this.dbManager = new DBManager();
         }
+        #endregion
 
-        //----  ToolTree ------
+        #region TOOLTREEE
         public List<Node> GetToolTree()
         {
             return dbManager.GetToolTree();
@@ -28,10 +31,9 @@ namespace ToolManager.Business
         {
             return dbManager.GetToolTree(n => n.Name == treeName);
         }
+        #endregion
 
-        //-------------------------
-
-        // ----- ToolTecno ------------
+        #region TOOLTECNO
         public string GetFieldText(string field, string subField)
         {
             string msgName = dbManager.GetToolTecnoMsgName(field, subField);
@@ -58,6 +60,7 @@ namespace ToolManager.Business
             AddImages("codSide");
             AddImages("codSubWork");
         }
+
         private void AddImages(string subName)
         {
             string baseImageFolder = @"C:\Albatros\System\Tecno\Img\UTE\TREE\";
@@ -85,16 +88,29 @@ namespace ToolManager.Business
         {
             return dbManager.GetToolFields();
         }
-        // ---------------------------
+        #endregion
 
-        // ----- ToolData --------------
+        #region TOOLDATA
         public List<ToolData> GetTools(string workName, string sideName, string subWorkName)
         {
             int workValue = dbManager.GetToolTecnoFieldValue("codWork", workName);
             int sideValue = dbManager.GetToolTecnoFieldValue("codSide", sideName);
             int subWorkValue = dbManager.GetToolTecnoFieldValue("codSubWork", subWorkName);
 
-            return dbManager.GetTools(workValue, sideValue, subWorkValue);
+            return dbManager.GetTools(tData =>
+                                        tData.ToolFields.Any(f => f.Name == "codWork" && f.Value == workValue.ToString()) &&
+                                        tData.ToolFields.Any(f => f.Name == "codSide" && f.Value == sideValue.ToString()) &&
+                                        tData.ToolFields.Any(f => f.Name == "codSubWork" && f.Value == subWorkValue.ToString())
+                                      );
+
+            //return dbManager.GetTools(workValue, sideValue, subWorkValue);
+        }
+
+        public List<ToolData> GetToolsForFeedTools(int workValue, int sideValue)
+        {
+            return dbManager.GetTools(tData => tData.ToolFields.Any(f => f.Name == "codWork" && f.Value == workValue.ToString()) &&
+                                                    tData.ToolFields.Any(f => f.Name == "codSide" && (Convert.ToInt32(f.Value) & sideValue) != 0));
+
         }
 
         public ToolData GetTool(string[] nodeValues)
@@ -108,7 +124,13 @@ namespace ToolManager.Business
             int sideValue = dbManager.GetToolTecnoFieldValue("codSide", sideName);
             int subWorkValue = dbManager.GetToolTecnoFieldValue("codSubWork", subWorkName);
 
-            return dbManager.GetTools(workValue, sideValue, subWorkValue).Where(t => t.ToolFields.Any(n => n.Value == toolName)).FirstOrDefault();
+            var toolList = dbManager.GetTools(tData =>
+                                        tData.ToolFields.Any(f => f.Name == "codWork" && f.Value == workValue.ToString()) &&
+                                        tData.ToolFields.Any(f => f.Name == "codSide" && f.Value == sideValue.ToString()) &&
+                                        tData.ToolFields.Any(f => f.Name == "codSubWork" && f.Value == subWorkValue.ToString())
+                                      );
+
+            return toolList.Where(t => t.ToolFields.Any(n => n.Value == toolName)).FirstOrDefault();
         }
 
         public string GetToolValue(ToolData toolData, string fieldName)
@@ -178,14 +200,28 @@ namespace ToolManager.Business
 
             return copiedTool;
         }
-        // -----------------------------
+        #endregion
 
-        // ----- General ---------------
+        #region OUTFDATA
+        public List<ToolName> GetFeeds()
+        {
+            return dbManager.GetOutfData(0);
+        }
+        #endregion
+
+        #region TECDATA
+        public List<Spindle> GetCorrectors()
+        {
+            return dbManager.GetCorrectors();
+        }
+        #endregion
+
+        #region General Methods
         public string ReadMessage(string msgNo, string langFile)
         {
             return XmlFileRead.LanguageRead(msgNo, Globals.CurLang, langFile);
         }
-        // -----------------------------
+        #endregion
 
     }
 }

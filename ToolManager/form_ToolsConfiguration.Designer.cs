@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_ToolsConfiguration));
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.pnlDashboard = new System.Windows.Forms.Panel();
-            this.twToolTree = new System.Windows.Forms.TreeView();
-            this.pbOK = new System.Windows.Forms.PictureBox();
-            this.pbCancel = new System.Windows.Forms.PictureBox();
             this.lblFormTitle = new System.Windows.Forms.Label();
+            this.pnlDashboard = new System.Windows.Forms.Panel();
+            this.pbCancel = new System.Windows.Forms.PictureBox();
+            this.pbOK = new System.Windows.Forms.PictureBox();
+            this.twToolTree = new System.Windows.Forms.TreeView();
             this.pnlHeader.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOK)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -51,6 +51,16 @@
             this.pnlHeader.Size = new System.Drawing.Size(337, 60);
             this.pnlHeader.TabIndex = 0;
             // 
+            // lblFormTitle
+            // 
+            this.lblFormTitle.AutoSize = true;
+            this.lblFormTitle.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
+            this.lblFormTitle.Location = new System.Drawing.Point(12, 19);
+            this.lblFormTitle.Name = "lblFormTitle";
+            this.lblFormTitle.Size = new System.Drawing.Size(65, 26);
+            this.lblFormTitle.TabIndex = 0;
+            this.lblFormTitle.Text = "label1";
+            // 
             // pnlDashboard
             // 
             this.pnlDashboard.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -61,27 +71,6 @@
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(337, 60);
             this.pnlDashboard.TabIndex = 1;
-            // 
-            // twToolTree
-            // 
-            this.twToolTree.CheckBoxes = true;
-            this.twToolTree.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.twToolTree.Indent = 30;
-            this.twToolTree.Location = new System.Drawing.Point(12, 71);
-            this.twToolTree.Name = "twToolTree";
-            this.twToolTree.Size = new System.Drawing.Size(313, 427);
-            this.twToolTree.TabIndex = 2;
-            // 
-            // pbOK
-            // 
-            this.pbOK.Image = ((System.Drawing.Image)(resources.GetObject("pbOK.Image")));
-            this.pbOK.Location = new System.Drawing.Point(275, 5);
-            this.pbOK.Name = "pbOK";
-            this.pbOK.Size = new System.Drawing.Size(50, 50);
-            this.pbOK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbOK.TabIndex = 0;
-            this.pbOK.TabStop = false;
-            this.pbOK.Click += new System.EventHandler(this.pbOK_Click);
             // 
             // pbCancel
             // 
@@ -94,15 +83,28 @@
             this.pbCancel.TabStop = false;
             this.pbCancel.Click += new System.EventHandler(this.pbCancel_Click);
             // 
-            // lblFormTitle
+            // pbOK
             // 
-            this.lblFormTitle.AutoSize = true;
-            this.lblFormTitle.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
-            this.lblFormTitle.Location = new System.Drawing.Point(12, 19);
-            this.lblFormTitle.Name = "lblFormTitle";
-            this.lblFormTitle.Size = new System.Drawing.Size(65, 26);
-            this.lblFormTitle.TabIndex = 0;
-            this.lblFormTitle.Text = "label1";
+            this.pbOK.Image = ((System.Drawing.Image)(resources.GetObject("pbOK.Image")));
+            this.pbOK.Location = new System.Drawing.Point(275, 5);
+            this.pbOK.Name = "pbOK";
+            this.pbOK.Size = new System.Drawing.Size(50, 50);
+            this.pbOK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbOK.TabIndex = 0;
+            this.pbOK.TabStop = false;
+            this.pbOK.Click += new System.EventHandler(this.pbOK_Click);
+            // 
+            // twToolTree
+            // 
+            this.twToolTree.CheckBoxes = true;
+            this.twToolTree.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.twToolTree.Indent = 30;
+            this.twToolTree.Location = new System.Drawing.Point(12, 71);
+            this.twToolTree.Name = "twToolTree";
+            this.twToolTree.Size = new System.Drawing.Size(313, 427);
+            this.twToolTree.TabIndex = 2;
+            this.twToolTree.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.twToolTree_BeforeCheck);
+            this.twToolTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.twToolTree_NodeMouseClick);
             // 
             // form_ToolsConfiguration
             // 
@@ -120,8 +122,8 @@
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlDashboard.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbOK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOK)).EndInit();
             this.ResumeLayout(false);
 
         }

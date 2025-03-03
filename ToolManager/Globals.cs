@@ -17,6 +17,8 @@ namespace ToolManager
         public static string XmlToolTree = @"C:\Albatros\system\Tecno\ToolTree.xml";
         public static string XmlToolTecno = @"C:\Albatros\system\Tecno\ToolTecno.xml";
         public static string XmlToolData = @"C:\Albatros\system\Tecno\ToolData.xml";
+        public static string XmlOutfData = @"C:\Albatros\System\Tecno\OutfData.xml";
+        public static string XmlTecData = @"C:\Albatros\system\Tecno\TecData.xml";
 
         public static string XmlngEscBoard = @"C:\Albatros\system\Esc\LngFiles\EscBoard.xmlng";
         public static string XmlngToolTecno = @"C:\Albatros\system\Tecno\ToolTecno.xmlng";

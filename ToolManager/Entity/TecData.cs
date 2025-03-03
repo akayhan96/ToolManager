@@ -19,13 +19,13 @@ namespace ToolManager.Entity
     {
 
         [XmlElement(ElementName = "CorrectorX")]
-        public int CorrectorX { get; set; }
+        public double CorrectorX { get; set; }
 
         [XmlElement(ElementName = "CorrectorY")]
-        public int CorrectorY { get; set; }
+        public double CorrectorY { get; set; }
 
         [XmlElement(ElementName = "CorrectorZ")]
-        public int CorrectorZ { get; set; }
+        public double CorrectorZ { get; set; }
 
         [XmlElement(ElementName = "SideMask")]
         public int SideMask { get; set; }
@@ -98,9 +98,6 @@ namespace ToolManager.Entity
 
         [XmlAttribute(AttributeName = "Index")]
         public int Index { get; set; }
-
-        [XmlText]
-        public double Text { get; set; }
     }
 
     [XmlRoot(ElementName = "Aggregate")]
@@ -194,8 +191,6 @@ namespace ToolManager.Entity
         [XmlAttribute(AttributeName = "Index")]
         public int Index { get; set; }
 
-        [XmlText]
-        public double Text { get; set; }
     }
 
     [XmlRoot(ElementName = "Corrector")]
@@ -210,9 +205,6 @@ namespace ToolManager.Entity
 
         [XmlAttribute(AttributeName = "Group")]
         public int Group { get; set; }
-
-        [XmlText]
-        public double Text { get; set; }
     }
 
     [XmlRoot(ElementName = "Correctors")]
@@ -317,7 +309,7 @@ namespace ToolManager.Entity
     }
 
     [XmlRoot(ElementName = "TechnologicalParameters")]
-    public class TechnologicalParameters
+    public class TecData
     {
 
         [XmlElement(ElementName = "Correctors")]
