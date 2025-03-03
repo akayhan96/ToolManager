@@ -24,7 +24,7 @@ namespace ToolManager
         private void form_ToolManager_Load(object sender, EventArgs e)
         {
             Globals.serviceManager = new Business.BusinessManager();
-
+            Globals.serviceManager.GetFieldImages();
             CheckToolEnabled();
 
             LoadToolTree(toolFresa);
@@ -41,9 +41,9 @@ namespace ToolManager
             }
         }
 
-        private void LoadToolTree(string workValue)
+        private void LoadToolTree(string workValue, bool forceLoad = false)
         {
-            if (Globals.SelectWorkValue == workValue) return;
+            if (Globals.SelectWorkValue == workValue && forceLoad == false) return;
 
             twTools.Nodes.Clear();
 
@@ -258,7 +258,7 @@ namespace ToolManager
         private void pbAddTool_Click(object sender, EventArgs e)
         {
             string[] nodeTag = twTools.SelectedNode.Tag.ToString().Split('|');
-;
+            ;
 
             modeNewTool = true;
             PrepareDgvToolInfo(nodeTag, modeNewTool);
@@ -285,6 +285,40 @@ namespace ToolManager
         {
             Globals.serviceManager.RemoveToolOnList(twTools.SelectedNode.Tag.ToString());
             twTools.SelectedNode.Remove();
+        }
+
+        private void pbEditTool_Click(object sender, EventArgs e)
+        {
+            string[] nodeTag = twTools.SelectedNode.Tag.ToString().Split('|');
+            if (nodeTag.Length == 4)
+            {
+                // Yani listeden bir tool seçilmişse çalışacak
+                PrepareDgvToolInfo(nodeTag);
+            }
+        }
+
+        private void pbCopyTool_Click(object sender, EventArgs e)
+        {
+            string[] nodeTag = twTools.SelectedNode.Tag.ToString().Split('|');
+            if (nodeTag.Length == 4)
+            {
+                var selectedTool = Globals.serviceManager.GetTool(nodeTag);
+
+                var copyTool = Globals.serviceManager.CopyTool(selectedTool);
+
+                AddToolOnTreeView(twTools.SelectedNode.Tag.ToString(), copyTool);
+            }
+        }
+
+        private void pbConfigureTools_Click(object sender, EventArgs e)
+        {
+            using (var toolsCfg = new form_ToolsConfiguration())
+            {
+                if (toolsCfg.ShowDialog() == DialogResult.OK)
+                {
+                    LoadToolTree(Globals.SelectWorkValue, true);
+                }
+            }
         }
     }
 }

@@ -128,6 +128,7 @@
             this.pbConfigureTools.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbConfigureTools.TabIndex = 6;
             this.pbConfigureTools.TabStop = false;
+            this.pbConfigureTools.Click += new System.EventHandler(this.pbConfigureTools_Click);
             // 
             // pbEditTool
             // 
@@ -138,6 +139,7 @@
             this.pbEditTool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbEditTool.TabIndex = 5;
             this.pbEditTool.TabStop = false;
+            this.pbEditTool.Click += new System.EventHandler(this.pbEditTool_Click);
             // 
             // pbCopyTool
             // 
@@ -148,6 +150,7 @@
             this.pbCopyTool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCopyTool.TabIndex = 4;
             this.pbCopyTool.TabStop = false;
+            this.pbCopyTool.Click += new System.EventHandler(this.pbCopyTool_Click);
             // 
             // pbAddTool
             // 

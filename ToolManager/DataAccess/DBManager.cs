@@ -55,6 +55,13 @@ namespace ToolManager.DataAccess
             return fieldDef.SubFields.FirstOrDefault(s => s.Name == subName)?.Value ?? -1;
         }
 
+        public List<SubField> GetFieldDefs(string field)
+        {
+            var fieldDef = toolTecno.ToolDef.FieldDefs.FirstOrDefault(fd => fd.Field == field);
+
+            return fieldDef.SubFields;
+        }
+
         public List<ToolData> GetTools(int workValue, int sideValue, int subWorkValue)
         {
             return toolData.ToolDataList
@@ -84,6 +91,21 @@ namespace ToolManager.DataAccess
         public void RemoveTool(ToolData tool)
         {
             toolData.ToolDataList.Remove(tool);
+        }
+
+        public ToolData CopyTool(ToolData tool)
+        {
+            ToolData copiedTool = new ToolData
+            {
+                ToolFields = tool.ToolFields.Select(tf => new ToolField
+                {
+                    Name = tf.Name,
+                    Type = tf.Type,
+                    Value = tf.Value
+                }).ToList()
+            };
+
+            return copiedTool;
         }
 
         public List<Field> GetToolFields()

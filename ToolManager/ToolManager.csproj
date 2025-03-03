@@ -61,12 +61,21 @@
     <Compile Include="form_ToolManager.Designer.cs">
       <DependentUpon>form_ToolManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_ToolsConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_ToolsConfiguration.Designer.cs">
+      <DependentUpon>form_ToolsConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlFileRead.cs" />
     <EmbeddedResource Include="form_ToolManager.resx">
       <DependentUpon>form_ToolManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_ToolsConfiguration.resx">
+      <DependentUpon>form_ToolsConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
