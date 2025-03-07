@@ -52,9 +52,14 @@ namespace ToolManager.DataAccess
             return fieldDef.SubFields.FirstOrDefault(s => s.Name == subName)?.MessageId ?? "-1";
         }
 
+        public FieldDef GetTecnoField(string field)
+        {
+            return toolTecno.ToolDef.FieldDefs.FirstOrDefault(fd => fd.Field == field);
+        }
+
         public int GetToolTecnoFieldValue(string field, string subName)
         {
-            var fieldDef = toolTecno.ToolDef.FieldDefs.FirstOrDefault(fd => fd.Field == field);
+            var fieldDef = GetTecnoField(field);
 
             return fieldDef.SubFields.FirstOrDefault(s => s.Name == subName)?.Value ?? -1;
         }
@@ -122,5 +127,15 @@ namespace ToolManager.DataAccess
             var corrector = tecData.Correctors.Corrector.FirstOrDefault(c => c.Group == 1);
             return corrector.Spindle;
         }
+
+        public void AddFeed(ToolName feed)
+        {
+            GetOutfData(0).Add(feed);
+        }
+        public void RemoveFeed(ToolName feed)
+        {
+            GetOutfData(0).Remove(feed);
+        }
+
     }
 }

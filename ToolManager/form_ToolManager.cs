@@ -17,6 +17,9 @@ namespace ToolManager
         const string toolDrill = "punta";
         const string toolSaw = "lama";
 
+        List<string> DisplayTools = new List<string>();
+
+        bool LoadedForm = false;
         public form_ToolManager()
         {
             InitializeComponent();
@@ -30,6 +33,8 @@ namespace ToolManager
             LoadToolTree(toolFresa);
 
             LoadFeedTools();
+
+            LoadedForm = true;
         }
 
         private void CheckToolEnabled()
@@ -48,7 +53,8 @@ namespace ToolManager
             if (Globals.SelectWorkValue == workValue && forceLoad == false) return;
 
             twTools.Nodes.Clear();
-
+            DisplayTools.Clear();
+            DisplayTools.Add("");
             Globals.SelectWorkValue = workValue;
             lblToolsTitle.Text = Globals.serviceManager.GetFieldText("codWork", workValue);
 
@@ -81,6 +87,8 @@ namespace ToolManager
                         toolNode.Text = toolName;
                         toolNode.NodeFont = new Font("Gadugi", 9);
                         subWorkTree.Nodes.Add(toolNode);
+
+                        DisplayTools.Add(toolName);
                     }
                     sideTree.Nodes.Add(subWorkTree);
 
@@ -146,7 +154,8 @@ namespace ToolManager
             foreach (var group in toolViewList.Groups)
             {
                 string groupText = Globals.serviceManager.GetFieldText(group.MessageId);
-                dgvToolInfo.Rows.Add(groupText, "", "", "", "");
+                int rowIndex = dgvToolInfo.Rows.Add(groupText, "", "", "", "group");
+
                 foreach (var item in group.Items)
                 {
                     string itemText = Globals.serviceManager.GetFieldText(item.MessageId) + item.Suffix;
@@ -373,14 +382,215 @@ namespace ToolManager
                         .Distinct() // Aynı olanları kaldır
                         .ToList();
 
+                    descriptions.Insert(0, "");
                     string ctrlCbName = $"cbTool{gbCount}";
                     Control cbControl = gbControl.Controls.Find(ctrlCbName, true).FirstOrDefault();
-                    (cbControl as ComboBox).DataSource = descriptions;
+                    //(cbControl as ComboBox).DataSource = descriptions;
+                    (cbControl as ComboBox).DataSource = new List<string>(DisplayTools);
                     (cbControl as ComboBox).Tag = spindle.Index.ToString();
-                       
+                    (cbControl as ComboBox).SelectedIndex = 0;
+
 
                     gbCount++;
                 }
+            }
+        }
+
+        string previewSelectedTool = "-1";
+        bool suppressEvent = false;
+        private void cbTool_SelectedIndex(object sender, EventArgs e)
+        {
+            if (!LoadedForm) return;
+            if (suppressEvent) return;  
+
+            ComboBox cbTool = sender as ComboBox;
+            
+            if (cbTool.SelectedItem == null || cbTool.SelectedItem.ToString() == "")
+            {
+                Globals.serviceManager.RemoveFeed(cbTool.Tag.ToString());
+                MessageBox.Show("Takım kaldırıldı");
+            }
+            else
+            {
+                var pluggedTool = Globals.serviceManager.GetFeed(cbTool.Tag.ToString());
+                var isPlugSelectedTool = Globals.serviceManager.isPlugTool(cbTool.Tag.ToString(), cbTool.SelectedItem.ToString());
+                if (pluggedTool == null && isPlugSelectedTool == false)
+                {
+                    // Takılı takım olmadığı için ekleme işlemi yapıldı
+                    Globals.serviceManager.AddFeed(cbTool.Tag.ToString(), cbTool.SelectedItem.ToString());
+                    MessageBox.Show("Takım eklendi");
+                }
+                else
+                {
+                    // Takılı takım var. O zaman yeni kendisini güncelleyecek ya da takılımı başka takımı kullanmış olacak
+                    if(isPlugSelectedTool)
+                    {
+                        // Seçilen takım başka bir besleme yerinde kullanılıyor
+                        // Takım takılı ve pos bilgi farklı ise bu takımı bu pos' da kullanamazsın
+                        suppressEvent = true;
+                        MessageBox.Show("Seçtiğiniz takılımı başka bir takım yerinde kullanılıyor");
+                        cbTool.SelectedItem = previewSelectedTool;
+                        suppressEvent = false;
+                        return;
+                    }
+                    else
+                    {
+                        // Takılı takım varsa ve pos bilgi aynı ise takım güncellendi
+                        Globals.serviceManager.UpdateFeed(cbTool.Tag.ToString(), cbTool.SelectedItem.ToString());
+                        MessageBox.Show("Takım güncellendi");
+                    }
+                }
+            }
+        }
+
+        private void cbTool_Click(object sender, EventArgs e)
+        {
+            ComboBox cbTool = sender as ComboBox;
+            previewSelectedTool = cbTool.SelectedItem.ToString();
+        }
+
+        string selectedGroup = "";
+        private ComboBox FindToolCombobox(string btnName, string subStr)
+        {
+            string feedGrName = btnName.Replace(subStr, "gb"); // pbShowTool1 -> gbTool1
+            GroupBox feedGr = pnlFeedUnit.Controls.Find(feedGrName, true)[0] as GroupBox;
+            selectedGroup = feedGr.Text;
+            string comboboxName = feedGrName.Replace("gb", "cb"); // gbTool1 -> cbTool1
+
+            return feedGr.Controls.Find(comboboxName, true)[0] as ComboBox;
+        }
+
+        private void pbShowTool_Click(object sender, EventArgs e)
+        {
+            ComboBox comboBox = FindToolCombobox((sender as PictureBox).Name, "pbShow");
+
+            string toolName = comboBox.SelectedItem.ToString();
+
+            if (string.IsNullOrEmpty(toolName)) return;
+
+            var existTool = Globals.serviceManager.GetTool(toolName);
+            using (var toolShow = new form_ShowTool(existTool, selectedGroup))
+            {
+                toolShow.ShowDialog();
+            }
+        }
+
+        private void pbPlaceTool_Click(object sender, EventArgs e)
+        {
+            ComboBox comboBox = FindToolCombobox((sender as PictureBox).Name, "pbPlace");
+
+            string toolName = comboBox.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(toolName)) return;
+
+            var existTool = Globals.serviceManager.GetTool(toolName);
+            string codWorkValue = Globals.serviceManager.GetToolValue(existTool, "codWork");
+            string codSideValue = Globals.serviceManager.GetToolValue(existTool, "codSide");
+            string codSubWorkValue = Globals.serviceManager.GetToolValue(existTool, "codSubWork");
+
+            string workName = Globals.serviceManager.GetFieldName("codWork", codWorkValue);
+            string sideName = Globals.serviceManager.GetFieldName("codSide", codSideValue);
+            string sWorkName = Globals.serviceManager.GetFieldName("codSubWork", codSubWorkValue);
+
+            string nodeTag = string.Format("{0}|{1}|{2}|{3}",workName,sideName,sWorkName,toolName);
+
+            SelectNodeByTag(twTools, nodeTag);
+
+        }
+
+        public void SelectNodeByTag(TreeView treeView, object tagValue)
+        {
+            twTools.Select();
+            twTools.Focus();
+            foreach (TreeNode node in treeView.Nodes)
+            {
+                TreeNode foundNode = FindNodeByTag(node, tagValue);
+                if (foundNode != null)
+                {
+                    treeView.SelectedNode = foundNode;
+                    foundNode.EnsureVisible(); // Seçili düğümü görünür yap
+                    break;
+                }
+            }
+        }
+
+        private TreeNode FindNodeByTag(TreeNode node, object tagValue)
+        {
+            if (node.Tag != null && node.Tag.Equals(tagValue))
+            {
+                return node;
+            }
+
+            foreach (TreeNode childNode in node.Nodes)
+            {
+                TreeNode foundNode = FindNodeByTag(childNode, tagValue);
+                if (foundNode != null)
+                {
+                    return foundNode;
+                }
+            }
+            return null;
+        }
+
+        private void dgvToolInfo_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvToolInfo_Leave(object sender, EventArgs e)
+        {
+            EnableStateDgvToolInfo(false);
+        }
+
+        private void twTools_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Node.Tag.ToString().Split('|').Length != 4) return;
+
+            EnableStateDgvToolInfo(true);
+        }
+
+        private void EnableStateDgvToolInfo(bool state)
+        {
+            dgvToolInfo.ReadOnly = !state;
+            dgvToolInfo.Rows[0].Cells[1].Selected = state;
+            pbEditOK.Enabled = state;
+            pbEditCancel.Enabled = state;
+        }
+
+        private void dgvToolInfo_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvToolInfo.ReadOnly)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            if (dgvToolInfo.Rows[e.RowIndex].Cells["Field"].Value.ToString() == "group")
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            selectedField = dgvToolInfo.Rows[e.RowIndex].Cells["Field"].Value.ToString();
+            selectedValue = dgvToolInfo.Rows[e.RowIndex].Cells["Value"].Value.ToString();
+        }
+
+        string selectedField;
+        string selectedValue;
+        private void dgvToolInfo_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvToolInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+            {
+                dgvToolInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = selectedValue;
+            }
+        }
+
+        private void dgvToolInfo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvToolInfo.Rows.Count > 0)
+            {
+                EnableStateDgvToolInfo(true);
+                dgvToolInfo.Rows[e.RowIndex].Cells["Value"].Selected = true;
+                dgvToolInfo.Columns[0].ReadOnly = true;
             }
         }
     }

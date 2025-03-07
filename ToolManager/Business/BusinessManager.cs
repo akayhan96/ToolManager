@@ -54,6 +54,12 @@ namespace ToolManager.Business
             return dbManager.GetToolTecnoFieldValue(field, subName).ToString();
         }
 
+        public string GetFieldName(string field, string value)
+        {
+            var fielDef = dbManager.GetTecnoField(field);
+            return fielDef.SubFields.FirstOrDefault(s => s.Value == Convert.ToInt32(value)).Name;
+        }
+
         public void GetFieldImages()
         {
             AddImages("codWork");
@@ -133,6 +139,11 @@ namespace ToolManager.Business
             return toolList.Where(t => t.ToolFields.Any(n => n.Value == toolName)).FirstOrDefault();
         }
 
+        public ToolData GetTool(string toolName)
+        {
+            return dbManager.GetTools(t => t.ToolFields.Any(n => n.Name == "description" && n.Value == toolName)).FirstOrDefault();
+        }
+
         public string GetToolValue(ToolData toolData, string fieldName)
         {
             fieldName = fieldName.Replace("[0]", "");
@@ -206,6 +217,34 @@ namespace ToolManager.Business
         public List<ToolName> GetFeeds()
         {
             return dbManager.GetOutfData(0);
+        }
+
+        public void AddFeed(string pos, string name)
+        {
+            dbManager.AddFeed(new ToolName { Group = 1, Position = Convert.ToInt32(pos), Value = name });
+        }
+        public void RemoveFeed(string pos)
+        {
+            var removedFeed = GetFeeds().Where(t => t.Position == Convert.ToInt32(pos)).FirstOrDefault();
+            dbManager.RemoveFeed(removedFeed);
+        }
+        public void UpdateFeed(string pos, string name)
+        {
+            GetFeeds().Where(t => t.Position == Convert.ToInt32(pos)).FirstOrDefault().Value = name;
+        }
+
+        public ToolName GetFeed(string pos)
+        {
+            var feeds = dbManager.GetOutfData(0);
+            var tool = feeds.FirstOrDefault(t => t.Position == Convert.ToInt32(pos));
+            return tool;
+        }
+
+        public bool isPlugTool(string pos, string name)
+        {
+            var feeds = dbManager.GetOutfData(0);
+            var tool = feeds.FirstOrDefault(t => t.Position != Convert.ToInt32(pos) && t.Value == name);
+            return tool != null ? true : false;
         }
         #endregion
 
