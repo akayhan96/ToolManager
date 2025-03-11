@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_ToolManager));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTools = new System.Windows.Forms.Panel();
             this.pnlToolDashBoard = new System.Windows.Forms.Panel();
             this.pbConfigureTools = new System.Windows.Forms.PictureBox();
@@ -44,11 +45,15 @@
             this.pbFresaTools = new System.Windows.Forms.PictureBox();
             this.pnlToolInfo = new System.Windows.Forms.Panel();
             this.dgvToolInfo = new System.Windows.Forms.DataGridView();
+            this.Info = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Max = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Field = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlToolEdit = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pbEditCancel = new System.Windows.Forms.PictureBox();
             this.pbEditOK = new System.Windows.Forms.PictureBox();
-            this.pbToolInfo = new System.Windows.Forms.PictureBox();
             this.pnlFeedUnit = new System.Windows.Forms.Panel();
             this.gbTool15 = new System.Windows.Forms.GroupBox();
             this.pbPlaceTool15 = new System.Windows.Forms.PictureBox();
@@ -119,12 +124,6 @@
             this.lblAppTitle = new System.Windows.Forms.Label();
             this.pbMinimize = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Info = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Min = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Max = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Field = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTools.SuspendLayout();
             this.pnlToolDashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfigureTools)).BeginInit();
@@ -141,7 +140,6 @@
             this.pnlToolEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditOK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbToolInfo)).BeginInit();
             this.pnlFeedUnit.SuspendLayout();
             this.gbTool15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool15)).BeginInit();
@@ -380,6 +378,14 @@
             this.Min,
             this.Max,
             this.Field});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvToolInfo.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvToolInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvToolInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvToolInfo.Location = new System.Drawing.Point(0, 0);
@@ -393,6 +399,41 @@
             this.dgvToolInfo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvToolInfo_CellDoubleClick);
             this.dgvToolInfo.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvToolInfo_CellEndEdit);
             this.dgvToolInfo.Leave += new System.EventHandler(this.dgvToolInfo_Leave);
+            // 
+            // Info
+            // 
+            this.Info.HeaderText = "Info";
+            this.Info.Name = "Info";
+            this.Info.ReadOnly = true;
+            this.Info.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Value
+            // 
+            this.Value.HeaderText = "Value";
+            this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
+            this.Value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Min
+            // 
+            this.Min.HeaderText = "Min";
+            this.Min.Name = "Min";
+            this.Min.ReadOnly = true;
+            this.Min.Visible = false;
+            // 
+            // Max
+            // 
+            this.Max.HeaderText = "Max";
+            this.Max.Name = "Max";
+            this.Max.ReadOnly = true;
+            this.Max.Visible = false;
+            // 
+            // Field
+            // 
+            this.Field.HeaderText = "Field";
+            this.Field.Name = "Field";
+            this.Field.ReadOnly = true;
+            this.Field.Visible = false;
             // 
             // pnlToolEdit
             // 
@@ -440,16 +481,6 @@
             this.pbEditOK.TabStop = false;
             this.pbEditOK.Click += new System.EventHandler(this.pbEditOK_Click);
             // 
-            // pbToolInfo
-            // 
-            this.pbToolInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbToolInfo.Location = new System.Drawing.Point(673, 345);
-            this.pbToolInfo.Name = "pbToolInfo";
-            this.pbToolInfo.Size = new System.Drawing.Size(253, 181);
-            this.pbToolInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbToolInfo.TabIndex = 2;
-            this.pbToolInfo.TabStop = false;
-            // 
             // pnlFeedUnit
             // 
             this.pnlFeedUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -469,7 +500,7 @@
             this.pnlFeedUnit.Controls.Add(this.gbTool4);
             this.pnlFeedUnit.Controls.Add(this.gbTool1);
             this.pnlFeedUnit.Controls.Add(this.pnlFeedUnitHeader);
-            this.pnlFeedUnit.Location = new System.Drawing.Point(935, 89);
+            this.pnlFeedUnit.Location = new System.Drawing.Point(726, 89);
             this.pnlFeedUnit.Name = "pnlFeedUnit";
             this.pnlFeedUnit.Size = new System.Drawing.Size(448, 620);
             this.pnlFeedUnit.TabIndex = 3;
@@ -493,7 +524,7 @@
             // 
             this.pbPlaceTool15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool15.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool15.Image")));
-            this.pbPlaceTool15.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool15.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool15.Name = "pbPlaceTool15";
             this.pbPlaceTool15.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -505,7 +536,7 @@
             // 
             this.pbShowTool15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool15.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool15.Image")));
-            this.pbShowTool15.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool15.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool15.Name = "pbShowTool15";
             this.pbShowTool15.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -544,7 +575,7 @@
             // 
             this.pbPlaceTool12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool12.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool12.Image")));
-            this.pbPlaceTool12.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool12.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool12.Name = "pbPlaceTool12";
             this.pbPlaceTool12.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -556,7 +587,7 @@
             // 
             this.pbShowTool12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool12.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool12.Image")));
-            this.pbShowTool12.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool12.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool12.Name = "pbShowTool12";
             this.pbShowTool12.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -595,7 +626,7 @@
             // 
             this.pbPlaceTool14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool14.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool14.Image")));
-            this.pbPlaceTool14.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool14.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool14.Name = "pbPlaceTool14";
             this.pbPlaceTool14.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -607,7 +638,7 @@
             // 
             this.pbShowTool14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool14.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool14.Image")));
-            this.pbShowTool14.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool14.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool14.Name = "pbShowTool14";
             this.pbShowTool14.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -646,7 +677,7 @@
             // 
             this.pbPlaceTool9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool9.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool9.Image")));
-            this.pbPlaceTool9.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool9.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool9.Name = "pbPlaceTool9";
             this.pbPlaceTool9.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -658,7 +689,7 @@
             // 
             this.pbShowTool9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool9.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool9.Image")));
-            this.pbShowTool9.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool9.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool9.Name = "pbShowTool9";
             this.pbShowTool9.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -697,7 +728,7 @@
             // 
             this.pbPlaceTool13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool13.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool13.Image")));
-            this.pbPlaceTool13.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool13.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool13.Name = "pbPlaceTool13";
             this.pbPlaceTool13.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -709,7 +740,7 @@
             // 
             this.pbShowTool13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool13.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool13.Image")));
-            this.pbShowTool13.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool13.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool13.Name = "pbShowTool13";
             this.pbShowTool13.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -748,7 +779,7 @@
             // 
             this.pbPlaceTool11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool11.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool11.Image")));
-            this.pbPlaceTool11.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool11.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool11.Name = "pbPlaceTool11";
             this.pbPlaceTool11.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -760,7 +791,7 @@
             // 
             this.pbShowTool11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool11.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool11.Image")));
-            this.pbShowTool11.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool11.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool11.Name = "pbShowTool11";
             this.pbShowTool11.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -799,7 +830,7 @@
             // 
             this.pbPlaceTool6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool6.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool6.Image")));
-            this.pbPlaceTool6.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool6.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool6.Name = "pbPlaceTool6";
             this.pbPlaceTool6.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -811,7 +842,7 @@
             // 
             this.pbShowTool6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool6.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool6.Image")));
-            this.pbShowTool6.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool6.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool6.Name = "pbShowTool6";
             this.pbShowTool6.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -850,7 +881,7 @@
             // 
             this.pbPlaceTool10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool10.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool10.Image")));
-            this.pbPlaceTool10.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool10.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool10.Name = "pbPlaceTool10";
             this.pbPlaceTool10.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -862,7 +893,7 @@
             // 
             this.pbShowTool10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool10.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool10.Image")));
-            this.pbShowTool10.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool10.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool10.Name = "pbShowTool10";
             this.pbShowTool10.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -901,7 +932,7 @@
             // 
             this.pbPlaceTool8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool8.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool8.Image")));
-            this.pbPlaceTool8.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool8.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool8.Name = "pbPlaceTool8";
             this.pbPlaceTool8.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -913,7 +944,7 @@
             // 
             this.pbShowTool8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool8.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool8.Image")));
-            this.pbShowTool8.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool8.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool8.Name = "pbShowTool8";
             this.pbShowTool8.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -952,7 +983,7 @@
             // 
             this.pbPlaceTool3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool3.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool3.Image")));
-            this.pbPlaceTool3.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool3.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool3.Name = "pbPlaceTool3";
             this.pbPlaceTool3.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -964,7 +995,7 @@
             // 
             this.pbShowTool3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool3.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool3.Image")));
-            this.pbShowTool3.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool3.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool3.Name = "pbShowTool3";
             this.pbShowTool3.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1003,7 +1034,7 @@
             // 
             this.pbPlaceTool7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool7.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool7.Image")));
-            this.pbPlaceTool7.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool7.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool7.Name = "pbPlaceTool7";
             this.pbPlaceTool7.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1015,7 +1046,7 @@
             // 
             this.pbShowTool7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool7.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool7.Image")));
-            this.pbShowTool7.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool7.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool7.Name = "pbShowTool7";
             this.pbShowTool7.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1054,7 +1085,7 @@
             // 
             this.pbPlaceTool5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool5.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool5.Image")));
-            this.pbPlaceTool5.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool5.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool5.Name = "pbPlaceTool5";
             this.pbPlaceTool5.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1066,7 +1097,7 @@
             // 
             this.pbShowTool5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool5.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool5.Image")));
-            this.pbShowTool5.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool5.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool5.Name = "pbShowTool5";
             this.pbShowTool5.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1105,7 +1136,7 @@
             // 
             this.pbPlaceTool2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool2.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool2.Image")));
-            this.pbPlaceTool2.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool2.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool2.Name = "pbPlaceTool2";
             this.pbPlaceTool2.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1117,7 +1148,7 @@
             // 
             this.pbShowTool2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool2.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool2.Image")));
-            this.pbShowTool2.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool2.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool2.Name = "pbShowTool2";
             this.pbShowTool2.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1156,7 +1187,7 @@
             // 
             this.pbPlaceTool4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool4.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool4.Image")));
-            this.pbPlaceTool4.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool4.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool4.Name = "pbPlaceTool4";
             this.pbPlaceTool4.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1168,7 +1199,7 @@
             // 
             this.pbShowTool4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool4.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool4.Image")));
-            this.pbShowTool4.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool4.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool4.Name = "pbShowTool4";
             this.pbShowTool4.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1207,7 +1238,7 @@
             // 
             this.pbPlaceTool1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool1.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool1.Image")));
-            this.pbPlaceTool1.Location = new System.Drawing.Point(60, 53);
+            this.pbPlaceTool1.Location = new System.Drawing.Point(56, 53);
             this.pbPlaceTool1.Name = "pbPlaceTool1";
             this.pbPlaceTool1.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1219,7 +1250,7 @@
             // 
             this.pbShowTool1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool1.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool1.Image")));
-            this.pbShowTool1.Location = new System.Drawing.Point(13, 53);
+            this.pbShowTool1.Location = new System.Drawing.Point(12, 53);
             this.pbShowTool1.Name = "pbShowTool1";
             this.pbShowTool1.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1273,13 +1304,13 @@
             this.pnlAppHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAppHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlAppHeader.Name = "pnlAppHeader";
-            this.pnlAppHeader.Size = new System.Drawing.Size(1397, 83);
+            this.pnlAppHeader.Size = new System.Drawing.Size(1191, 83);
             this.pnlAppHeader.TabIndex = 4;
             // 
             // pbToolSettings
             // 
             this.pbToolSettings.Image = ((System.Drawing.Image)(resources.GetObject("pbToolSettings.Image")));
-            this.pbToolSettings.Location = new System.Drawing.Point(1123, 11);
+            this.pbToolSettings.Location = new System.Drawing.Point(909, 11);
             this.pbToolSettings.Name = "pbToolSettings";
             this.pbToolSettings.Size = new System.Drawing.Size(60, 60);
             this.pbToolSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1299,7 +1330,7 @@
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(1189, 11);
+            this.pbSave.Location = new System.Drawing.Point(975, 11);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(60, 60);
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1319,7 +1350,7 @@
             // pbMinimize
             // 
             this.pbMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pbMinimize.Image")));
-            this.pbMinimize.Location = new System.Drawing.Point(1255, 11);
+            this.pbMinimize.Location = new System.Drawing.Point(1041, 11);
             this.pbMinimize.Name = "pbMinimize";
             this.pbMinimize.Size = new System.Drawing.Size(60, 60);
             this.pbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1330,7 +1361,7 @@
             // pbExit
             // 
             this.pbExit.Image = ((System.Drawing.Image)(resources.GetObject("pbExit.Image")));
-            this.pbExit.Location = new System.Drawing.Point(1321, 11);
+            this.pbExit.Location = new System.Drawing.Point(1107, 11);
             this.pbExit.Name = "pbExit";
             this.pbExit.Size = new System.Drawing.Size(60, 60);
             this.pbExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1338,66 +1369,20 @@
             this.pbExit.TabStop = false;
             this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(672, 90);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(256, 249);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Info
-            // 
-            this.Info.HeaderText = "Info";
-            this.Info.Name = "Info";
-            this.Info.ReadOnly = true;
-            this.Info.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Value
-            // 
-            this.Value.HeaderText = "Value";
-            this.Value.Name = "Value";
-            this.Value.ReadOnly = true;
-            this.Value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Min
-            // 
-            this.Min.HeaderText = "Min";
-            this.Min.Name = "Min";
-            this.Min.ReadOnly = true;
-            this.Min.Visible = false;
-            // 
-            // Max
-            // 
-            this.Max.HeaderText = "Max";
-            this.Max.Name = "Max";
-            this.Max.ReadOnly = true;
-            this.Max.Visible = false;
-            // 
-            // Field
-            // 
-            this.Field.HeaderText = "Field";
-            this.Field.Name = "Field";
-            this.Field.ReadOnly = true;
-            this.Field.Visible = false;
-            // 
             // form_ToolManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1397, 752);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1191, 752);
             this.Controls.Add(this.pnlAppHeader);
             this.Controls.Add(this.pnlFeedUnit);
-            this.Controls.Add(this.pbToolInfo);
             this.Controls.Add(this.pnlToolInfo);
             this.Controls.Add(this.pnlTools);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "form_ToolManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tool Manager";
+            this.Text = "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"";
             this.Load += new System.EventHandler(this.form_ToolManager_Load);
             this.pnlTools.ResumeLayout(false);
             this.pnlToolDashBoard.ResumeLayout(false);
@@ -1416,7 +1401,6 @@
             this.pnlToolEdit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbEditCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditOK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbToolInfo)).EndInit();
             this.pnlFeedUnit.ResumeLayout(false);
             this.gbTool15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool15)).EndInit();
@@ -1472,7 +1456,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1490,7 +1473,6 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.PictureBox pbEditCancel;
         private System.Windows.Forms.PictureBox pbEditOK;
-        private System.Windows.Forms.PictureBox pbToolInfo;
         private System.Windows.Forms.Panel pnlFeedUnit;
         private System.Windows.Forms.Panel pnlAppHeader;
         private System.Windows.Forms.PictureBox pbSave;
@@ -1502,7 +1484,6 @@
         private System.Windows.Forms.Panel pnlFeedUnitHeader;
         private System.Windows.Forms.Label lblFeedUnitTitle;
         private System.Windows.Forms.Label lblVersion;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel pnlToolDashBoard;
         private System.Windows.Forms.PictureBox pbConfigureTools;
         private System.Windows.Forms.PictureBox pbEditTool;

@@ -30,10 +30,18 @@ namespace ToolManager
             Globals.serviceManager.GetFieldImages();
             CheckToolEnabled();
 
+            foreach (var item in Globals.TreeViewImages.Images.Keys)
+            {
+                textBox1.Text += Globals.TreeViewImages.Images[item] + "\r\n";
+            }
+
+            lblFeedUnitTitle.Text = Globals.serviceManager.ReadMessage("2000",Globals.XmlngTecnoManager);
+
             LoadToolTree(toolFresa);
 
             LoadFeedTools();
 
+            dgvToolInfo.Select();
             LoadedForm = true;
         }
 
@@ -100,6 +108,7 @@ namespace ToolManager
             nextSide:;
             }
 
+            
             twTools.Refresh();
             twTools.Update();
         }
@@ -155,6 +164,8 @@ namespace ToolManager
             {
                 string groupText = Globals.serviceManager.GetFieldText(group.MessageId);
                 int rowIndex = dgvToolInfo.Rows.Add(groupText, "", "", "", "group");
+                dgvToolInfo.Rows[rowIndex].DefaultCellStyle.BackColor = Color.Gray;
+                dgvToolInfo.Rows[rowIndex].DefaultCellStyle.Font = new Font("Calibri",11,FontStyle.Bold);
 
                 foreach (var item in group.Items)
                 {
@@ -344,6 +355,13 @@ namespace ToolManager
                 string cbName = findedGroup.Name.Replace("gb","cb");
                 Control cbTool = findedGroup.Controls.Find(cbName, true).FirstOrDefault();
                 (cbTool as ComboBox).SelectedItem = feed.Value;
+
+                var tool = Globals.serviceManager.GetTool(feed.Value);
+                string sideValue = Globals.serviceManager.GetToolValue(tool, "codSide");
+                string imageName = Globals.serviceManager.GetFieldName("codSide",sideValue);
+                string pbName = findedGroup.Name.Replace("gbTool", "pbFeedSide"); // gbTool1 -> pbFeedSide1
+                Control pbSide = findedGroup.Controls.Find(pbName, true).FirstOrDefault();
+                (pbSide as PictureBox).Image = Globals.TreeViewImages.Images[imageName];
             }
         }
 
@@ -494,7 +512,6 @@ namespace ToolManager
             string nodeTag = string.Format("{0}|{1}|{2}|{3}",workName,sideName,sWorkName,toolName);
 
             SelectNodeByTag(twTools, nodeTag);
-
         }
 
         public void SelectNodeByTag(TreeView treeView, object tagValue)
@@ -531,14 +548,10 @@ namespace ToolManager
             return null;
         }
 
-        private void dgvToolInfo_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvToolInfo_Leave(object sender, EventArgs e)
         {
-            EnableStateDgvToolInfo(false);
+            if (dgvToolInfo.RowCount > 0)
+                EnableStateDgvToolInfo(false);
         }
 
         private void twTools_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)

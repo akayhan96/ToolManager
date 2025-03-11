@@ -60,6 +60,12 @@ namespace ToolManager.Business
             return fielDef.SubFields.FirstOrDefault(s => s.Value == Convert.ToInt32(value)).Name;
         }
 
+        public string GetFieldSideImage(string value)
+        {
+            var fielDef = dbManager.GetTecnoField("codSide");
+            return fielDef.SubFields.FirstOrDefault(s => s.Value == Convert.ToInt32(value)).ImageName;
+        }
+
         public void GetFieldImages()
         {
             AddImages("codWork");
