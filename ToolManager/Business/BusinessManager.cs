@@ -259,6 +259,21 @@ namespace ToolManager.Business
         {
             return dbManager.GetCorrectors();
         }
+
+        public ToolChanger GetToolChanger(int tcID)
+        {
+            return dbManager.GetChanger(tcID);
+        }
+
+        public AirCoordinates GetDistanceDimensions(int machineId)
+        {
+            return dbManager.GetAirCoordinate(machineId);
+        }
+
+        public WorkingFeed GetWorkFeeds(int machineId)
+        {
+            return dbManager.GetWorkingFeed(machineId);
+        }
         #endregion
 
         #region General Methods

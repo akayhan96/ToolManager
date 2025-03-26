@@ -296,8 +296,113 @@ namespace ToolManager.Entity
     [XmlRoot(ElementName = "MachineParameters")]
     public class MachineParameters
     {
+        [XmlAttribute("Machine")]
+        public int Machine { get; set; }
+
         [XmlElement(ElementName = "HeadOffset")]
         public List<HeadOffset> HeadOffset { get; set; }
+
+        [XmlElement(ElementName = "WorkingFeed")]
+        public WorkingFeed WorkingFeed { get; set; }
+
+        [XmlElement(ElementName = "AirCoordinates")]
+        public AirCoordinates AirCoordinates { get; set; }
+    }
+
+    public class WorkingFeed
+    {
+        [XmlElement("Routers_MaxInterpolationFeed")]
+        public float Routers_MaxInterpolationFeed { get; set; }
+
+        [XmlElement("Blade_MaxInterpolationFeed")]
+        public float Blade_MaxInterpolationFeed { get; set; }
+
+        [XmlElement("InSpeed_LateralHoles")]
+        public float InSpeed_LateralHoles { get; set; }
+
+        [XmlElement("InSpeed_VerticalHoles")]
+        public float InSpeed_VerticalHoles { get; set; }
+
+        [XmlElement("InSpeed_Routers")]
+        public float InSpeed_Routers { get; set; }
+
+        [XmlElement("InSpeed_Blades")]
+        public float InSpeed_Blades { get; set; }
+
+        [XmlElement("InSpeed_Inserters")]
+        public float InSpeed_Inserters { get; set; }
+
+        [XmlElement("InSpeed_Probe")]
+        public float InSpeed_Probe { get; set; }
+
+        [XmlElement("InsertedFilletFeed")]
+        public float InsertedFilletFeed { get; set; }
+
+        [XmlElement("SlowingPercentage_OnEntry")]
+        public float SlowingPercentage_OnEntry { get; set; }
+
+        [XmlElement("SlowingPercentage_OnExit")]
+        public float SlowingPercentage_OnExit { get; set; }
+
+        [XmlElement("MaxRPM_Router")]
+        public float MaxRPM_Router { get; set; }
+
+        [XmlElement("MaxRPM_Blade")]
+        public float MaxRPM_Blade { get; set; }
+
+        [XmlElement("MaxRPM_Spindle")]
+        public float MaxRPM_Spindle { get; set; }
+    }
+
+    public class AirCoordinates
+    {
+        [XmlElement("Routers_Clearance")]
+        public float Routers_Clearance { get; set; }
+
+        [XmlElement("Blades_Clearance")]
+        public float Blades_Clearance { get; set; }
+
+        [XmlElement("HorizontalDrills_Clearance")]
+        public float HorizontalDrills_Clearance { get; set; }
+
+        [XmlElement("LateralDrills_Clearance")]
+        public float LateralDrills_Clearance { get; set; }
+
+        [XmlElement("VerticalDrills_Clearance")]
+        public float VerticalDrills_Clearance { get; set; }
+
+        [XmlElement("InserterTools_Clearance")]
+        public float InserterTools_Clearance { get; set; }
+
+        [XmlElement("MaxStops_Height")]
+        public float MaxStops_Height { get; set; }
+
+        [XmlElement("MaxVices_Height")]
+        public float MaxVices_Height { get; set; }
+
+        [XmlElement("MaxPiece_Height")]
+        public float MaxPiece_Height { get; set; }
+
+        [XmlElement("FreeBackSpace")]
+        public float FreeBackSpace { get; set; }
+
+        [XmlElement("FreeFrontSpace")]
+        public float FreeFrontSpace { get; set; }
+
+        [XmlElement("FreeSpaceUnderPod")]
+        public float FreeSpaceUnderPod { get; set; }
+
+        [XmlElement("MaxYPosition")]
+        public float MaxYPosition { get; set; }
+
+        [XmlElement("MinZPosition")]
+        public float MinZPosition { get; set; }
+
+        [XmlElement("MinXLeftPosition")]
+        public float MinXLeftPosition { get; set; }
+
+        [XmlElement("MinZLeftPosition")]
+        public float MinZLeftPosition { get; set; }
     }
 
     [XmlRoot(ElementName = "LineParameters")]
@@ -311,6 +416,8 @@ namespace ToolManager.Entity
     [XmlRoot(ElementName = "TechnologicalParameters")]
     public class TecData
     {
+        [XmlElement("GeneralParameters")]
+        public GeneralParameters GeneralParameters { get; set; }
 
         [XmlElement(ElementName = "Correctors")]
         public Correctors Correctors { get; set; }
@@ -319,6 +426,60 @@ namespace ToolManager.Entity
         public LineParameters LineParameters { get; set; }
 
     }
+
+    public class GeneralParameters
+    {
+        [XmlElement("ToolChanger")]
+        public List<ToolChanger> ToolChangers { get; set; }
+    }
+    public class ToolChanger
+    {
+        [XmlAttribute("Index")]
+        public int Index { get; set; }
+
+        [XmlElement("Type")]
+        public int Type { get; set; }
+
+        [XmlElement("NumberOfBushes")]
+        public int NumberOfBushes { get; set; }
+
+        [XmlElement("FulcrumX")]
+        public float FulcrumX { get; set; }
+
+        [XmlElement("FulcrumY")]
+        public float FulcrumY { get; set; }
+
+        [XmlElement("DeltaX")]
+        public float DeltaX { get; set; }
+
+        [XmlElement("DeltaY")]
+        public float DeltaY { get; set; }
+
+        [XmlElement("IntegralWithHeadInX")]
+        public bool IntegralWithHeadInX { get; set; }
+
+        [XmlElement("IntegralWithHeadInY")]
+        public bool IntegralWithHeadInY { get; set; }
+
+        [XmlElement("X_PickUp_Coordinate")]
+        public float XPickUpCoordinate { get; set; }
+
+        [XmlElement("Y_PickUp_Coordinate")]
+        public float YPickUpCoordinate { get; set; }
+
+        [XmlElement("Z_PickUp_Coordinate")]
+        public float ZPickUpCoordinate { get; set; }
+
+        [XmlElement("ToolLoading_WaitingTime")]
+        public int ToolLoadingWaitingTime { get; set; }
+
+        [XmlElement("ToolUnloading_WaitingTime")]
+        public int ToolUnloadingWaitingTime { get; set; }
+
+        [XmlElement("ToolChange_InMaskedTime")]
+        public bool ToolChangeInMaskedTime { get; set; }
+    }
+
 
 
 }

@@ -62,6 +62,12 @@
     <Compile Include="form_ShowTool.Designer.cs">
       <DependentUpon>form_ShowTool.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_TechnologicalParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_TechnologicalParameters.Designer.cs">
+      <DependentUpon>form_TechnologicalParameters.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_ToolManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="XmlFileRead.cs" />
     <EmbeddedResource Include="form_ShowTool.resx">
       <DependentUpon>form_ShowTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_TechnologicalParameters.resx">
+      <DependentUpon>form_TechnologicalParameters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_ToolManager.resx">
       <DependentUpon>form_ToolManager.cs</DependentUpon>

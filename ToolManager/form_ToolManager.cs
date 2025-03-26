@@ -30,10 +30,6 @@ namespace ToolManager
             Globals.serviceManager.GetFieldImages();
             CheckToolEnabled();
 
-            foreach (var item in Globals.TreeViewImages.Images.Keys)
-            {
-                textBox1.Text += Globals.TreeViewImages.Images[item] + "\r\n";
-            }
 
             lblFeedUnitTitle.Text = Globals.serviceManager.ReadMessage("2000",Globals.XmlngTecnoManager);
 
@@ -50,9 +46,9 @@ namespace ToolManager
             var workNodes = Globals.serviceManager.GetToolTree();
             foreach (var node in workNodes)
             {
-                if (node.Value == toolFresa && node.Enabled == 0) pbFresaTools.Visible = false;
-                if (node.Value == toolDrill && node.Enabled == 0) pbDrillTools.Visible = false;
-                if (node.Value == toolSaw && node.Enabled == 0) pbSawTools.Visible = false;
+                if (node.Value == toolFresa) pbFresaTools.Visible = node.Enabled == 0 ? false :true;
+                if (node.Value == toolDrill) pbDrillTools.Visible = node.Enabled == 0 ? false : true;
+                if (node.Value == toolSaw  ) pbSawTools.Visible = node.Enabled == 0 ? false : true;
             }
         }
 
@@ -338,6 +334,7 @@ namespace ToolManager
             {
                 if (toolsCfg.ShowDialog() == DialogResult.OK)
                 {
+                    CheckToolEnabled();
                     LoadToolTree(Globals.SelectWorkValue, true);
                 }
             }
@@ -360,8 +357,8 @@ namespace ToolManager
                 string sideValue = Globals.serviceManager.GetToolValue(tool, "codSide");
                 string imageName = Globals.serviceManager.GetFieldName("codSide",sideValue);
                 string pbName = findedGroup.Name.Replace("gbTool", "pbFeedSide"); // gbTool1 -> pbFeedSide1
-                Control pbSide = findedGroup.Controls.Find(pbName, true).FirstOrDefault();
-                (pbSide as PictureBox).Image = Globals.TreeViewImages.Images[imageName];
+                // Control pbSide = findedGroup.Controls.Find(pbName, true).FirstOrDefault();
+                // (pbSide as PictureBox).Image = Globals.TreeViewImages.Images[imageName];
             }
         }
 
@@ -604,6 +601,14 @@ namespace ToolManager
                 EnableStateDgvToolInfo(true);
                 dgvToolInfo.Rows[e.RowIndex].Cells["Value"].Selected = true;
                 dgvToolInfo.Columns[0].ReadOnly = true;
+            }
+        }
+
+        private void pbToolSettings_Click(object sender, EventArgs e)
+        {
+            using (var form = new form_TechnologicalParameters())
+            {
+                form.ShowDialog();
             }
         }
     }

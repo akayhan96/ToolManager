@@ -137,5 +137,45 @@ namespace ToolManager.DataAccess
             GetOutfData(0).Remove(feed);
         }
 
+        public ToolChanger GetChanger(int index)
+        {
+            ToolChanger changer = tecData.GeneralParameters.ToolChangers.Where(tc => tc.Index == index).FirstOrDefault();
+            if(changer == null)
+            {
+                changer = new ToolChanger()
+                {
+                    Type = 0,
+                    NumberOfBushes = 0,
+                    FulcrumX = 0,
+                    FulcrumY = 0,
+                    DeltaX = 0,
+                    DeltaY = 0,
+                    IntegralWithHeadInX = false,
+                    IntegralWithHeadInY = false,
+                    XPickUpCoordinate = 0,
+                    YPickUpCoordinate = 0,
+                    ZPickUpCoordinate = 0,
+                    ToolLoadingWaitingTime = 0,
+                    ToolUnloadingWaitingTime = 0,
+                    ToolChangeInMaskedTime = false
+                };
+            }
+
+            return changer;
+        }
+
+        public AirCoordinates GetAirCoordinate(int machine)
+        {
+            var machineParameters = tecData.LineParameters.MachineParameters.FirstOrDefault(m => m.Machine == machine);
+
+            return machineParameters.AirCoordinates;
+        }
+
+        public WorkingFeed GetWorkingFeed(int machine)
+        {
+            var machineParameters = tecData.LineParameters.MachineParameters.FirstOrDefault(m => m.Machine == machine);
+
+            return machineParameters.WorkingFeed;
+        }
     }
 }
