@@ -19,13 +19,12 @@ namespace ToolManager.DataAccess
             }
         }
 
-        public static string Serialize<T>(T objectToSerialize)
+        public static void Serialize<T>(T objectToSerialize, string xmlFile)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (StringWriter writer = new StringWriter())
+            using (StreamWriter writer = new StreamWriter(xmlFile))
             {
                 serializer.Serialize(writer, objectToSerialize);
-                return writer.ToString();
             }
         }
     }

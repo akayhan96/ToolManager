@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+
 
 namespace ToolManager.Entity
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Xml.Serialization;
-
     [XmlRoot("BushCfg")]
     public class BushCfg
     {
@@ -32,6 +30,8 @@ namespace ToolManager.Entity
 
         [XmlElement("SubElem")]
         public List<SubElem> SubElems { get; set; }
+
+        public string Text { get; set; }
     }
 
     public class SubElem

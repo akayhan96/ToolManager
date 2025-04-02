@@ -19,6 +19,7 @@ namespace ToolManager
         public static string XmlToolData = @"C:\Albatros\system\Tecno\ToolData.xml";
         public static string XmlOutfData = @"C:\Albatros\System\Tecno\OutfData.xml";
         public static string XmlTecData = @"C:\Albatros\system\Tecno\TecData.xml";
+        public static string XmlBushCfg = @"C:\Albatros\system\Tecno\BushCfg.xml";
 
         public static string XmlngEscBoard = @"C:\Albatros\system\Esc\LngFiles\EscBoard.xmlng";
         public static string XmlngToolTecno = @"C:\Albatros\system\Tecno\ToolTecno.xmlng";
@@ -26,5 +27,11 @@ namespace ToolManager
 
         public static string CurLang = "TRK";
         public static string SelectWorkValue = "";
+
+        // Writable Entities ID's
+        public const int EntityToolTree  = 1;
+        public const int EntityDbTools   = 2;
+        public const int EntityDbOutfits = 3;
+        public const int EntityTecData   = 4;
     }
 }

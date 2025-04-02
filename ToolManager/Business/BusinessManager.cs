@@ -12,6 +12,8 @@ namespace ToolManager.Business
 {
     public class BusinessManager
     {
+
+
         private DBManager dbManager;
        
         #region Constructor
@@ -265,6 +267,15 @@ namespace ToolManager.Business
             return dbManager.GetChanger(tcID);
         }
 
+        public void AddToolChanger(ToolChanger toolChanger)
+        {
+            dbManager.AddChanger(toolChanger);
+        }
+        public void ReloadChangers()
+        {
+            dbManager.RestoreChangers();
+        }
+
         public AirCoordinates GetDistanceDimensions(int machineId)
         {
             return dbManager.GetAirCoordinate(machineId);
@@ -274,12 +285,69 @@ namespace ToolManager.Business
         {
             return dbManager.GetWorkingFeed(machineId);
         }
+
+        public MachineFields GetMachineFields(int machine, int fieldIndex)
+        {
+            return dbManager.GetMacField(machine,fieldIndex);
+        }
+
+        public HeadOffset GetMachineHeadOffsets(int machine, int group)
+        {
+            return dbManager.GetHeadOffsets(machine, group);
+        }
+
+        public List<Aggregate> GetAggregates()
+        {
+            return dbManager.GetAggregates(1);
+        }
+        #endregion
+
+        #region BUSHCFG
+        public List<SubElemSideType> GetSideItems()
+        {
+            return dbManager.GetSideTypes();
+        }
+        public List<ElemStart> GetWorkItems()
+        {
+            return dbManager.GetWorkTypes();
+        }
         #endregion
 
         #region General Methods
         public string ReadMessage(string msgNo, string langFile)
         {
             return XmlFileRead.LanguageRead(msgNo, Globals.CurLang, langFile);
+        }
+        
+        public void ReadWorkTypes()
+        {
+            var workTypes = dbManager.GetWorkTypes();
+            foreach (ElemStart item in workTypes)
+            {
+                item.Text = ReadMessage(item.MessageId.ToString(), Globals.XmlngToolTecno);
+            }
+
+        }
+
+        public void WriteXml(int entity)
+        {
+            switch (entity)
+            {
+                case Globals.EntityToolTree:
+                    dbManager.SaveToolTree();
+                    break;
+                case Globals.EntityDbTools:
+                    dbManager.SaveDbTools();
+                    break;
+                case Globals.EntityDbOutfits:
+                    dbManager.SaveDbOutfit();
+                    break;
+                case Globals.EntityTecData:
+                    dbManager.SaveTecData();
+                    break;
+                default:
+                    break;
+            }
         }
         #endregion
 

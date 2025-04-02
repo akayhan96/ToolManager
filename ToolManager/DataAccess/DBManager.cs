@@ -15,6 +15,9 @@ namespace ToolManager.DataAccess
         private DBTools toolData;
         private DBOutfits outfitData;
         private TecData tecData;
+        private BushCfg bushCfg;
+
+        private List<ToolChanger> BackupToolChangers;
 
         public DBManager()
         {
@@ -23,6 +26,7 @@ namespace ToolManager.DataAccess
             toolData = XmlSerialization.Deserialize<DBTools>(Globals.XmlToolData);
             outfitData = XmlSerialization.Deserialize<DBOutfits>(Globals.XmlOutfData);
             tecData = XmlSerialization.Deserialize<TecData>(Globals.XmlTecData);
+            bushCfg = XmlSerialization.Deserialize<BushCfg>(Globals.XmlBushCfg);
         }
 
         public List<Node> GetToolTree(Expression<Func<Node, bool>> filter = null)
@@ -122,10 +126,10 @@ namespace ToolManager.DataAccess
             return outfitData.Outfits.FirstOrDefault(o => o.Index == index).ToolNames;
         }
 
-        public List<Spindle> GetCorrectors()
+        public List<Spindle> GetCorrectors(int group = 1)
         {
-            var corrector = tecData.Correctors.Corrector.FirstOrDefault(c => c.Group == 1);
-            return corrector.Spindle;
+            var corrector = tecData.Correctors.Corrector.FirstOrDefault(c => c.Group == group);
+            return corrector.Spindles;
         }
 
         public void AddFeed(ToolName feed)
@@ -164,6 +168,21 @@ namespace ToolManager.DataAccess
             return changer;
         }
 
+        private void BackupChangers()
+        {
+            BackupToolChangers = tecData.GeneralParameters.ToolChangers;
+        }
+
+        public void RestoreChangers()
+        {
+            tecData.GeneralParameters.ToolChangers = BackupToolChangers;
+        }
+
+        public void AddChanger(ToolChanger toolChanger)
+        {
+            tecData.GeneralParameters.ToolChangers.Add(toolChanger);
+        }
+
         public AirCoordinates GetAirCoordinate(int machine)
         {
             var machineParameters = tecData.LineParameters.MachineParameters.FirstOrDefault(m => m.Machine == machine);
@@ -176,6 +195,58 @@ namespace ToolManager.DataAccess
             var machineParameters = tecData.LineParameters.MachineParameters.FirstOrDefault(m => m.Machine == machine);
 
             return machineParameters.WorkingFeed;
+        }
+
+        public MachineFields GetMacField(int machine, int index)
+        {
+            var macParams = tecData.LineParameters.MachineParameters.FirstOrDefault(m => m.Machine == machine);
+            var macField = macParams.MachineFields.FirstOrDefault(f => f.Index == index);
+
+            return macField;
+        }
+
+        public HeadOffset GetHeadOffsets(int machine, int group)
+        {
+            var machineParameters = tecData.LineParameters.MachineParameters.FirstOrDefault(m => m.Machine == machine);
+
+            return machineParameters.HeadOffset.FirstOrDefault(h => h.Group == group);
+        }
+
+        public List<Aggregate> GetAggregates(int group)
+        {
+            var correctors = tecData.Correctors.Corrector.FirstOrDefault(c => c.Group == group);
+
+            return correctors.Aggregates;
+        }
+
+        public List<SubElemSideType> GetSideTypes()
+        {
+            return bushCfg.SideTypes;
+        }
+        public List<ElemStart> GetWorkTypes()
+        {
+            return bushCfg.ToolTypes;
+        }
+
+
+        public void SaveToolTree()
+        {
+            XmlSerialization.Serialize<ToolTree>(toolTree,Globals.XmlToolTree);
+        }
+
+        public void SaveDbTools()
+        {
+            XmlSerialization.Serialize<DBTools>(toolData,Globals.XmlToolData);
+        }
+
+        public void SaveDbOutfit()
+        {
+            XmlSerialization.Serialize<DBOutfits>(outfitData,Globals.XmlOutfData);
+        }
+
+        public void SaveTecData()
+        {
+            XmlSerialization.Serialize<TecData>(tecData,Globals.XmlTecData);
         }
     }
 }

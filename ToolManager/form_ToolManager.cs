@@ -38,6 +38,9 @@ namespace ToolManager
             LoadFeedTools();
 
             dgvToolInfo.Select();
+
+
+            Globals.serviceManager.ReadWorkTypes();
             LoadedForm = true;
         }
 
