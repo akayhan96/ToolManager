@@ -276,6 +276,11 @@ namespace ToolManager.Business
             dbManager.RestoreChangers();
         }
 
+        public void BackupChangers()
+        {
+            dbManager.BackupChangers();
+        }
+
         public AirCoordinates GetDistanceDimensions(int machineId)
         {
             return dbManager.GetAirCoordinate(machineId);

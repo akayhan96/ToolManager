@@ -22,9 +22,11 @@ namespace ToolManager.DataAccess
         public static void Serialize<T>(T objectToSerialize, string xmlFile)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
+            XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+            namespaces.Add("", ""); // Varsayılan namespace'leri kaldır
             using (StreamWriter writer = new StreamWriter(xmlFile))
             {
-                serializer.Serialize(writer, objectToSerialize);
+                serializer.Serialize(writer, objectToSerialize, namespaces);
             }
         }
     }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_ToolManager));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTools = new System.Windows.Forms.Panel();
             this.pnlToolDashBoard = new System.Windows.Forms.Panel();
             this.pbConfigureTools = new System.Windows.Forms.PictureBox();
@@ -124,6 +124,7 @@
             this.lblAppTitle = new System.Windows.Forms.Label();
             this.pbMinimize = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
+            this.pbToolInfo = new System.Windows.Forms.PictureBox();
             this.pnlTools.SuspendLayout();
             this.pnlToolDashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfigureTools)).BeginInit();
@@ -192,6 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToolInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTools
@@ -378,14 +380,14 @@
             this.Min,
             this.Max,
             this.Field});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvToolInfo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvToolInfo.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvToolInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvToolInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvToolInfo.Location = new System.Drawing.Point(0, 0);
@@ -438,6 +440,7 @@
             // pnlToolEdit
             // 
             this.pnlToolEdit.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnlToolEdit.Controls.Add(this.pbToolInfo);
             this.pnlToolEdit.Controls.Add(this.splitter1);
             this.pnlToolEdit.Controls.Add(this.pbEditCancel);
             this.pnlToolEdit.Controls.Add(this.pbEditOK);
@@ -459,7 +462,6 @@
             // 
             // pbEditCancel
             // 
-            this.pbEditCancel.Enabled = false;
             this.pbEditCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbEditCancel.Image")));
             this.pbEditCancel.Location = new System.Drawing.Point(228, 7);
             this.pbEditCancel.Name = "pbEditCancel";
@@ -467,11 +469,11 @@
             this.pbEditCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEditCancel.TabIndex = 1;
             this.pbEditCancel.TabStop = false;
+            this.pbEditCancel.Visible = false;
             this.pbEditCancel.Click += new System.EventHandler(this.pbEditCancel_Click);
             // 
             // pbEditOK
             // 
-            this.pbEditOK.Enabled = false;
             this.pbEditOK.Image = ((System.Drawing.Image)(resources.GetObject("pbEditOK.Image")));
             this.pbEditOK.Location = new System.Drawing.Point(284, 7);
             this.pbEditOK.Name = "pbEditOK";
@@ -479,6 +481,7 @@
             this.pbEditOK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEditOK.TabIndex = 0;
             this.pbEditOK.TabStop = false;
+            this.pbEditOK.Visible = false;
             this.pbEditOK.Click += new System.EventHandler(this.pbEditOK_Click);
             // 
             // pnlFeedUnit
@@ -1337,6 +1340,7 @@
             this.pbSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSave.TabIndex = 3;
             this.pbSave.TabStop = false;
+            this.pbSave.Click += new System.EventHandler(this.pbSave_Click);
             // 
             // lblAppTitle
             // 
@@ -1370,6 +1374,18 @@
             this.pbExit.TabStop = false;
             this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
             // 
+            // pbToolInfo
+            // 
+            this.pbToolInfo.Image = ((System.Drawing.Image)(resources.GetObject("pbToolInfo.Image")));
+            this.pbToolInfo.Location = new System.Drawing.Point(9, 7);
+            this.pbToolInfo.Name = "pbToolInfo";
+            this.pbToolInfo.Size = new System.Drawing.Size(50, 50);
+            this.pbToolInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbToolInfo.TabIndex = 3;
+            this.pbToolInfo.TabStop = false;
+            this.pbToolInfo.Visible = false;
+            this.pbToolInfo.Click += new System.EventHandler(this.pbToolInfo_Click);
+            // 
             // form_ToolManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1383,7 +1399,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "form_ToolManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"";
+            this.Text = "Tool Manager";
             this.Load += new System.EventHandler(this.form_ToolManager_Load);
             this.pnlTools.ResumeLayout(false);
             this.pnlToolDashBoard.ResumeLayout(false);
@@ -1456,6 +1472,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToolInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1556,6 +1573,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Min;
         private System.Windows.Forms.DataGridViewTextBoxColumn Max;
         private System.Windows.Forms.DataGridViewTextBoxColumn Field;
+        private System.Windows.Forms.PictureBox pbToolInfo;
     }
 }
 

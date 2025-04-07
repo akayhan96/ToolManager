@@ -71,10 +71,10 @@ namespace ToolManager.Entity
         public float DeltaY { get; set; }
 
         [XmlElement("IntegralWithHeadInX")]
-        public bool IntegralWithHeadInX { get; set; }
+        public int IntegralWithHeadInX { get; set; }
 
         [XmlElement("IntegralWithHeadInY")]
-        public bool IntegralWithHeadInY { get; set; }
+        public int IntegralWithHeadInY { get; set; }
 
         [XmlElement("X_PickUp_Coordinate")]
         public float XPickUpCoordinate { get; set; }
@@ -92,7 +92,7 @@ namespace ToolManager.Entity
         public int ToolUnloadingWaitingTime { get; set; }
 
         [XmlElement("ToolChange_InMaskedTime")]
-        public bool ToolChangeInMaskedTime { get; set; }
+        public int ToolChangeInMaskedTime { get; set; }
     }
     //-------------------GeneralParameters/--------------------------------
 
@@ -319,6 +319,11 @@ namespace ToolManager.Entity
         [XmlElement(ElementName = "AirCoordinates")]
         public AirCoordinates AirCoordinates { get; set; }
 
+        [XmlElement(ElementName = "GrippersData")]
+        public GrippersData GrippersData { get; set; }
+        [XmlElement(ElementName = "GeneralData")]
+        public GeneralData GeneralData { get; set; }
+
         [XmlElement(ElementName = "MachineFields")]
         public List<MachineFields> MachineFields { get; set; }
 
@@ -422,6 +427,74 @@ namespace ToolManager.Entity
         public float MinZLeftPosition { get; set; }
     }
 
+    public class GrippersData
+    {
+        [XmlElement("XDimension")]
+        public float XDimension { get; set; }
+
+        [XmlElement("YDimension")]
+        public float YDimension { get; set; }
+
+        [XmlElement("ZDimension")]
+        public float ZDimension { get; set; }
+
+        [XmlElement("ZDimensionUnderPiece")]
+        public float ZDimensionUnderPiece { get; set; }
+
+        [XmlElement("BackClampEnabled")]
+        public bool BackClampEnabled { get; set; }
+
+        [XmlElement("MinimumDistance")]
+        public float MinimumDistance { get; set; }
+
+        [XmlElement("ClampOnPiecePercentage")]
+        public float ClampOnPiecePercentage { get; set; }
+
+        [XmlElement("XPositionWindow")]
+        public float XPositionWindow { get; set; }
+
+        [XmlElement("WindowWidth")]
+        public float WindowWidth { get; set; }
+
+        [XmlElement("WindowHeight")]
+        public float WindowHeight { get; set; }
+
+        [XmlElement("XCorFrontClamp")]
+        public float XCorFrontClamp { get; set; }
+
+        [XmlElement("XCorBackClamp")]
+        public float XCorBackClamp { get; set; }
+
+        [XmlElement("XParkFrontClamp")]
+        public float XParkFrontClamp { get; set; }
+
+        [XmlElement("XParkBackClamp")]
+        public float XParkBackClamp { get; set; }
+
+        [XmlElement("OpenClampTime")]
+        public float OpenClampTime { get; set; }
+
+        [XmlElement("CloseClampTime")]
+        public float CloseClampTime { get; set; }
+
+        [XmlElement("PressersDowmTime")]
+        public float PressersDowmTime { get; set; }
+
+        [XmlElement("PressersUpTime")]
+        public float PressersUpTime { get; set; }
+
+        [XmlElement("PusherXStartCorrector")]
+        public float PusherXStartCorrector { get; set; }
+
+        [XmlElement("PusherXEndCorrector")]
+        public float PusherXEndCorrector { get; set; }
+
+        [XmlElement("MinLengthPieceTwoGrippers")]
+        public float MinLengthPieceTwoGrippers { get; set; }
+    }
+
+    public class GeneralData { }
+
     [XmlRoot(ElementName = "MachineFields")]
     public class MachineFields
     {
@@ -432,13 +505,13 @@ namespace ToolManager.Entity
         public int Index { get; set; }
 
         [XmlAttribute(AttributeName = "PushingReference")]
-        public bool PushingReference { get; set; }
+        public int PushingReference { get; set; }
 
         [XmlAttribute(AttributeName = "MirrorOnNormalFieldReference")]
-        public bool MirrorOnNormalFieldReference { get; set; }
+        public int MirrorOnNormalFieldReference { get; set; }
 
         [XmlAttribute(AttributeName = "NormalOnMirrorFieldReference")]
-        public bool NormalOnMirrorFieldReference { get; set; }
+        public int NormalOnMirrorFieldReference { get; set; }
     }
 
     [XmlRoot(ElementName = "Field")]

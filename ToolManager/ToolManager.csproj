@@ -80,6 +80,12 @@
     <Compile Include="form_ToolsConfiguration.Designer.cs">
       <DependentUpon>form_ToolsConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="from_PreviewTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="from_PreviewTool.Designer.cs">
+      <DependentUpon>from_PreviewTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_ToolsConfiguration.resx">
       <DependentUpon>form_ToolsConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="from_PreviewTool.resx">
+      <DependentUpon>from_PreviewTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

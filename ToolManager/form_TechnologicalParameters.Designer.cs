@@ -210,21 +210,28 @@
             this.lblHeadX = new System.Windows.Forms.Label();
             this.tpCorrector = new System.Windows.Forms.TabPage();
             this.dgvCorrector = new System.Windows.Forms.DataGridView();
+            this.tpAggregate = new System.Windows.Forms.TabPage();
+            this.dgvAggregates = new System.Windows.Forms.DataGridView();
+            this.pnlCorButtons = new System.Windows.Forms.Panel();
+            this.btnAggregate = new System.Windows.Forms.Button();
+            this.btnCorrectors = new System.Windows.Forms.Button();
+            this.btnOffets = new System.Windows.Forms.Button();
+            this.splitter3 = new System.Windows.Forms.Splitter();
             this.cIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCorrectorX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCorrectorY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCorrectorZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cSideMask = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cWorkType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cTCNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTCBush = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cRelativeAggreagate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cToolChangeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cToolChangeBush = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cRelativeAggregate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDepthLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cMaxDiameterAllowed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cMaxLengthAllowed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDistNextPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCorsaPneumatic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDirPnematic = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cMaximumDiameterAllowed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cMaximumLengthAllowed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDistanceNextPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCorsaPneumaticaBoccola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDirezionePneumatica = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cToolWear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cToolWear2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCustParam1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -237,8 +244,6 @@
             this.cCustParam8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCustParam9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCustParam10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tpAggregate = new System.Windows.Forms.TabPage();
-            this.dgvAggregates = new System.Windows.Forms.DataGridView();
             this.aIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCorrectorX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCorrectorY = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -247,8 +252,8 @@
             this.aOffsetB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aSideMask = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.aCRotationInfo = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.aMaxRpm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aDirPnematic = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.aMaxRPM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDirezionePneumatica = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.aPiston1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aPiston2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aPiston3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -268,11 +273,6 @@
             this.aCustParam8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCustParam9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCustParam10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlCorButtons = new System.Windows.Forms.Panel();
-            this.btnAggregate = new System.Windows.Forms.Button();
-            this.btnCorrectors = new System.Windows.Forms.Button();
-            this.btnOffets = new System.Windows.Forms.Button();
-            this.splitter3 = new System.Windows.Forms.Splitter();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
@@ -2111,15 +2111,15 @@
             this.cCorrectorZ,
             this.cSideMask,
             this.cWorkType,
-            this.cTCNumber,
-            this.cTCBush,
-            this.cRelativeAggreagate,
+            this.cToolChangeNumber,
+            this.cToolChangeBush,
+            this.cRelativeAggregate,
             this.cDepthLimit,
-            this.cMaxDiameterAllowed,
-            this.cMaxLengthAllowed,
-            this.cDistNextPos,
-            this.cCorsaPneumatic,
-            this.cDirPnematic,
+            this.cMaximumDiameterAllowed,
+            this.cMaximumLengthAllowed,
+            this.cDistanceNextPosition,
+            this.cCorsaPneumaticaBoccola,
+            this.cDirezionePneumatica,
             this.cToolWear,
             this.cToolWear2,
             this.cCustParam1,
@@ -2140,6 +2140,117 @@
             this.dgvCorrector.RowHeadersVisible = false;
             this.dgvCorrector.Size = new System.Drawing.Size(1325, 660);
             this.dgvCorrector.TabIndex = 1;
+            // 
+            // tpAggregate
+            // 
+            this.tpAggregate.Controls.Add(this.dgvAggregates);
+            this.tpAggregate.Location = new System.Drawing.Point(4, 22);
+            this.tpAggregate.Name = "tpAggregate";
+            this.tpAggregate.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAggregate.Size = new System.Drawing.Size(1331, 666);
+            this.tpAggregate.TabIndex = 2;
+            this.tpAggregate.Text = "Aggregate";
+            this.tpAggregate.UseVisualStyleBackColor = true;
+            // 
+            // dgvAggregates
+            // 
+            this.dgvAggregates.AllowUserToAddRows = false;
+            this.dgvAggregates.AllowUserToDeleteRows = false;
+            this.dgvAggregates.AllowUserToResizeColumns = false;
+            this.dgvAggregates.AllowUserToResizeRows = false;
+            this.dgvAggregates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAggregates.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.aIndex,
+            this.aCorrectorX,
+            this.aCorrectorY,
+            this.aCorrectorZ,
+            this.aOffsetC,
+            this.aOffsetB,
+            this.aSideMask,
+            this.aCRotationInfo,
+            this.aMaxRPM,
+            this.aDirezionePneumatica,
+            this.aPiston1,
+            this.aPiston2,
+            this.aPiston3,
+            this.aSpindleType,
+            this.aOffset1,
+            this.aOffset2,
+            this.aOffset3,
+            this.aOffset4,
+            this.aOffset5,
+            this.aCustParam1,
+            this.aCustParam2,
+            this.aCustParam3,
+            this.aCustParam4,
+            this.aCustParam5,
+            this.aCustParam6,
+            this.aCustParam7,
+            this.aCustParam8,
+            this.aCustParam9,
+            this.aCustParam10});
+            this.dgvAggregates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAggregates.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvAggregates.Location = new System.Drawing.Point(3, 3);
+            this.dgvAggregates.Name = "dgvAggregates";
+            this.dgvAggregates.RowHeadersVisible = false;
+            this.dgvAggregates.Size = new System.Drawing.Size(1325, 660);
+            this.dgvAggregates.TabIndex = 1;
+            // 
+            // pnlCorButtons
+            // 
+            this.pnlCorButtons.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnlCorButtons.Controls.Add(this.btnAggregate);
+            this.pnlCorButtons.Controls.Add(this.btnCorrectors);
+            this.pnlCorButtons.Controls.Add(this.btnOffets);
+            this.pnlCorButtons.Controls.Add(this.splitter3);
+            this.pnlCorButtons.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlCorButtons.Location = new System.Drawing.Point(3, 3);
+            this.pnlCorButtons.Name = "pnlCorButtons";
+            this.pnlCorButtons.Size = new System.Drawing.Size(130, 692);
+            this.pnlCorButtons.TabIndex = 0;
+            // 
+            // btnAggregate
+            // 
+            this.btnAggregate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAggregate.Location = new System.Drawing.Point(5, 232);
+            this.btnAggregate.Name = "btnAggregate";
+            this.btnAggregate.Size = new System.Drawing.Size(120, 52);
+            this.btnAggregate.TabIndex = 6;
+            this.btnAggregate.Text = "Aggregate Parameters";
+            this.btnAggregate.UseVisualStyleBackColor = true;
+            this.btnAggregate.Click += new System.EventHandler(this.btnAggregate_Click);
+            // 
+            // btnCorrectors
+            // 
+            this.btnCorrectors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCorrectors.Location = new System.Drawing.Point(5, 189);
+            this.btnCorrectors.Name = "btnCorrectors";
+            this.btnCorrectors.Size = new System.Drawing.Size(120, 37);
+            this.btnCorrectors.TabIndex = 5;
+            this.btnCorrectors.Text = "Correctors";
+            this.btnCorrectors.UseVisualStyleBackColor = true;
+            this.btnCorrectors.Click += new System.EventHandler(this.btnCorrectors_Click);
+            // 
+            // btnOffets
+            // 
+            this.btnOffets.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnOffets.Location = new System.Drawing.Point(5, 146);
+            this.btnOffets.Name = "btnOffets";
+            this.btnOffets.Size = new System.Drawing.Size(120, 37);
+            this.btnOffets.TabIndex = 4;
+            this.btnOffets.Text = "Head Offset";
+            this.btnOffets.UseVisualStyleBackColor = true;
+            this.btnOffets.Click += new System.EventHandler(this.btnOffets_Click);
+            // 
+            // splitter3
+            // 
+            this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter3.Location = new System.Drawing.Point(127, 0);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(3, 692);
+            this.splitter3.TabIndex = 0;
+            this.splitter3.TabStop = false;
             // 
             // cIndex
             // 
@@ -2185,23 +2296,23 @@
             this.cWorkType.HeaderText = "Work Type";
             this.cWorkType.Name = "cWorkType";
             // 
-            // cTCNumber
+            // cToolChangeNumber
             // 
-            this.cTCNumber.HeaderText = "ToolChangerNumber";
-            this.cTCNumber.Name = "cTCNumber";
-            this.cTCNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cToolChangeNumber.HeaderText = "ToolChangerNumber";
+            this.cToolChangeNumber.Name = "cToolChangeNumber";
+            this.cToolChangeNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cTCBush
+            // cToolChangeBush
             // 
-            this.cTCBush.HeaderText = "ToolChangeBush";
-            this.cTCBush.Name = "cTCBush";
-            this.cTCBush.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cToolChangeBush.HeaderText = "ToolChangeBush";
+            this.cToolChangeBush.Name = "cToolChangeBush";
+            this.cToolChangeBush.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cRelativeAggreagate
+            // cRelativeAggregate
             // 
-            this.cRelativeAggreagate.HeaderText = "RelativeAggreagate";
-            this.cRelativeAggreagate.Name = "cRelativeAggreagate";
-            this.cRelativeAggreagate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cRelativeAggregate.HeaderText = "RelativeAggreagate";
+            this.cRelativeAggregate.Name = "cRelativeAggregate";
+            this.cRelativeAggregate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // cDepthLimit
             // 
@@ -2209,34 +2320,34 @@
             this.cDepthLimit.Name = "cDepthLimit";
             this.cDepthLimit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cMaxDiameterAllowed
+            // cMaximumDiameterAllowed
             // 
-            this.cMaxDiameterAllowed.HeaderText = "MaxDiameterAllowed";
-            this.cMaxDiameterAllowed.Name = "cMaxDiameterAllowed";
-            this.cMaxDiameterAllowed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cMaximumDiameterAllowed.HeaderText = "MaxDiameterAllowed";
+            this.cMaximumDiameterAllowed.Name = "cMaximumDiameterAllowed";
+            this.cMaximumDiameterAllowed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cMaxLengthAllowed
+            // cMaximumLengthAllowed
             // 
-            this.cMaxLengthAllowed.HeaderText = "MaxLengthAllowed";
-            this.cMaxLengthAllowed.Name = "cMaxLengthAllowed";
-            this.cMaxLengthAllowed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cMaximumLengthAllowed.HeaderText = "MaxLengthAllowed";
+            this.cMaximumLengthAllowed.Name = "cMaximumLengthAllowed";
+            this.cMaximumLengthAllowed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cDistNextPos
+            // cDistanceNextPosition
             // 
-            this.cDistNextPos.HeaderText = "DistNextPos";
-            this.cDistNextPos.Name = "cDistNextPos";
-            this.cDistNextPos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cDistanceNextPosition.HeaderText = "DistNextPos";
+            this.cDistanceNextPosition.Name = "cDistanceNextPosition";
+            this.cDistanceNextPosition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cCorsaPneumatic
+            // cCorsaPneumaticaBoccola
             // 
-            this.cCorsaPneumatic.HeaderText = "CorsaPneumatic";
-            this.cCorsaPneumatic.Name = "cCorsaPneumatic";
-            this.cCorsaPneumatic.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cCorsaPneumaticaBoccola.HeaderText = "CorsaPneumatic";
+            this.cCorsaPneumaticaBoccola.Name = "cCorsaPneumaticaBoccola";
+            this.cCorsaPneumaticaBoccola.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cDirPnematic
+            // cDirezionePneumatica
             // 
-            this.cDirPnematic.HeaderText = "DirPnematic";
-            this.cDirPnematic.Name = "cDirPnematic";
+            this.cDirezionePneumatica.HeaderText = "DirPnematic";
+            this.cDirezionePneumatica.Name = "cDirezionePneumatica";
             // 
             // cToolWear
             // 
@@ -2320,62 +2431,6 @@
             this.cCustParam10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cCustParam10.Visible = false;
             // 
-            // tpAggregate
-            // 
-            this.tpAggregate.Controls.Add(this.dgvAggregates);
-            this.tpAggregate.Location = new System.Drawing.Point(4, 22);
-            this.tpAggregate.Name = "tpAggregate";
-            this.tpAggregate.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAggregate.Size = new System.Drawing.Size(1331, 666);
-            this.tpAggregate.TabIndex = 2;
-            this.tpAggregate.Text = "Aggregate";
-            this.tpAggregate.UseVisualStyleBackColor = true;
-            // 
-            // dgvAggregates
-            // 
-            this.dgvAggregates.AllowUserToAddRows = false;
-            this.dgvAggregates.AllowUserToDeleteRows = false;
-            this.dgvAggregates.AllowUserToResizeColumns = false;
-            this.dgvAggregates.AllowUserToResizeRows = false;
-            this.dgvAggregates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAggregates.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.aIndex,
-            this.aCorrectorX,
-            this.aCorrectorY,
-            this.aCorrectorZ,
-            this.aOffsetC,
-            this.aOffsetB,
-            this.aSideMask,
-            this.aCRotationInfo,
-            this.aMaxRpm,
-            this.aDirPnematic,
-            this.aPiston1,
-            this.aPiston2,
-            this.aPiston3,
-            this.aSpindleType,
-            this.aOffset1,
-            this.aOffset2,
-            this.aOffset3,
-            this.aOffset4,
-            this.aOffset5,
-            this.aCustParam1,
-            this.aCustParam2,
-            this.aCustParam3,
-            this.aCustParam4,
-            this.aCustParam5,
-            this.aCustParam6,
-            this.aCustParam7,
-            this.aCustParam8,
-            this.aCustParam9,
-            this.aCustParam10});
-            this.dgvAggregates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAggregates.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvAggregates.Location = new System.Drawing.Point(3, 3);
-            this.dgvAggregates.Name = "dgvAggregates";
-            this.dgvAggregates.RowHeadersVisible = false;
-            this.dgvAggregates.Size = new System.Drawing.Size(1325, 660);
-            this.dgvAggregates.TabIndex = 1;
-            // 
             // aIndex
             // 
             this.aIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -2434,16 +2489,16 @@
             this.aCRotationInfo.Name = "aCRotationInfo";
             this.aCRotationInfo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // aMaxRpm
+            // aMaxRPM
             // 
-            this.aMaxRpm.HeaderText = "Max RPM";
-            this.aMaxRpm.Name = "aMaxRpm";
-            this.aMaxRpm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.aMaxRPM.HeaderText = "Max RPM";
+            this.aMaxRPM.Name = "aMaxRPM";
+            this.aMaxRPM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // aDirPnematic
+            // aDirezionePneumatica
             // 
-            this.aDirPnematic.HeaderText = "PreSelect Dir";
-            this.aDirPnematic.Name = "aDirPnematic";
+            this.aDirezionePneumatica.HeaderText = "PreSelect Dir";
+            this.aDirezionePneumatica.Name = "aDirezionePneumatica";
             // 
             // aPiston1
             // 
@@ -2564,61 +2619,6 @@
             this.aCustParam10.Name = "aCustParam10";
             this.aCustParam10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.aCustParam10.Visible = false;
-            // 
-            // pnlCorButtons
-            // 
-            this.pnlCorButtons.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pnlCorButtons.Controls.Add(this.btnAggregate);
-            this.pnlCorButtons.Controls.Add(this.btnCorrectors);
-            this.pnlCorButtons.Controls.Add(this.btnOffets);
-            this.pnlCorButtons.Controls.Add(this.splitter3);
-            this.pnlCorButtons.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlCorButtons.Location = new System.Drawing.Point(3, 3);
-            this.pnlCorButtons.Name = "pnlCorButtons";
-            this.pnlCorButtons.Size = new System.Drawing.Size(130, 692);
-            this.pnlCorButtons.TabIndex = 0;
-            // 
-            // btnAggregate
-            // 
-            this.btnAggregate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAggregate.Location = new System.Drawing.Point(5, 232);
-            this.btnAggregate.Name = "btnAggregate";
-            this.btnAggregate.Size = new System.Drawing.Size(120, 52);
-            this.btnAggregate.TabIndex = 6;
-            this.btnAggregate.Text = "Aggregate Parameters";
-            this.btnAggregate.UseVisualStyleBackColor = true;
-            this.btnAggregate.Click += new System.EventHandler(this.btnAggregate_Click);
-            // 
-            // btnCorrectors
-            // 
-            this.btnCorrectors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCorrectors.Location = new System.Drawing.Point(5, 189);
-            this.btnCorrectors.Name = "btnCorrectors";
-            this.btnCorrectors.Size = new System.Drawing.Size(120, 37);
-            this.btnCorrectors.TabIndex = 5;
-            this.btnCorrectors.Text = "Correctors";
-            this.btnCorrectors.UseVisualStyleBackColor = true;
-            this.btnCorrectors.Click += new System.EventHandler(this.btnCorrectors_Click);
-            // 
-            // btnOffets
-            // 
-            this.btnOffets.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOffets.Location = new System.Drawing.Point(5, 146);
-            this.btnOffets.Name = "btnOffets";
-            this.btnOffets.Size = new System.Drawing.Size(120, 37);
-            this.btnOffets.TabIndex = 4;
-            this.btnOffets.Text = "Head Offset";
-            this.btnOffets.UseVisualStyleBackColor = true;
-            this.btnOffets.Click += new System.EventHandler(this.btnOffets_Click);
-            // 
-            // splitter3
-            // 
-            this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter3.Location = new System.Drawing.Point(127, 0);
-            this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(3, 692);
-            this.splitter3.TabIndex = 0;
-            this.splitter3.TabStop = false;
             // 
             // form_TechnologicalParameters
             // 
@@ -2857,6 +2857,33 @@
         private System.Windows.Forms.Label lblHeadX;
         private System.Windows.Forms.DataGridView dgvAggregates;
         private System.Windows.Forms.DataGridView dgvCorrector;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCorrectorX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCorrectorY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCorrectorZ;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cSideMask;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cWorkType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cToolChangeNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cToolChangeBush;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cRelativeAggregate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDepthLimit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMaximumDiameterAllowed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMaximumLengthAllowed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDistanceNextPosition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCorsaPneumaticaBoccola;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cDirezionePneumatica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cToolWear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cToolWear2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam10;
         private System.Windows.Forms.DataGridViewTextBoxColumn aIndex;
         private System.Windows.Forms.DataGridViewTextBoxColumn aCorrectorX;
         private System.Windows.Forms.DataGridViewTextBoxColumn aCorrectorY;
@@ -2865,8 +2892,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aOffsetB;
         private System.Windows.Forms.DataGridViewComboBoxColumn aSideMask;
         private System.Windows.Forms.DataGridViewComboBoxColumn aCRotationInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aMaxRpm;
-        private System.Windows.Forms.DataGridViewComboBoxColumn aDirPnematic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aMaxRPM;
+        private System.Windows.Forms.DataGridViewComboBoxColumn aDirezionePneumatica;
         private System.Windows.Forms.DataGridViewTextBoxColumn aPiston1;
         private System.Windows.Forms.DataGridViewTextBoxColumn aPiston2;
         private System.Windows.Forms.DataGridViewTextBoxColumn aPiston3;
@@ -2886,32 +2913,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aCustParam8;
         private System.Windows.Forms.DataGridViewTextBoxColumn aCustParam9;
         private System.Windows.Forms.DataGridViewTextBoxColumn aCustParam10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cIndex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCorrectorX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCorrectorY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCorrectorZ;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cSideMask;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cWorkType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTCNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTCBush;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cRelativeAggreagate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cDepthLimit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cMaxDiameterAllowed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cMaxLengthAllowed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cDistNextPos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCorsaPneumatic;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cDirPnematic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cToolWear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cToolWear2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCustParam10;
     }
 }

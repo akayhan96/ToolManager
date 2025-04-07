@@ -24,6 +24,7 @@ namespace ToolManager
         public static string XmlngEscBoard = @"C:\Albatros\system\Esc\LngFiles\EscBoard.xmlng";
         public static string XmlngToolTecno = @"C:\Albatros\system\Tecno\ToolTecno.xmlng";
         public static string XmlngTecnoManager = @"C:\Albatros\Lng\TecnoManager.xmlng";
+        public static string XmlngToolManager = @"C:\Albatros\system\Esc\LngFiles\ToolManager.xmlng";
 
         public static string CurLang = "TRK";
         public static string SelectWorkValue = "";

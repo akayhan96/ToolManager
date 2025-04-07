@@ -27,6 +27,8 @@ namespace ToolManager.DataAccess
             outfitData = XmlSerialization.Deserialize<DBOutfits>(Globals.XmlOutfData);
             tecData = XmlSerialization.Deserialize<TecData>(Globals.XmlTecData);
             bushCfg = XmlSerialization.Deserialize<BushCfg>(Globals.XmlBushCfg);
+
+            BackupChangers();
         }
 
         public List<Node> GetToolTree(Expression<Func<Node, bool>> filter = null)
@@ -93,11 +95,13 @@ namespace ToolManager.DataAccess
 
         public void AddTool(ToolData tool)
         {
+            toolData.Count = toolData.Count + 1;
             toolData.ToolDataList.Add(tool);
         }
 
         public void RemoveTool(ToolData tool)
         {
+            toolData.Count = toolData.Count - 1;
             toolData.ToolDataList.Remove(tool);
         }
 
@@ -154,23 +158,41 @@ namespace ToolManager.DataAccess
                     FulcrumY = 0,
                     DeltaX = 0,
                     DeltaY = 0,
-                    IntegralWithHeadInX = false,
-                    IntegralWithHeadInY = false,
+                    IntegralWithHeadInX = 0,
+                    IntegralWithHeadInY = 0,
                     XPickUpCoordinate = 0,
                     YPickUpCoordinate = 0,
                     ZPickUpCoordinate = 0,
                     ToolLoadingWaitingTime = 0,
                     ToolUnloadingWaitingTime = 0,
-                    ToolChangeInMaskedTime = false
+                    ToolChangeInMaskedTime = 0
                 };
             }
 
             return changer;
         }
 
-        private void BackupChangers()
+        public void BackupChangers()
         {
-            BackupToolChangers = tecData.GeneralParameters.ToolChangers;
+            BackupToolChangers = tecData.GeneralParameters.ToolChangers
+            .Select(tc => new ToolChanger
+            {
+                Index = tc.Index,
+                Type = tc.Type,
+                NumberOfBushes = tc.NumberOfBushes,
+                FulcrumX = tc.FulcrumX,
+                FulcrumY = tc.FulcrumY,
+                DeltaX = tc.DeltaX,
+                DeltaY = tc.DeltaY,
+                IntegralWithHeadInX = tc.IntegralWithHeadInX,
+                IntegralWithHeadInY = tc.IntegralWithHeadInY,
+                XPickUpCoordinate = tc.XPickUpCoordinate,
+                YPickUpCoordinate = tc.YPickUpCoordinate,
+                ZPickUpCoordinate = tc.ZPickUpCoordinate,
+                ToolLoadingWaitingTime = tc.ToolLoadingWaitingTime,
+                ToolUnloadingWaitingTime = tc.ToolUnloadingWaitingTime,
+                ToolChangeInMaskedTime = tc.ToolChangeInMaskedTime
+            }).ToList(); ;
         }
 
         public void RestoreChangers()

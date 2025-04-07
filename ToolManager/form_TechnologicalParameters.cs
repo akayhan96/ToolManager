@@ -59,7 +59,7 @@ namespace ToolManager
             if (pbSave.Enabled == true)
             {
                 string question = Globals.serviceManager.ReadMessage("3999", Globals.XmlngTecnoManager);
-                var result = MessageBox.Show(question, "ToolManager", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                var result = MessageBox.Show(question, "ToolManager", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.Cancel)
                 {
                     return;
@@ -94,11 +94,12 @@ namespace ToolManager
             // -> Bir işlem yapmaya gerek yok. Değişiklikler liste üzerinde doğrudan yapıldı.
             // -> Seriliaze işleminde direkt xml' e yazılacak
 
+            string errorMsg = Globals.serviceManager.ReadMessage("6", Globals.XmlngToolManager);
             // General Parameters
             var airCoordinate = Globals.serviceManager.GetDistanceDimensions(1);
             foreach (var prop in airCoordinate.GetType().GetProperties())
             {
-                var textBox = this.Controls.Find("tbx" + prop.Name.Replace("_", ""), true).FirstOrDefault() as TextBox;
+                var textBox = tpDistanceParams.Controls.Find("tbx" + prop.Name, true).FirstOrDefault() as TextBox;
                 if (textBox != null)
                 {
                     try
@@ -108,7 +109,7 @@ namespace ToolManager
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Hata: {prop.Name} için geçersiz değer! \n{ex.Message}");
+                        MessageBox.Show($"{errorMsg.Replace("$(1)",prop.Name)} \n{ex.Message}","ToolManager",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         return false;
                     }
                 }
@@ -118,7 +119,7 @@ namespace ToolManager
             var workingFeed = Globals.serviceManager.GetWorkFeeds(1);
             foreach (var prop in workingFeed.GetType().GetProperties())
             {
-                var textBox = this.Controls.Find("tbx" + prop.Name.Replace("_", ""), true).FirstOrDefault() as TextBox;
+                var textBox = tpWorkParams.Controls.Find("tbx" + prop.Name, true).FirstOrDefault() as TextBox;
                 if (textBox != null)
                 {
                     try
@@ -128,7 +129,7 @@ namespace ToolManager
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Hata: {prop.Name} için geçersiz değer! \n{ex.Message}");
+                        MessageBox.Show($"{errorMsg.Replace("$(1)", prop.Name)} \n{ex.Message}", "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                 }
@@ -150,7 +151,7 @@ namespace ToolManager
                         }
                         catch (FormatException)
                         {
-                            throw new FormatException($"Veri tipi hatası: FieldName '{fieldName}' için yanlış veri tipi girildi. X: {xText}, Y: {yText}");
+                            throw new FormatException($"{errorMsg.Replace("$(1)", fieldName)}");
                         }
                     }
                     else
@@ -168,9 +169,9 @@ namespace ToolManager
                 SetOffset("T2", tbxT2X.Text, "0");
                 SetOffset("A2", tbxA2X.Text, "0");
                 SetOffset("M2", tbxR2X.Text, "0");
-                field1.PushingReference = rBtnPushReff.Checked;
-                field1.MirrorOnNormalFieldReference = cbxMirrorOnNormalFieldReference.Checked;
-                field1.NormalOnMirrorFieldReference = cbxNormalOnMirrorFieldReference.Checked;
+                field1.PushingReference = Convert.ToInt32(rBtnPushReff.Checked);
+                field1.MirrorOnNormalFieldReference = Convert.ToInt32(cbxMirrorOnNormalFieldReference.Checked);
+                field1.NormalOnMirrorFieldReference = Convert.ToInt32(cbxNormalOnMirrorFieldReference.Checked);
             }
             catch (FormatException ex)
             {
@@ -201,7 +202,7 @@ namespace ToolManager
                         }
                         catch (FormatException)
                         {
-                            throw new FormatException($"Veri tipi hatası: FieldName '{fieldName}' için yanlış veri tipi girildi. X: {xText}, Y: {yText}");
+                            throw new FormatException($"{errorMsg.Replace("$(1)", fieldName)}");
                         }
                     }
                     else
@@ -219,9 +220,9 @@ namespace ToolManager
                 SetOffset("T2", tbxT4X.Text, "0");
                 SetOffset("A2", tbxA4X.Text, "0");
                 SetOffset("M2", tbxR4X.Text, "0");
-                field2.PushingReference = rBtnPushReff2.Checked;
-                field2.MirrorOnNormalFieldReference = cbxMirrorOnNormalFieldReference2.Checked;
-                field2.NormalOnMirrorFieldReference = cbxNormalOnMirrorFieldReference2.Checked;
+                field2.PushingReference = Convert.ToInt32(rBtnPushReff2.Checked);
+                field2.MirrorOnNormalFieldReference = Convert.ToInt32(cbxMirrorOnNormalFieldReference2.Checked);
+                field2.NormalOnMirrorFieldReference = Convert.ToInt32(cbxNormalOnMirrorFieldReference2.Checked);
             }
             catch (FormatException ex)
             {
@@ -247,69 +248,48 @@ namespace ToolManager
             // -> Mil Düzelticilerini(Spindle) güncelle
             var spindles = Globals.serviceManager.GetCorrectors();
             bool isAddSpindleList = false; // Spindle nesnesi listeye eklensin mi?
-            for (int i = 0; i < changeCorrectorIndexes.Count; i++)
-            {
-                int index = changeCorrectorIndexes[i];
 
+            foreach (int index in changeCorrectorIndexes)
+            {
                 var existSpindle = spindles.FirstOrDefault(s => s.Index == index + 1);
                 DataGridViewRow row = dgvCorrector.Rows[index];
 
                 if (existSpindle == null)
                 {
-                    existSpindle = new Spindle();
-                    existSpindle.Index = index + 1;
-
+                    existSpindle = new Spindle { Index = index + 1 };
                     isAddSpindleList = true;
                 }
 
+                // Reflection ile propertyleri dinamik olarak güncelle
                 foreach (DataGridViewCell cell in row.Cells)
                 {
                     string columnName = dgvCorrector.Columns[cell.ColumnIndex].Name;
 
-                    switch (columnName)
+                    // Property adlarını dinamik olarak eşleştir
+                    var property = typeof(Spindle).GetProperties()
+                        .FirstOrDefault(p => p.Name.Equals(columnName.Replace("c", ""), StringComparison.OrdinalIgnoreCase));
+
+                    if (property != null && cell.Value != null)
                     {
-                        case "cCorrectorX": existSpindle.CorrectorX = (double)cell.Value; break;
-                        case "cCorrectorY": existSpindle.CorrectorY = (double)cell.Value; break;
-                        case "cCorrectorZ": existSpindle.CorrectorZ = (double)cell.Value; break;
-                        case "cSideMask": existSpindle.SideMask = (int)cell.Value; break;
-                        case "cWorkType": existSpindle.WorkType = (int)cell.Value; break;
-                        case "cTCNumber": existSpindle.ToolChangeNumber = (int)cell.Value; break;
-                        case "cTCBush": existSpindle.ToolChangeBush = (int)cell.Value; break;
-                        case "cRelativeAggreagate": existSpindle.RelativeAggregate = (int)cell.Value; break;
-                        case "cDepthLimit": existSpindle.DepthLimit = (double)cell.Value; break;
-                        case "cMaxDiameterAllowed": existSpindle.MaximumDiameterAllowed = (int)cell.Value; break;
-                        case "cMaxLengthAllowed": existSpindle.MaximumLengthAllowed = (int)cell.Value; break;
-                        case "cDistNextPos": existSpindle.DistanceNextPosition = (double)cell.Value; break;
-                        case "cCorsaPneumatic": existSpindle.CorsaPneumaticaBoccola = (int)cell.Value; break;
-                        case "cDirPnematic": existSpindle.DirezionePneumatica = (int)cell.Value; break;
-                        case "cToolWear": existSpindle.ToolWear = (double)cell.Value; break;
-                        case "cToolWear2": existSpindle.ToolWear2 = (double)cell.Value; break;
-                        case "cCustParam1": existSpindle.CustParam1 = (double)cell.Value; break;
-                        case "cCustParam2": existSpindle.CustParam2 = (double)cell.Value; break;
-                        case "cCustParam3": existSpindle.CustParam3 = (double)cell.Value; break;
-                        case "cCustParam4": existSpindle.CustParam4 = (double)cell.Value; break;
-                        case "cCustParam5": existSpindle.CustParam5 = (double)cell.Value; break;
-                        case "cCustParam6": existSpindle.CustParam6 = (double)cell.Value; break;
-                        case "cCustParam7": existSpindle.CustParam7 = (double)cell.Value; break;
-                        case "cCustParam8": existSpindle.CustParam8 = (double)cell.Value; break;
-                        case "cCustParam9": existSpindle.CustParam9 = (double)cell.Value; break;
-                        case "cCustParam10": existSpindle.CustParam10 = (double)cell.Value; break;
-                        default:
-                            break;
+                        // Value'yu uygun tipe dönüştür ve property'yi güncelle
+                        var convertedValue = Convert.ChangeType(cell.Value, property.PropertyType);
+                        property.SetValue(existSpindle, convertedValue);
                     }
                 }
 
-                if(isAddSpindleList)
+                if (isAddSpindleList)
                 {
                     spindles.Add(existSpindle);
                     isAddSpindleList = false;
                 }
             }
+
+            // 0 değerine sahip spindles'ları kaldır
             spindles.RemoveAll(spindle => spindle.CorrectorX == 0 &&
-                              spindle.CorrectorY == 0 &&
-                              spindle.CorrectorZ == 0 &&
-                              spindle.ToolChangeNumber == 0 &&
-                              spindle.RelativeAggregate == 0);
+                                          spindle.CorrectorY == 0 &&
+                                          spindle.CorrectorZ == 0 &&
+                                          spindle.ToolChangeNumber == 0 &&
+                                          spindle.RelativeAggregate == 0);
 
             // -> Aggregate Parametlerini güncelle
             var aggregates = Globals.serviceManager.GetAggregates();
@@ -377,7 +357,8 @@ namespace ToolManager
 
             aggregates.RemoveAll(aggregate => aggregate.CorrectorX == 0 &&
                                               aggregate.CorrectorY == 0 &&
-                                              aggregate.CorrectorZ == 0);
+                                              aggregate.CorrectorZ == 0 &&
+                                              aggregate.SideMask == 0);
 
             return true;
         }
@@ -389,7 +370,10 @@ namespace ToolManager
             if(allChanged)
             {
                 Globals.serviceManager.WriteXml(Globals.EntityTecData);
+                Globals.serviceManager.BackupChangers();
                 pbSave.Enabled = false;
+
+                MessageBox.Show(Globals.serviceManager.ReadMessage("7",Globals.XmlngToolManager), "ToolManager", MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
         #endregion
@@ -421,6 +405,7 @@ namespace ToolManager
 
         private void LoadSystemParameters()
         {
+            isLoadSystemParameters = true;
             List<string> tcTypes = new List<string>();
             tcTypes.Add(Globals.serviceManager.ReadMessage("4319", Globals.XmlngTecnoManager));
             tcTypes.Add(Globals.serviceManager.ReadMessage("4320", Globals.XmlngTecnoManager));
@@ -451,17 +436,17 @@ namespace ToolManager
             tbxLoadTime.Text = toolChanger.ToolLoadingWaitingTime.ToString();
             tbxUnloadTime.Text = toolChanger.ToolUnloadingWaitingTime.ToString();
 
-            if (toolChanger.IntegralWithHeadInX == false && toolChanger.IntegralWithHeadInY == false)
+            if (toolChanger.IntegralWithHeadInX == 0 && toolChanger.IntegralWithHeadInY == 0)
             {
                 chkWithBench.Checked = true;
             }
             else
             {
-                chkWithX.Checked = toolChanger.IntegralWithHeadInX;
-                chkWithY.Checked = toolChanger.IntegralWithHeadInY;
+                chkWithX.Checked = Convert.ToBoolean(toolChanger.IntegralWithHeadInX);
+                chkWithY.Checked = Convert.ToBoolean(toolChanger.IntegralWithHeadInY);
             }
 
-            chkTCTime.Checked = toolChanger.ToolChangeInMaskedTime;
+            chkTCTime.Checked = Convert.ToBoolean(toolChanger.ToolChangeInMaskedTime);
 
             lastTCId = (int)nudTcId.Value;
             isLoadSystemParameters = false;
@@ -470,32 +455,37 @@ namespace ToolManager
         {
             if (changedSystemParameters)
             {
-                toolChanger.Type = cbTCType.SelectedIndex;
-                toolChanger.NumberOfBushes = Convert.ToInt32(tbxNumberBush.Text);
-                toolChanger.FulcrumX = Convert.ToSingle(tbxFulcrumX.Text);
-                toolChanger.FulcrumY = Convert.ToSingle(tbxFulcrumY.Text);
-                toolChanger.DeltaX = Convert.ToSingle(tbxDeltaX.Text);
-                toolChanger.DeltaY = Convert.ToSingle(tbxDeltaY.Text);
-                toolChanger.XPickUpCoordinate = Convert.ToSingle(tbxPosX.Text);
-                toolChanger.YPickUpCoordinate = Convert.ToSingle(tbxPosY.Text);
-                toolChanger.ZPickUpCoordinate = Convert.ToSingle(tbxPosZ.Text);
-                toolChanger.ToolLoadingWaitingTime = Convert.ToInt32(tbxLoadTime.Text);
-                toolChanger.ToolUnloadingWaitingTime = Convert.ToInt32(tbxUnloadTime.Text);
-                toolChanger.IntegralWithHeadInX = chkWithX.Checked;
-                toolChanger.IntegralWithHeadInY = chkWithY.Checked;
-                toolChanger.ToolChangeInMaskedTime = chkTCTime.Checked;
-
-                if (toolChanger.Index == null)
-                {
-                    toolChanger.Index = lastTCId;
-                    Globals.serviceManager.AddToolChanger(toolChanger);
-                }
-
-                changedSystemParameters = false;
-                pbSave.Enabled = true;
+                ChangeValuesToolChanger();
             }
 
             LoadSysParamValues();
+        }
+
+        private void ChangeValuesToolChanger()
+        {
+            toolChanger.Type = cbTCType.SelectedIndex;
+            toolChanger.NumberOfBushes = Convert.ToInt32(tbxNumberBush.Text);
+            toolChanger.FulcrumX = Convert.ToSingle(tbxFulcrumX.Text);
+            toolChanger.FulcrumY = Convert.ToSingle(tbxFulcrumY.Text);
+            toolChanger.DeltaX = Convert.ToSingle(tbxDeltaX.Text);
+            toolChanger.DeltaY = Convert.ToSingle(tbxDeltaY.Text);
+            toolChanger.XPickUpCoordinate = Convert.ToSingle(tbxPosX.Text);
+            toolChanger.YPickUpCoordinate = Convert.ToSingle(tbxPosY.Text);
+            toolChanger.ZPickUpCoordinate = Convert.ToSingle(tbxPosZ.Text);
+            toolChanger.ToolLoadingWaitingTime = Convert.ToInt32(tbxLoadTime.Text);
+            toolChanger.ToolUnloadingWaitingTime = Convert.ToInt32(tbxUnloadTime.Text);
+            toolChanger.IntegralWithHeadInX = Convert.ToInt32(chkWithX.Checked);
+            toolChanger.IntegralWithHeadInY = Convert.ToInt32(chkWithY.Checked);
+            toolChanger.ToolChangeInMaskedTime = Convert.ToInt32(chkTCTime.Checked);
+
+            if (toolChanger.Index == null)
+            {
+                toolChanger.Index = lastTCId;
+                Globals.serviceManager.AddToolChanger(toolChanger);
+            }
+
+            changedSystemParameters = false;
+            pbSave.Enabled = true;
         }
 
         private void chkWithBench_CheckedChanged(object sender, EventArgs e)
@@ -508,6 +498,7 @@ namespace ToolManager
 
             if (!isLoadSystemParameters)
             {
+                ChangeValuesToolChanger();
                 changedSystemParameters = true;
             }
 
@@ -522,6 +513,7 @@ namespace ToolManager
 
             if (!isLoadSystemParameters)
             {
+                ChangeValuesToolChanger();
                 changedSystemParameters = true;
             }
         }
@@ -535,6 +527,7 @@ namespace ToolManager
 
             if (!isLoadSystemParameters)
             {
+                ChangeValuesToolChanger();
                 changedSystemParameters = true;
             }
         }
@@ -543,13 +536,16 @@ namespace ToolManager
         {
             if (isLoadSystemParameters) return;
 
-            changedSystemParameters = true;
+            ChangeValuesToolChanger();
+    
+            changedSystemParameters = true;        
         }
 
         private void cbTCType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isLoadSystemParameters) return;
 
+            ChangeValuesToolChanger();
             changedSystemParameters = true;
         }
 
@@ -557,6 +553,7 @@ namespace ToolManager
         {
             if (!isLoadSystemParameters)
             {
+                ChangeValuesToolChanger();
                 changedSystemParameters = true;
             }
         }
@@ -680,10 +677,10 @@ namespace ToolManager
             tbxT2X.Text = field1.Field.Where(f => f.FieldName == "T2").FirstOrDefault().OffsetX.ToString();
             tbxA2X.Text = field1.Field.Where(f => f.FieldName == "A2").FirstOrDefault().OffsetX.ToString();
             tbxR2X.Text = field1.Field.Where(f => f.FieldName == "M2").FirstOrDefault().OffsetX.ToString();
-            rBtnPushReff.Checked = field1.PushingReference;
+            rBtnPushReff.Checked = Convert.ToBoolean(field1.PushingReference);
             rBtnPullReff.Checked = !rBtnPushReff.Checked;
-            cbxMirrorOnNormalFieldReference.Checked = field1.MirrorOnNormalFieldReference;
-            cbxNormalOnMirrorFieldReference.Checked = field1.NormalOnMirrorFieldReference;
+            cbxMirrorOnNormalFieldReference.Checked = Convert.ToBoolean(field1.MirrorOnNormalFieldReference);
+            cbxNormalOnMirrorFieldReference.Checked = Convert.ToBoolean(field1.NormalOnMirrorFieldReference);
 
             var field2 = Globals.serviceManager.GetMachineFields(1, 2);
             tbxN3X.Text = field2.Field.Where(f => f.FieldName == "N").FirstOrDefault().OffsetX.ToString();
@@ -698,10 +695,10 @@ namespace ToolManager
             tbxT4X.Text = field2.Field.Where(f => f.FieldName == "T2").FirstOrDefault().OffsetX.ToString();
             tbxA4X.Text = field2.Field.Where(f => f.FieldName == "A2").FirstOrDefault().OffsetX.ToString();
             tbxR4X.Text = field2.Field.Where(f => f.FieldName == "M2").FirstOrDefault().OffsetX.ToString();
-            rBtnPushReff2.Checked = field2.PushingReference;
+            rBtnPushReff2.Checked = Convert.ToBoolean(field2.PushingReference);
             rBtnPullReff2.Checked = !rBtnPushReff2.Checked;
-            cbxMirrorOnNormalFieldReference2.Checked = field2.MirrorOnNormalFieldReference;
-            cbxNormalOnMirrorFieldReference2.Checked = field2.NormalOnMirrorFieldReference;
+            cbxMirrorOnNormalFieldReference2.Checked = Convert.ToBoolean(field2.MirrorOnNormalFieldReference);
+            cbxNormalOnMirrorFieldReference2.Checked = Convert.ToBoolean(field2.NormalOnMirrorFieldReference);
 
             isLoadGeneralParameters = false;
         }
@@ -851,13 +848,13 @@ namespace ToolManager
             {
                 dirTypeList.Add(new KeyValuePair<int, string>(i, dirList[i]));
             }
-            (dgvCorrector.Columns["cDirPnematic"] as DataGridViewComboBoxColumn).DataSource = dirTypeList;
-            (dgvCorrector.Columns["cDirPnematic"] as DataGridViewComboBoxColumn).DisplayMember = "Value";
-            (dgvCorrector.Columns["cDirPnematic"] as DataGridViewComboBoxColumn).ValueMember = "Key";
+            (dgvCorrector.Columns["cDirezionePneumatica"] as DataGridViewComboBoxColumn).DataSource = dirTypeList;
+            (dgvCorrector.Columns["cDirezionePneumatica"] as DataGridViewComboBoxColumn).DisplayMember = "Value";
+            (dgvCorrector.Columns["cDirezionePneumatica"] as DataGridViewComboBoxColumn).ValueMember = "Key";
 
-            (dgvAggregates.Columns["aDirPnematic"] as DataGridViewComboBoxColumn).DataSource = dirTypeList;
-            (dgvAggregates.Columns["aDirPnematic"] as DataGridViewComboBoxColumn).DisplayMember = "Value";
-            (dgvAggregates.Columns["aDirPnematic"] as DataGridViewComboBoxColumn).ValueMember = "Key";
+            (dgvAggregates.Columns["aDirezionePneumatica"] as DataGridViewComboBoxColumn).DataSource = dirTypeList;
+            (dgvAggregates.Columns["aDirezionePneumatica"] as DataGridViewComboBoxColumn).DisplayMember = "Value";
+            (dgvAggregates.Columns["aDirezionePneumatica"] as DataGridViewComboBoxColumn).ValueMember = "Key";
             #endregion
 
             #region CRotationInfo Combobox Datas
@@ -926,15 +923,15 @@ namespace ToolManager
                                 case "cCorrectorZ": cell.Value = existSpindle.CorrectorZ.ToString(); break;
                                 case "cSideMask": cell.Value = existSpindle.SideMask; break;
                                 case "cWorkType": cell.Value = existSpindle.WorkType; break;
-                                case "cTCNumber": cell.Value = existSpindle.ToolChangeNumber.ToString(); break;
-                                case "cTCBush": cell.Value = existSpindle.ToolChangeBush.ToString(); break;
-                                case "cRelativeAggreagate": cell.Value = existSpindle.RelativeAggregate.ToString(); break;
+                                case "cToolChangeNumber": cell.Value = existSpindle.ToolChangeNumber.ToString(); break;
+                                case "cToolChangeBush": cell.Value = existSpindle.ToolChangeBush.ToString(); break;
+                                case "cRelativeAggregate": cell.Value = existSpindle.RelativeAggregate.ToString(); break;
                                 case "cDepthLimit": cell.Value = existSpindle.DepthLimit.ToString(); break;
-                                case "cMaxDiameterAllowed": cell.Value = existSpindle.MaximumDiameterAllowed.ToString(); break;
-                                case "cMaxLengthAllowed": cell.Value = existSpindle.MaximumLengthAllowed.ToString(); break;
-                                case "cDistNextPos": cell.Value = existSpindle.DistanceNextPosition.ToString(); break;
-                                case "cCorsaPneumatic": cell.Value = existSpindle.CorsaPneumaticaBoccola.ToString(); break;
-                                case "cDirPnematic": cell.Value = existSpindle.DirezionePneumatica; break;
+                                case "cMaximumDiameterAllowed": cell.Value = existSpindle.MaximumDiameterAllowed.ToString(); break;
+                                case "cMaximumLengthAllowed": cell.Value = existSpindle.MaximumLengthAllowed.ToString(); break;
+                                case "cDistanceNextPosition": cell.Value = existSpindle.DistanceNextPosition.ToString(); break;
+                                case "cCorsaPneumaticaBoccola": cell.Value = existSpindle.CorsaPneumaticaBoccola.ToString(); break;
+                                case "cDirezionePneumatica": cell.Value = existSpindle.DirezionePneumatica; break;
                                 case "cToolWear": cell.Value = existSpindle.ToolWear.ToString(); break;
                                 case "cToolWear2": cell.Value = existSpindle.ToolWear2.ToString(); break;
                                 case "cCustParam1": cell.Value = existSpindle.CustParam1.ToString(); break;
@@ -983,8 +980,8 @@ namespace ToolManager
                                 case "aOffsetB": cell.Value = existAggregate.OffsetB.ToString(); break;
                                 case "aSideMask": cell.Value = existAggregate.SideMask; break;
                                 case "aCRotationInfo": cell.Value = existAggregate.CRotationInfo; break;
-                                case "aMaxRpm": cell.Value = existAggregate.MaxRPM.ToString(); break;
-                                case "aDirPnematic": cell.Value = existAggregate.DirezionePneumatica; break;
+                                case "aMaxRPM": cell.Value = existAggregate.MaxRPM.ToString(); break;
+                                case "aDirezionePneumatica": cell.Value = existAggregate.DirezionePneumatica; break;
                                 case "aPiston1": cell.Value = existAggregate.Piston1.ToString(); break;
                                 case "aPiston2": cell.Value = existAggregate.Piston2.ToString(); break;
                                 case "aPiston3": cell.Value = existAggregate.Piston3.ToString(); break;
