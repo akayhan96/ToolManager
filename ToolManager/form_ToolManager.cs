@@ -29,6 +29,9 @@ namespace ToolManager
         {
             GetLanguage();
 
+            Globals.TreeViewImages.ImageSize = new Size(32,32);
+            Globals.TreeViewImages.ColorDepth = ColorDepth.Depth32Bit;
+
             Globals.serviceManager = new Business.BusinessManager();
             Globals.serviceManager.GetFieldImages();
             CheckToolEnabled();
@@ -50,7 +53,7 @@ namespace ToolManager
         private void GetLanguage()
         {
             string escFile = @"C:\Albatros\system\Esc\Esc.ini";
-            if(File.Exists(escFile))
+            if (File.Exists(escFile))
             {
                 string[] esc = File.ReadAllLines(escFile);
                 string lineLng = esc.FirstOrDefault(e => e.StartsWith("Language="));
@@ -60,7 +63,7 @@ namespace ToolManager
             else
             {
                 Globals.CurLang = "TRK";
-                MessageBox.Show(Globals.serviceManager.ReadMessage("8",Globals.XmlngToolManager),"ToolManager",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(Globals.serviceManager.ReadMessage("8", Globals.XmlngToolManager), "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -73,13 +76,18 @@ namespace ToolManager
                 if (node.Value == toolDrill) pbDrillTools.Visible = node.Enabled == 0 ? false : true;
                 if (node.Value == toolSaw) pbSawTools.Visible = node.Enabled == 0 ? false : true;
             }
+
+            if (Globals.SelectWorkValue == toolDrill && pbDrillTools.Visible == false) Globals.SelectWorkValue = toolFresa;
+            if (Globals.SelectWorkValue == toolSaw && pbSawTools.Visible == false) Globals.SelectWorkValue = toolFresa;
         }
 
         private void LoadToolTree(string workValue, bool forceLoad = false)
         {
             if (Globals.SelectWorkValue == workValue && forceLoad == false) return;
+            suppressEvent = true;
 
             twTools.Nodes.Clear();
+            twTools.ImageList = Globals.TreeViewImages;
             DisplayTools.Clear();
             DisplayTools.Add("");
             Globals.SelectWorkValue = workValue;
@@ -93,6 +101,8 @@ namespace ToolManager
 
                 int sideTreeIndex = 0;
                 TreeNode sideTree = new TreeNode();
+                sideTree.ImageKey = sideNode.Value;
+                sideTree.SelectedImageKey = sideNode.Value;
                 sideTree.Tag = string.Format("{0}|{1}", workValue, sideNode.Value);
                 sideTree.Text = Globals.serviceManager.GetFieldText(sideNode.Name, sideNode.Value);
 
@@ -104,6 +114,8 @@ namespace ToolManager
                     subWorkTree.Tag = string.Format("{0}|{1}|{2}", workValue, sideNode.Value, subWorkNode.Value);
                     subWorkTree.Text = Globals.serviceManager.GetFieldText(subWorkNode.Name, subWorkNode.Value);
                     subWorkTree.NodeFont = new Font("Gadugi", 9, FontStyle.Bold);
+                    subWorkTree.ImageKey = "Empty";
+                    subWorkTree.SelectedImageKey = "Empty";
 
                     var toolList = Globals.serviceManager.GetTools(workValue, sideNode.Value, subWorkNode.Value);
                     foreach (var tool in toolList)
@@ -113,6 +125,8 @@ namespace ToolManager
                         toolNode.Tag = string.Format("{0}|{1}|{2}|{3}", workValue, sideNode.Value, subWorkNode.Value, toolName);
                         toolNode.Text = toolName;
                         toolNode.NodeFont = new Font("Gadugi", 9);
+                        toolNode.ImageKey = "Empty";
+                        toolNode.SelectedImageKey = "Empty";
                         subWorkTree.Nodes.Add(toolNode);
 
                         DisplayTools.Add(toolName);
@@ -130,14 +144,15 @@ namespace ToolManager
 
             twTools.Refresh();
             twTools.Update();
+            suppressEvent = false;
         }
 
         private void pbExit_Click(object sender, EventArgs e)
         {
-            if(changedOutfitData || changedToolsData)
+            if (changedOutfitData || changedToolsData)
             {
                 var res = MessageBox.Show(Globals.serviceManager.ReadMessage("3999", Globals.XmlngTecnoManager), "ToolManager", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(res == DialogResult.Yes)
+                if (res == DialogResult.Yes)
                 {
                     if (changedToolsData)
                     {
@@ -162,11 +177,13 @@ namespace ToolManager
         private void pbFresaTools_Click(object sender, EventArgs e)
         {
             LoadToolTree(toolFresa);
+            LoadFeedTools();
         }
 
         private void pbDrillTools_Click(object sender, EventArgs e)
         {
             LoadToolTree(toolDrill);
+            LoadFeedTools();
         }
 
         private void twTools_AfterSelect(object sender, TreeViewEventArgs e)
@@ -187,6 +204,8 @@ namespace ToolManager
 
         private void PrepareDgvToolInfo(string[] nodeTag, bool newTool = false)
         {
+            dgvToolInfo.CellEndEdit -= dgvToolInfo_CellEndEdit;
+
             var toolViewList = Globals.serviceManager.GetToolViews(nodeTag);
             var toolData = newTool == false ? Globals.serviceManager.GetTool(nodeTag) : CreateEmptyToolData();
 
@@ -237,6 +256,7 @@ namespace ToolManager
             pbEditOK.Visible = true;
             pbEditCancel.Visible = true;
             pbToolInfo.Visible = true;
+            dgvToolInfo.CellEndEdit += dgvToolInfo_CellEndEdit;
 
         }
 
@@ -254,7 +274,7 @@ namespace ToolManager
             {
                 string cellField = dgvToolInfo.Rows[i].Cells["Field"].Value.ToString();
                 string cellValue = dgvToolInfo.Rows[i].Cells["Value"].Value.ToString();
-                if (!string.IsNullOrEmpty(cellField) && cellField !="group")
+                if (!string.IsNullOrEmpty(cellField) && cellField != "group")
                 {
                     if (cellField == "rotDirection")
                     {
@@ -345,6 +365,7 @@ namespace ToolManager
         private void pbSawTools_Click(object sender, EventArgs e)
         {
             LoadToolTree(toolSaw);
+            LoadFeedTools();
         }
 
         bool modeNewTool = false;
@@ -440,6 +461,7 @@ namespace ToolManager
                 {
                     CheckToolEnabled();
                     LoadToolTree(Globals.SelectWorkValue, true);
+                    LoadFeedTools();
                     Globals.serviceManager.WriteXml(Globals.EntityToolTree);
                 }
             }
@@ -455,16 +477,19 @@ namespace ToolManager
             {
                 string pos = feed.Position.ToString();
                 Control findedGroup = FindFeedGroup(pos);
+                if (findedGroup == null) goto nextFeed;
                 string cbName = findedGroup.Name.Replace("gb", "cb");
                 Control cbTool = findedGroup.Controls.Find(cbName, true).FirstOrDefault();
+                (cbTool as ComboBox).BindingContext = new BindingContext();
                 (cbTool as ComboBox).SelectedItem = feed.Value;
 
                 var tool = Globals.serviceManager.GetTool(feed.Value);
                 string sideValue = Globals.serviceManager.GetToolValue(tool, "codSide");
                 string imageName = Globals.serviceManager.GetFieldName("codSide", sideValue);
                 string pbName = findedGroup.Name.Replace("gbTool", "pbFeedSide"); // gbTool1 -> pbFeedSide1
-                // Control pbSide = findedGroup.Controls.Find(pbName, true).FirstOrDefault();
-                // (pbSide as PictureBox).Image = Globals.TreeViewImages.Images[imageName];
+
+
+            nextFeed:;
             }
 
             suppressEvent = false;
@@ -495,12 +520,26 @@ namespace ToolManager
             }
             //-------------------------
 
+            int minIndex = -1;
+            int maxIndex = -1;
+            if(Globals.SelectWorkValue == toolDrill)
+            {
+                minIndex = 1;
+                maxIndex = 100;
+            }
+            else
+            {
+                minIndex = 101;
+                maxIndex = 500;
+            }
 
             var spindles = Globals.serviceManager.GetCorrectors();
             int gbCount = 1;
 
             foreach (var spindle in spindles)
             {
+                if (spindle.Index < minIndex || spindle.Index > maxIndex) continue;
+
                 if (spindle.CorrectorZ != 0 || spindle.RelativeAggregate > 0)
                 {
                     string ctrlGbName = $"gbTool{gbCount}";
@@ -521,9 +560,18 @@ namespace ToolManager
                     Control cbControl = gbControl.Controls.Find(ctrlCbName, true).FirstOrDefault();
                     //(cbControl as ComboBox).DataSource = descriptions;
                     (cbControl as ComboBox).DataSource = DisplayTools;
+                    (cbControl as ComboBox).BindingContext = new BindingContext();
                     (cbControl as ComboBox).Tag = spindle.Index.ToString();
                     (cbControl as ComboBox).SelectedIndex = 0;
 
+                    string ctrlPbName = $"pbSideTool{gbCount}";
+                    Control pbControl = gbControl.Controls.Find(ctrlPbName, true).FirstOrDefault();
+                    (pbControl as PictureBox).Tag = spindle.SideMask;
+                    string sideImgFile = $@"C:\Albatros\system\Esc\MainImages\ToolManager\Sides\tree_{spindle.SideMask}.bmp";
+                    if (File.Exists(sideImgFile))
+                    {
+                        (pbControl as PictureBox).Image = Image.FromFile(sideImgFile);
+                    }
 
                     gbCount++;
                 }
@@ -545,13 +593,26 @@ namespace ToolManager
             {
                 Globals.serviceManager.RemoveFeed(cbTool.Tag.ToString());
                 message = Globals.serviceManager.ReadMessage("1", Globals.XmlngToolManager);
-                MessageBox.Show(message,"ToolManager",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(message, "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 changedOutfitData = true;
             }
             else
             {
                 var pluggedTool = Globals.serviceManager.GetFeed(cbTool.Tag.ToString());
-                var isPlugSelectedTool = Globals.serviceManager.isPlugTool(cbTool.Tag.ToString(), cbTool.SelectedItem.ToString());
+
+                if (CheckSideMask(cbTool) == false)
+                {
+                    // Seçilen takım, bu takım yerine tanımlanan yüzey bilgisi ile eşleşmedi
+                    suppressEvent = true;
+                    string errorMsg = Globals.serviceManager.ReadMessage("11", Globals.XmlngToolManager);
+                    MessageBox.Show(errorMsg, "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbTool.SelectedItem = previewSelectedTool;
+                    suppressEvent = false;
+                    return;
+
+                }
+
+                bool isPlugSelectedTool = Globals.serviceManager.isPlugTool(cbTool.Tag.ToString(), cbTool.SelectedItem.ToString());
                 if (pluggedTool == null && isPlugSelectedTool == false)
                 {
                     // Takılı takım olmadığı için ekleme işlemi yapıldı
@@ -568,7 +629,7 @@ namespace ToolManager
                         // Seçilen takım başka bir besleme yerinde kullanılıyor
                         // Takım takılı ve pos bilgi farklı ise bu takımı bu pos' da kullanamazsın
                         suppressEvent = true;
-                        message = Globals.serviceManager.ReadMessage("1", Globals.XmlngToolManager);
+                        message = Globals.serviceManager.ReadMessage("3", Globals.XmlngToolManager);
                         MessageBox.Show(message, "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         cbTool.SelectedItem = previewSelectedTool;
                         suppressEvent = false;
@@ -578,12 +639,32 @@ namespace ToolManager
                     {
                         // Takılı takım varsa ve pos bilgi aynı ise takım güncellendi
                         Globals.serviceManager.UpdateFeed(cbTool.Tag.ToString(), cbTool.SelectedItem.ToString());
-                        message = Globals.serviceManager.ReadMessage("1", Globals.XmlngToolManager);
+                        message = Globals.serviceManager.ReadMessage("4", Globals.XmlngToolManager);
                         MessageBox.Show(message, "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         changedOutfitData = true;
                     }
                 }
             }
+        }
+
+
+        private bool CheckSideMask(ComboBox cbTool)
+        {
+            var selectedTool = Globals.serviceManager.GetTool(cbTool.SelectedItem.ToString());
+            string toolSideMask = Globals.serviceManager.GetToolValue(selectedTool, "codSide");
+
+            string pbName = cbTool.Name.Replace("cb", "pbSide");
+            Control pbControl = pnlFeedUnit.Controls.Find(pbName, true)[0];
+
+            int feedMaskValue = Convert.ToInt32(pbControl.Tag.ToString());
+            int toolMaskValue = Convert.ToInt32(toolSideMask);
+
+            return BitSetIncludes(feedMaskValue, toolMaskValue);
+        }
+
+        private bool BitSetIncludes(int reference, int value)
+        {
+            return (reference & value) == value || (reference & value) == reference;
         }
 
         private void cbTool_Click(object sender, EventArgs e)
@@ -725,6 +806,48 @@ namespace ToolManager
             {
                 dgvToolInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = selectedValue;
             }
+            else
+            {
+                string curValue = dgvToolInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                if (e.RowIndex == 0)
+                {
+                    if(DisplayTools.Contains(curValue))
+                    {
+                        MessageBox.Show(Globals.serviceManager.ReadMessage("13",Globals.XmlngToolManager),"ToolManager",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        dgvToolInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = selectedValue;
+                        return;
+                    }
+                }
+                else
+                {
+                    string minLimitStr = dgvToolInfo.Rows[e.RowIndex].Cells["Min"].Value.ToString();
+                    string maxLimitStr = dgvToolInfo.Rows[e.RowIndex].Cells["Max"].Value.ToString();
+
+                    if (string.IsNullOrEmpty(minLimitStr) || string.IsNullOrEmpty(maxLimitStr)) return;
+
+                    double minLimit = Convert.ToDouble(minLimitStr);
+                    double maxLimit = Convert.ToDouble(maxLimitStr);
+
+                    if (double.TryParse(curValue, out double value))
+                    {
+                        if (value < (double)minLimit || value > (double)maxLimit)
+                        {
+                            string errorMsg = $"{Globals.serviceManager.ReadMessage("12", Globals.XmlngToolManager)} (Min:{minLimit}, Max:{maxLimit}, Input:{value})";
+                            MessageBox.Show(errorMsg, "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            dgvToolInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = selectedValue;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        string paramDesc = dgvToolInfo.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        string errorMsg = Globals.serviceManager.ReadMessage("6", Globals.XmlngToolManager).Replace("$(1)", paramDesc);
+                        MessageBox.Show(errorMsg, "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        dgvToolInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = selectedValue;
+                        return;
+                    }
+                }
+            }
         }
 
         private void dgvToolInfo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -759,7 +882,7 @@ namespace ToolManager
                 Globals.serviceManager.WriteXml(Globals.EntityDbOutfits);
             }
 
-            if(changedToolsData || changedOutfitData)
+            if (changedToolsData || changedOutfitData)
                 MessageBox.Show(Globals.serviceManager.ReadMessage("7", Globals.XmlngToolManager), "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             changedOutfitData = false;
@@ -780,14 +903,60 @@ namespace ToolManager
 
             string imgFile = $@"{baseUTE}\UTE_{valWork}_{valSide}_{valSubWork}.jpg";
 
-            if(!File.Exists(imgFile))
+            if (!File.Exists(imgFile))
             {
-                MessageBox.Show(Globals.serviceManager.ReadMessage("5",Globals.XmlngToolManager), "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Globals.serviceManager.ReadMessage("5", Globals.XmlngToolManager), "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 from_PreviewTool preview = new from_PreviewTool(imgFile);
                 preview.ShowDialog();
+            }
+        }
+
+        private void ComboBox_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(string))) // takım ismini string olarak taşıdığımızı varsayıyoruz
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+        private void ComboBox_DragDrop(object sender, DragEventArgs e)
+        {
+            if (sender is ComboBox comboBox && e.Data.GetDataPresent(typeof(string)))
+            {
+                string tagData = e.Data.GetData(typeof(string)).ToString();
+
+                // Tag bilgisini ayır
+                string[] parts = tagData.Split('|');
+
+                // TakımAdı son eleman
+                if (parts.Length >= 4)
+                {
+                    string takimAdi = parts[3];
+
+                    if (comboBox.Items.Contains(takimAdi))
+                    {
+                        comboBox.SelectedItem = takimAdi;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"'{takimAdi}' combobox listesinde bulunamadı.");
+                    }
+                }
+            }
+        }
+
+        private void twTools_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            if (e.Item is TreeNode node && node.Tag is string tagText)
+            {
+                twTools.SelectedNode = node; // tıklanan node'u seçili yap
+                twTools.DoDragDrop(tagText, DragDropEffects.Copy);
             }
         }
     }

@@ -442,7 +442,7 @@ namespace ToolManager.Entity
         public float ZDimensionUnderPiece { get; set; }
 
         [XmlElement("BackClampEnabled")]
-        public bool BackClampEnabled { get; set; }
+        public string BackClampEnabled { get; set; }
 
         [XmlElement("MinimumDistance")]
         public float MinimumDistance { get; set; }

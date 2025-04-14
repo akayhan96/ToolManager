@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_TechnologicalParameters));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
@@ -71,66 +71,66 @@
             this.tpGeneralParams = new System.Windows.Forms.TabPage();
             this.tcGeneralParams = new System.Windows.Forms.TabControl();
             this.tpDistanceParams = new System.Windows.Forms.TabPage();
-            this.lblBlade = new System.Windows.Forms.Label();
+            this.lblBlades_Clearance = new System.Windows.Forms.Label();
             this.tbxBlades_Clearance = new System.Windows.Forms.TextBox();
-            this.lblHorDrill = new System.Windows.Forms.Label();
+            this.lblHorizontalDrills_Clearance = new System.Windows.Forms.Label();
             this.tbxHorizontalDrills_Clearance = new System.Windows.Forms.TextBox();
-            this.lblMaxVicesHeight = new System.Windows.Forms.Label();
+            this.lblMaxVices_Height = new System.Windows.Forms.Label();
             this.tbxInserterTools_Clearance = new System.Windows.Forms.TextBox();
             this.lblFreeBackSpace = new System.Windows.Forms.Label();
             this.tbxMaxPiece_Height = new System.Windows.Forms.TextBox();
             this.lblFreeSpaceUnderPod = new System.Windows.Forms.Label();
             this.tbxFreeSpaceUnderPod = new System.Windows.Forms.TextBox();
-            this.lblMinZPos = new System.Windows.Forms.Label();
+            this.lblMinZPosition = new System.Windows.Forms.Label();
             this.tbxMaxYPosition = new System.Windows.Forms.TextBox();
-            this.lblVerDrill = new System.Windows.Forms.Label();
+            this.lblVerticalDrills_Clearance = new System.Windows.Forms.Label();
             this.tbxVerticalDrills_Clearance = new System.Windows.Forms.TextBox();
-            this.lblInserterTool = new System.Windows.Forms.Label();
+            this.lblInserterTools_Clearance = new System.Windows.Forms.Label();
             this.tbxMaxStops_Height = new System.Windows.Forms.TextBox();
-            this.lblMaxStopHeight = new System.Windows.Forms.Label();
+            this.lblMaxStops_Height = new System.Windows.Forms.Label();
             this.tbxMaxVices_Height = new System.Windows.Forms.TextBox();
-            this.lblMaxPieceHeight = new System.Windows.Forms.Label();
+            this.lblMaxPiece_Height = new System.Windows.Forms.Label();
             this.tbxFreeBackSpace = new System.Windows.Forms.TextBox();
             this.lblFreeFrontSpace = new System.Windows.Forms.Label();
             this.tbxFreeFrontSpace = new System.Windows.Forms.TextBox();
-            this.lblMaxYPos = new System.Windows.Forms.Label();
+            this.lblMaxYPosition = new System.Windows.Forms.Label();
             this.tbxMinZPosition = new System.Windows.Forms.TextBox();
-            this.lblMinXLeftPos = new System.Windows.Forms.Label();
+            this.lblMinXLeftPosition = new System.Windows.Forms.Label();
             this.tbxMinXLeftPosition = new System.Windows.Forms.TextBox();
-            this.lblMinZLeftPos = new System.Windows.Forms.Label();
+            this.lblMinZLeftPosition = new System.Windows.Forms.Label();
             this.tbxMinZLeftPosition = new System.Windows.Forms.TextBox();
-            this.lblLateralDrill = new System.Windows.Forms.Label();
+            this.lblLateralDrills_Clearance = new System.Windows.Forms.Label();
             this.tbxLateralDrills_Clearance = new System.Windows.Forms.TextBox();
-            this.lblRouter = new System.Windows.Forms.Label();
+            this.lblRouters_Clearance = new System.Windows.Forms.Label();
             this.tbxRouters_Clearance = new System.Windows.Forms.TextBox();
             this.tpWorkParams = new System.Windows.Forms.TabPage();
-            this.lblBladeFeed = new System.Windows.Forms.Label();
+            this.lblBlade_MaxInterpolationFeed = new System.Windows.Forms.Label();
             this.tbxBlade_MaxInterpolationFeed = new System.Windows.Forms.TextBox();
-            this.lblSpeedLateral = new System.Windows.Forms.Label();
+            this.lblInSpeed_LateralHoles = new System.Windows.Forms.Label();
             this.tbxInSpeed_LateralHoles = new System.Windows.Forms.TextBox();
-            this.lblSpeedInserterTool = new System.Windows.Forms.Label();
+            this.lblInSpeed_Inserters = new System.Windows.Forms.Label();
             this.tbxInSpeed_Routers = new System.Windows.Forms.TextBox();
-            this.lblFilletFeed = new System.Windows.Forms.Label();
+            this.lblInsertedFilletFeed = new System.Windows.Forms.Label();
             this.tbxInSpeed_Probe = new System.Windows.Forms.TextBox();
-            this.lblSlowExit = new System.Windows.Forms.Label();
+            this.lblSlowingPercentage_OnExit = new System.Windows.Forms.Label();
             this.tbxSlowingPercentage_OnExit = new System.Windows.Forms.TextBox();
-            this.lblMaxRPMBlade = new System.Windows.Forms.Label();
+            this.lblMaxRPM_Blade = new System.Windows.Forms.Label();
             this.tbxMaxRPM_Router = new System.Windows.Forms.TextBox();
-            this.lblSpeedVertical = new System.Windows.Forms.Label();
+            this.lblInSpeed_VerticalHoles = new System.Windows.Forms.Label();
             this.tbxInSpeed_VerticalHoles = new System.Windows.Forms.TextBox();
-            this.lblSpeedRouter = new System.Windows.Forms.Label();
+            this.lblInSpeed_Routers = new System.Windows.Forms.Label();
             this.tbxInSpeed_Blades = new System.Windows.Forms.TextBox();
-            this.lblSpeedBlade = new System.Windows.Forms.Label();
+            this.lblInSpeed_Blades = new System.Windows.Forms.Label();
             this.tbxInSpeed_Inserters = new System.Windows.Forms.TextBox();
-            this.lblSpeedProbe = new System.Windows.Forms.Label();
+            this.lblInSpeed_Probe = new System.Windows.Forms.Label();
             this.tbxInsertedFilletFeed = new System.Windows.Forms.TextBox();
-            this.lblSlowEntry = new System.Windows.Forms.Label();
+            this.lblSlowingPercentage_OnEntry = new System.Windows.Forms.Label();
             this.tbxSlowingPercentage_OnEntry = new System.Windows.Forms.TextBox();
-            this.lblMaxRPMRouter = new System.Windows.Forms.Label();
+            this.lblMaxRPM_Router = new System.Windows.Forms.Label();
             this.tbxMaxRPM_Blade = new System.Windows.Forms.TextBox();
-            this.lblMaxRPMSpindle = new System.Windows.Forms.Label();
+            this.lblMaxRPM_Spindle = new System.Windows.Forms.Label();
             this.tbxMaxRPM_Spindle = new System.Windows.Forms.TextBox();
-            this.lblRouterFeed = new System.Windows.Forms.Label();
+            this.lblRouters_MaxInterpolationFeed = new System.Windows.Forms.Label();
             this.tbxRouters_MaxInterpolationFeed = new System.Windows.Forms.TextBox();
             this.tpWorkFieldParams = new System.Windows.Forms.TabPage();
             this.tcWorkField = new System.Windows.Forms.TabControl();
@@ -210,13 +210,6 @@
             this.lblHeadX = new System.Windows.Forms.Label();
             this.tpCorrector = new System.Windows.Forms.TabPage();
             this.dgvCorrector = new System.Windows.Forms.DataGridView();
-            this.tpAggregate = new System.Windows.Forms.TabPage();
-            this.dgvAggregates = new System.Windows.Forms.DataGridView();
-            this.pnlCorButtons = new System.Windows.Forms.Panel();
-            this.btnAggregate = new System.Windows.Forms.Button();
-            this.btnCorrectors = new System.Windows.Forms.Button();
-            this.btnOffets = new System.Windows.Forms.Button();
-            this.splitter3 = new System.Windows.Forms.Splitter();
             this.cIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCorrectorX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCorrectorY = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -244,6 +237,8 @@
             this.cCustParam8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCustParam9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCustParam10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpAggregate = new System.Windows.Forms.TabPage();
+            this.dgvAggregates = new System.Windows.Forms.DataGridView();
             this.aIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCorrectorX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCorrectorY = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -273,6 +268,11 @@
             this.aCustParam8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCustParam9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCustParam10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlCorButtons = new System.Windows.Forms.Panel();
+            this.btnAggregate = new System.Windows.Forms.Button();
+            this.btnCorrectors = new System.Windows.Forms.Button();
+            this.btnOffets = new System.Windows.Forms.Button();
+            this.splitter3 = new System.Windows.Forms.Splitter();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
@@ -737,37 +737,37 @@
             // 
             // tpDistanceParams
             // 
-            this.tpDistanceParams.Controls.Add(this.lblBlade);
+            this.tpDistanceParams.Controls.Add(this.lblBlades_Clearance);
             this.tpDistanceParams.Controls.Add(this.tbxBlades_Clearance);
-            this.tpDistanceParams.Controls.Add(this.lblHorDrill);
+            this.tpDistanceParams.Controls.Add(this.lblHorizontalDrills_Clearance);
             this.tpDistanceParams.Controls.Add(this.tbxHorizontalDrills_Clearance);
-            this.tpDistanceParams.Controls.Add(this.lblMaxVicesHeight);
+            this.tpDistanceParams.Controls.Add(this.lblMaxVices_Height);
             this.tpDistanceParams.Controls.Add(this.tbxInserterTools_Clearance);
             this.tpDistanceParams.Controls.Add(this.lblFreeBackSpace);
             this.tpDistanceParams.Controls.Add(this.tbxMaxPiece_Height);
             this.tpDistanceParams.Controls.Add(this.lblFreeSpaceUnderPod);
             this.tpDistanceParams.Controls.Add(this.tbxFreeSpaceUnderPod);
-            this.tpDistanceParams.Controls.Add(this.lblMinZPos);
+            this.tpDistanceParams.Controls.Add(this.lblMinZPosition);
             this.tpDistanceParams.Controls.Add(this.tbxMaxYPosition);
-            this.tpDistanceParams.Controls.Add(this.lblVerDrill);
+            this.tpDistanceParams.Controls.Add(this.lblVerticalDrills_Clearance);
             this.tpDistanceParams.Controls.Add(this.tbxVerticalDrills_Clearance);
-            this.tpDistanceParams.Controls.Add(this.lblInserterTool);
+            this.tpDistanceParams.Controls.Add(this.lblInserterTools_Clearance);
             this.tpDistanceParams.Controls.Add(this.tbxMaxStops_Height);
-            this.tpDistanceParams.Controls.Add(this.lblMaxStopHeight);
+            this.tpDistanceParams.Controls.Add(this.lblMaxStops_Height);
             this.tpDistanceParams.Controls.Add(this.tbxMaxVices_Height);
-            this.tpDistanceParams.Controls.Add(this.lblMaxPieceHeight);
+            this.tpDistanceParams.Controls.Add(this.lblMaxPiece_Height);
             this.tpDistanceParams.Controls.Add(this.tbxFreeBackSpace);
             this.tpDistanceParams.Controls.Add(this.lblFreeFrontSpace);
             this.tpDistanceParams.Controls.Add(this.tbxFreeFrontSpace);
-            this.tpDistanceParams.Controls.Add(this.lblMaxYPos);
+            this.tpDistanceParams.Controls.Add(this.lblMaxYPosition);
             this.tpDistanceParams.Controls.Add(this.tbxMinZPosition);
-            this.tpDistanceParams.Controls.Add(this.lblMinXLeftPos);
+            this.tpDistanceParams.Controls.Add(this.lblMinXLeftPosition);
             this.tpDistanceParams.Controls.Add(this.tbxMinXLeftPosition);
-            this.tpDistanceParams.Controls.Add(this.lblMinZLeftPos);
+            this.tpDistanceParams.Controls.Add(this.lblMinZLeftPosition);
             this.tpDistanceParams.Controls.Add(this.tbxMinZLeftPosition);
-            this.tpDistanceParams.Controls.Add(this.lblLateralDrill);
+            this.tpDistanceParams.Controls.Add(this.lblLateralDrills_Clearance);
             this.tpDistanceParams.Controls.Add(this.tbxLateralDrills_Clearance);
-            this.tpDistanceParams.Controls.Add(this.lblRouter);
+            this.tpDistanceParams.Controls.Add(this.lblRouters_Clearance);
             this.tpDistanceParams.Controls.Add(this.tbxRouters_Clearance);
             this.tpDistanceParams.Location = new System.Drawing.Point(4, 22);
             this.tpDistanceParams.Name = "tpDistanceParams";
@@ -777,14 +777,14 @@
             this.tpDistanceParams.Text = "Distance Dimensions";
             this.tpDistanceParams.UseVisualStyleBackColor = true;
             // 
-            // lblBlade
+            // lblBlades_Clearance
             // 
-            this.lblBlade.AutoSize = true;
-            this.lblBlade.Location = new System.Drawing.Point(135, 36);
-            this.lblBlade.Name = "lblBlade";
-            this.lblBlade.Size = new System.Drawing.Size(93, 13);
-            this.lblBlade.TabIndex = 63;
-            this.lblBlade.Text = "Blades_Clearance";
+            this.lblBlades_Clearance.AutoSize = true;
+            this.lblBlades_Clearance.Location = new System.Drawing.Point(135, 36);
+            this.lblBlades_Clearance.Name = "lblBlades_Clearance";
+            this.lblBlades_Clearance.Size = new System.Drawing.Size(93, 13);
+            this.lblBlades_Clearance.TabIndex = 63;
+            this.lblBlades_Clearance.Text = "Blades_Clearance";
             // 
             // tbxBlades_Clearance
             // 
@@ -794,14 +794,14 @@
             this.tbxBlades_Clearance.TabIndex = 62;
             this.tbxBlades_Clearance.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblHorDrill
+            // lblHorizontalDrills_Clearance
             // 
-            this.lblHorDrill.AutoSize = true;
-            this.lblHorDrill.Location = new System.Drawing.Point(135, 62);
-            this.lblHorDrill.Name = "lblHorDrill";
-            this.lblHorDrill.Size = new System.Drawing.Size(130, 13);
-            this.lblHorDrill.TabIndex = 61;
-            this.lblHorDrill.Text = "HorizontalDrills_Clearance";
+            this.lblHorizontalDrills_Clearance.AutoSize = true;
+            this.lblHorizontalDrills_Clearance.Location = new System.Drawing.Point(135, 62);
+            this.lblHorizontalDrills_Clearance.Name = "lblHorizontalDrills_Clearance";
+            this.lblHorizontalDrills_Clearance.Size = new System.Drawing.Size(130, 13);
+            this.lblHorizontalDrills_Clearance.TabIndex = 61;
+            this.lblHorizontalDrills_Clearance.Text = "HorizontalDrills_Clearance";
             // 
             // tbxHorizontalDrills_Clearance
             // 
@@ -811,14 +811,14 @@
             this.tbxHorizontalDrills_Clearance.TabIndex = 60;
             this.tbxHorizontalDrills_Clearance.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMaxVicesHeight
+            // lblMaxVices_Height
             // 
-            this.lblMaxVicesHeight.AutoSize = true;
-            this.lblMaxVicesHeight.Location = new System.Drawing.Point(135, 192);
-            this.lblMaxVicesHeight.Name = "lblMaxVicesHeight";
-            this.lblMaxVicesHeight.Size = new System.Drawing.Size(90, 13);
-            this.lblMaxVicesHeight.TabIndex = 59;
-            this.lblMaxVicesHeight.Text = "MaxVices_Height";
+            this.lblMaxVices_Height.AutoSize = true;
+            this.lblMaxVices_Height.Location = new System.Drawing.Point(135, 192);
+            this.lblMaxVices_Height.Name = "lblMaxVices_Height";
+            this.lblMaxVices_Height.Size = new System.Drawing.Size(90, 13);
+            this.lblMaxVices_Height.TabIndex = 59;
+            this.lblMaxVices_Height.Text = "MaxVices_Height";
             // 
             // tbxInserterTools_Clearance
             // 
@@ -862,14 +862,14 @@
             this.tbxFreeSpaceUnderPod.TabIndex = 54;
             this.tbxFreeSpaceUnderPod.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMinZPos
+            // lblMinZPosition
             // 
-            this.lblMinZPos.AutoSize = true;
-            this.lblMinZPos.Location = new System.Drawing.Point(135, 348);
-            this.lblMinZPos.Name = "lblMinZPos";
-            this.lblMinZPos.Size = new System.Drawing.Size(68, 13);
-            this.lblMinZPos.TabIndex = 53;
-            this.lblMinZPos.Text = "MinZPosition";
+            this.lblMinZPosition.AutoSize = true;
+            this.lblMinZPosition.Location = new System.Drawing.Point(135, 348);
+            this.lblMinZPosition.Name = "lblMinZPosition";
+            this.lblMinZPosition.Size = new System.Drawing.Size(68, 13);
+            this.lblMinZPosition.TabIndex = 53;
+            this.lblMinZPosition.Text = "MinZPosition";
             // 
             // tbxMaxYPosition
             // 
@@ -879,14 +879,14 @@
             this.tbxMaxYPosition.TabIndex = 52;
             this.tbxMaxYPosition.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblVerDrill
+            // lblVerticalDrills_Clearance
             // 
-            this.lblVerDrill.AutoSize = true;
-            this.lblVerDrill.Location = new System.Drawing.Point(135, 114);
-            this.lblVerDrill.Name = "lblVerDrill";
-            this.lblVerDrill.Size = new System.Drawing.Size(118, 13);
-            this.lblVerDrill.TabIndex = 51;
-            this.lblVerDrill.Text = "VerticalDrills_Clearance";
+            this.lblVerticalDrills_Clearance.AutoSize = true;
+            this.lblVerticalDrills_Clearance.Location = new System.Drawing.Point(135, 114);
+            this.lblVerticalDrills_Clearance.Name = "lblVerticalDrills_Clearance";
+            this.lblVerticalDrills_Clearance.Size = new System.Drawing.Size(118, 13);
+            this.lblVerticalDrills_Clearance.TabIndex = 51;
+            this.lblVerticalDrills_Clearance.Text = "VerticalDrills_Clearance";
             // 
             // tbxVerticalDrills_Clearance
             // 
@@ -896,14 +896,14 @@
             this.tbxVerticalDrills_Clearance.TabIndex = 50;
             this.tbxVerticalDrills_Clearance.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblInserterTool
+            // lblInserterTools_Clearance
             // 
-            this.lblInserterTool.AutoSize = true;
-            this.lblInserterTool.Location = new System.Drawing.Point(135, 140);
-            this.lblInserterTool.Name = "lblInserterTool";
-            this.lblInserterTool.Size = new System.Drawing.Size(122, 13);
-            this.lblInserterTool.TabIndex = 49;
-            this.lblInserterTool.Text = "InserterTools_Clearance";
+            this.lblInserterTools_Clearance.AutoSize = true;
+            this.lblInserterTools_Clearance.Location = new System.Drawing.Point(135, 140);
+            this.lblInserterTools_Clearance.Name = "lblInserterTools_Clearance";
+            this.lblInserterTools_Clearance.Size = new System.Drawing.Size(122, 13);
+            this.lblInserterTools_Clearance.TabIndex = 49;
+            this.lblInserterTools_Clearance.Text = "InserterTools_Clearance";
             // 
             // tbxMaxStops_Height
             // 
@@ -913,14 +913,14 @@
             this.tbxMaxStops_Height.TabIndex = 48;
             this.tbxMaxStops_Height.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMaxStopHeight
+            // lblMaxStops_Height
             // 
-            this.lblMaxStopHeight.AutoSize = true;
-            this.lblMaxStopHeight.Location = new System.Drawing.Point(135, 166);
-            this.lblMaxStopHeight.Name = "lblMaxStopHeight";
-            this.lblMaxStopHeight.Size = new System.Drawing.Size(91, 13);
-            this.lblMaxStopHeight.TabIndex = 47;
-            this.lblMaxStopHeight.Text = "MaxStops_Height";
+            this.lblMaxStops_Height.AutoSize = true;
+            this.lblMaxStops_Height.Location = new System.Drawing.Point(135, 166);
+            this.lblMaxStops_Height.Name = "lblMaxStops_Height";
+            this.lblMaxStops_Height.Size = new System.Drawing.Size(91, 13);
+            this.lblMaxStops_Height.TabIndex = 47;
+            this.lblMaxStops_Height.Text = "MaxStops_Height";
             // 
             // tbxMaxVices_Height
             // 
@@ -930,14 +930,14 @@
             this.tbxMaxVices_Height.TabIndex = 46;
             this.tbxMaxVices_Height.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMaxPieceHeight
+            // lblMaxPiece_Height
             // 
-            this.lblMaxPieceHeight.AutoSize = true;
-            this.lblMaxPieceHeight.Location = new System.Drawing.Point(135, 218);
-            this.lblMaxPieceHeight.Name = "lblMaxPieceHeight";
-            this.lblMaxPieceHeight.Size = new System.Drawing.Size(91, 13);
-            this.lblMaxPieceHeight.TabIndex = 45;
-            this.lblMaxPieceHeight.Text = "MaxPiece_Height";
+            this.lblMaxPiece_Height.AutoSize = true;
+            this.lblMaxPiece_Height.Location = new System.Drawing.Point(135, 218);
+            this.lblMaxPiece_Height.Name = "lblMaxPiece_Height";
+            this.lblMaxPiece_Height.Size = new System.Drawing.Size(91, 13);
+            this.lblMaxPiece_Height.TabIndex = 45;
+            this.lblMaxPiece_Height.Text = "MaxPiece_Height";
             // 
             // tbxFreeBackSpace
             // 
@@ -964,14 +964,14 @@
             this.tbxFreeFrontSpace.TabIndex = 42;
             this.tbxFreeFrontSpace.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMaxYPos
+            // lblMaxYPosition
             // 
-            this.lblMaxYPos.AutoSize = true;
-            this.lblMaxYPos.Location = new System.Drawing.Point(135, 322);
-            this.lblMaxYPos.Name = "lblMaxYPos";
-            this.lblMaxYPos.Size = new System.Drawing.Size(71, 13);
-            this.lblMaxYPos.TabIndex = 41;
-            this.lblMaxYPos.Text = "MaxYPosition";
+            this.lblMaxYPosition.AutoSize = true;
+            this.lblMaxYPosition.Location = new System.Drawing.Point(135, 322);
+            this.lblMaxYPosition.Name = "lblMaxYPosition";
+            this.lblMaxYPosition.Size = new System.Drawing.Size(71, 13);
+            this.lblMaxYPosition.TabIndex = 41;
+            this.lblMaxYPosition.Text = "MaxYPosition";
             // 
             // tbxMinZPosition
             // 
@@ -981,14 +981,14 @@
             this.tbxMinZPosition.TabIndex = 40;
             this.tbxMinZPosition.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMinXLeftPos
+            // lblMinXLeftPosition
             // 
-            this.lblMinXLeftPos.AutoSize = true;
-            this.lblMinXLeftPos.Location = new System.Drawing.Point(135, 374);
-            this.lblMinXLeftPos.Name = "lblMinXLeftPos";
-            this.lblMinXLeftPos.Size = new System.Drawing.Size(86, 13);
-            this.lblMinXLeftPos.TabIndex = 39;
-            this.lblMinXLeftPos.Text = "MinXLeftPosition";
+            this.lblMinXLeftPosition.AutoSize = true;
+            this.lblMinXLeftPosition.Location = new System.Drawing.Point(135, 374);
+            this.lblMinXLeftPosition.Name = "lblMinXLeftPosition";
+            this.lblMinXLeftPosition.Size = new System.Drawing.Size(86, 13);
+            this.lblMinXLeftPosition.TabIndex = 39;
+            this.lblMinXLeftPosition.Text = "MinXLeftPosition";
             // 
             // tbxMinXLeftPosition
             // 
@@ -998,14 +998,14 @@
             this.tbxMinXLeftPosition.TabIndex = 38;
             this.tbxMinXLeftPosition.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMinZLeftPos
+            // lblMinZLeftPosition
             // 
-            this.lblMinZLeftPos.AutoSize = true;
-            this.lblMinZLeftPos.Location = new System.Drawing.Point(135, 400);
-            this.lblMinZLeftPos.Name = "lblMinZLeftPos";
-            this.lblMinZLeftPos.Size = new System.Drawing.Size(86, 13);
-            this.lblMinZLeftPos.TabIndex = 37;
-            this.lblMinZLeftPos.Text = "MinZLeftPosition";
+            this.lblMinZLeftPosition.AutoSize = true;
+            this.lblMinZLeftPosition.Location = new System.Drawing.Point(135, 400);
+            this.lblMinZLeftPosition.Name = "lblMinZLeftPosition";
+            this.lblMinZLeftPosition.Size = new System.Drawing.Size(86, 13);
+            this.lblMinZLeftPosition.TabIndex = 37;
+            this.lblMinZLeftPosition.Text = "MinZLeftPosition";
             // 
             // tbxMinZLeftPosition
             // 
@@ -1015,14 +1015,14 @@
             this.tbxMinZLeftPosition.TabIndex = 36;
             this.tbxMinZLeftPosition.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblLateralDrill
+            // lblLateralDrills_Clearance
             // 
-            this.lblLateralDrill.AutoSize = true;
-            this.lblLateralDrill.Location = new System.Drawing.Point(135, 88);
-            this.lblLateralDrill.Name = "lblLateralDrill";
-            this.lblLateralDrill.Size = new System.Drawing.Size(115, 13);
-            this.lblLateralDrill.TabIndex = 35;
-            this.lblLateralDrill.Text = "LateralDrills_Clearance";
+            this.lblLateralDrills_Clearance.AutoSize = true;
+            this.lblLateralDrills_Clearance.Location = new System.Drawing.Point(135, 88);
+            this.lblLateralDrills_Clearance.Name = "lblLateralDrills_Clearance";
+            this.lblLateralDrills_Clearance.Size = new System.Drawing.Size(115, 13);
+            this.lblLateralDrills_Clearance.TabIndex = 35;
+            this.lblLateralDrills_Clearance.Text = "LateralDrills_Clearance";
             // 
             // tbxLateralDrills_Clearance
             // 
@@ -1032,14 +1032,14 @@
             this.tbxLateralDrills_Clearance.TabIndex = 34;
             this.tbxLateralDrills_Clearance.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblRouter
+            // lblRouters_Clearance
             // 
-            this.lblRouter.AutoSize = true;
-            this.lblRouter.Location = new System.Drawing.Point(135, 10);
-            this.lblRouter.Name = "lblRouter";
-            this.lblRouter.Size = new System.Drawing.Size(98, 13);
-            this.lblRouter.TabIndex = 33;
-            this.lblRouter.Text = "Routers_Clearance";
+            this.lblRouters_Clearance.AutoSize = true;
+            this.lblRouters_Clearance.Location = new System.Drawing.Point(135, 10);
+            this.lblRouters_Clearance.Name = "lblRouters_Clearance";
+            this.lblRouters_Clearance.Size = new System.Drawing.Size(98, 13);
+            this.lblRouters_Clearance.TabIndex = 33;
+            this.lblRouters_Clearance.Text = "Routers_Clearance";
             // 
             // tbxRouters_Clearance
             // 
@@ -1051,33 +1051,33 @@
             // 
             // tpWorkParams
             // 
-            this.tpWorkParams.Controls.Add(this.lblBladeFeed);
+            this.tpWorkParams.Controls.Add(this.lblBlade_MaxInterpolationFeed);
             this.tpWorkParams.Controls.Add(this.tbxBlade_MaxInterpolationFeed);
-            this.tpWorkParams.Controls.Add(this.lblSpeedLateral);
+            this.tpWorkParams.Controls.Add(this.lblInSpeed_LateralHoles);
             this.tpWorkParams.Controls.Add(this.tbxInSpeed_LateralHoles);
-            this.tpWorkParams.Controls.Add(this.lblSpeedInserterTool);
+            this.tpWorkParams.Controls.Add(this.lblInSpeed_Inserters);
             this.tpWorkParams.Controls.Add(this.tbxInSpeed_Routers);
-            this.tpWorkParams.Controls.Add(this.lblFilletFeed);
+            this.tpWorkParams.Controls.Add(this.lblInsertedFilletFeed);
             this.tpWorkParams.Controls.Add(this.tbxInSpeed_Probe);
-            this.tpWorkParams.Controls.Add(this.lblSlowExit);
+            this.tpWorkParams.Controls.Add(this.lblSlowingPercentage_OnExit);
             this.tpWorkParams.Controls.Add(this.tbxSlowingPercentage_OnExit);
-            this.tpWorkParams.Controls.Add(this.lblMaxRPMBlade);
+            this.tpWorkParams.Controls.Add(this.lblMaxRPM_Blade);
             this.tpWorkParams.Controls.Add(this.tbxMaxRPM_Router);
-            this.tpWorkParams.Controls.Add(this.lblSpeedVertical);
+            this.tpWorkParams.Controls.Add(this.lblInSpeed_VerticalHoles);
             this.tpWorkParams.Controls.Add(this.tbxInSpeed_VerticalHoles);
-            this.tpWorkParams.Controls.Add(this.lblSpeedRouter);
+            this.tpWorkParams.Controls.Add(this.lblInSpeed_Routers);
             this.tpWorkParams.Controls.Add(this.tbxInSpeed_Blades);
-            this.tpWorkParams.Controls.Add(this.lblSpeedBlade);
+            this.tpWorkParams.Controls.Add(this.lblInSpeed_Blades);
             this.tpWorkParams.Controls.Add(this.tbxInSpeed_Inserters);
-            this.tpWorkParams.Controls.Add(this.lblSpeedProbe);
+            this.tpWorkParams.Controls.Add(this.lblInSpeed_Probe);
             this.tpWorkParams.Controls.Add(this.tbxInsertedFilletFeed);
-            this.tpWorkParams.Controls.Add(this.lblSlowEntry);
+            this.tpWorkParams.Controls.Add(this.lblSlowingPercentage_OnEntry);
             this.tpWorkParams.Controls.Add(this.tbxSlowingPercentage_OnEntry);
-            this.tpWorkParams.Controls.Add(this.lblMaxRPMRouter);
+            this.tpWorkParams.Controls.Add(this.lblMaxRPM_Router);
             this.tpWorkParams.Controls.Add(this.tbxMaxRPM_Blade);
-            this.tpWorkParams.Controls.Add(this.lblMaxRPMSpindle);
+            this.tpWorkParams.Controls.Add(this.lblMaxRPM_Spindle);
             this.tpWorkParams.Controls.Add(this.tbxMaxRPM_Spindle);
-            this.tpWorkParams.Controls.Add(this.lblRouterFeed);
+            this.tpWorkParams.Controls.Add(this.lblRouters_MaxInterpolationFeed);
             this.tpWorkParams.Controls.Add(this.tbxRouters_MaxInterpolationFeed);
             this.tpWorkParams.Location = new System.Drawing.Point(4, 22);
             this.tpWorkParams.Name = "tpWorkParams";
@@ -1087,14 +1087,14 @@
             this.tpWorkParams.Text = "Work Feed";
             this.tpWorkParams.UseVisualStyleBackColor = true;
             // 
-            // lblBladeFeed
+            // lblBlade_MaxInterpolationFeed
             // 
-            this.lblBladeFeed.AutoSize = true;
-            this.lblBladeFeed.Location = new System.Drawing.Point(135, 36);
-            this.lblBladeFeed.Name = "lblBladeFeed";
-            this.lblBladeFeed.Size = new System.Drawing.Size(68, 13);
-            this.lblBladeFeed.TabIndex = 87;
-            this.lblBladeFeed.Text = "Blade Speed";
+            this.lblBlade_MaxInterpolationFeed.AutoSize = true;
+            this.lblBlade_MaxInterpolationFeed.Location = new System.Drawing.Point(135, 36);
+            this.lblBlade_MaxInterpolationFeed.Name = "lblBlade_MaxInterpolationFeed";
+            this.lblBlade_MaxInterpolationFeed.Size = new System.Drawing.Size(68, 13);
+            this.lblBlade_MaxInterpolationFeed.TabIndex = 87;
+            this.lblBlade_MaxInterpolationFeed.Text = "Blade Speed";
             // 
             // tbxBlade_MaxInterpolationFeed
             // 
@@ -1104,14 +1104,14 @@
             this.tbxBlade_MaxInterpolationFeed.TabIndex = 86;
             this.tbxBlade_MaxInterpolationFeed.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblSpeedLateral
+            // lblInSpeed_LateralHoles
             // 
-            this.lblSpeedLateral.AutoSize = true;
-            this.lblSpeedLateral.Location = new System.Drawing.Point(135, 62);
-            this.lblSpeedLateral.Name = "lblSpeedLateral";
-            this.lblSpeedLateral.Size = new System.Drawing.Size(73, 13);
-            this.lblSpeedLateral.TabIndex = 85;
-            this.lblSpeedLateral.Text = "Lateral Speed";
+            this.lblInSpeed_LateralHoles.AutoSize = true;
+            this.lblInSpeed_LateralHoles.Location = new System.Drawing.Point(135, 62);
+            this.lblInSpeed_LateralHoles.Name = "lblInSpeed_LateralHoles";
+            this.lblInSpeed_LateralHoles.Size = new System.Drawing.Size(73, 13);
+            this.lblInSpeed_LateralHoles.TabIndex = 85;
+            this.lblInSpeed_LateralHoles.Text = "Lateral Speed";
             // 
             // tbxInSpeed_LateralHoles
             // 
@@ -1121,14 +1121,14 @@
             this.tbxInSpeed_LateralHoles.TabIndex = 84;
             this.tbxInSpeed_LateralHoles.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblSpeedInserterTool
+            // lblInSpeed_Inserters
             // 
-            this.lblSpeedInserterTool.AutoSize = true;
-            this.lblSpeedInserterTool.Location = new System.Drawing.Point(135, 166);
-            this.lblSpeedInserterTool.Name = "lblSpeedInserterTool";
-            this.lblSpeedInserterTool.Size = new System.Drawing.Size(100, 13);
-            this.lblSpeedInserterTool.TabIndex = 83;
-            this.lblSpeedInserterTool.Text = "Inserter Tool Speed";
+            this.lblInSpeed_Inserters.AutoSize = true;
+            this.lblInSpeed_Inserters.Location = new System.Drawing.Point(135, 166);
+            this.lblInSpeed_Inserters.Name = "lblInSpeed_Inserters";
+            this.lblInSpeed_Inserters.Size = new System.Drawing.Size(100, 13);
+            this.lblInSpeed_Inserters.TabIndex = 83;
+            this.lblInSpeed_Inserters.Text = "Inserter Tool Speed";
             // 
             // tbxInSpeed_Routers
             // 
@@ -1138,14 +1138,14 @@
             this.tbxInSpeed_Routers.TabIndex = 82;
             this.tbxInSpeed_Routers.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblFilletFeed
+            // lblInsertedFilletFeed
             // 
-            this.lblFilletFeed.AutoSize = true;
-            this.lblFilletFeed.Location = new System.Drawing.Point(135, 218);
-            this.lblFilletFeed.Name = "lblFilletFeed";
-            this.lblFilletFeed.Size = new System.Drawing.Size(60, 13);
-            this.lblFilletFeed.TabIndex = 81;
-            this.lblFilletFeed.Text = "Fillet speed";
+            this.lblInsertedFilletFeed.AutoSize = true;
+            this.lblInsertedFilletFeed.Location = new System.Drawing.Point(135, 218);
+            this.lblInsertedFilletFeed.Name = "lblInsertedFilletFeed";
+            this.lblInsertedFilletFeed.Size = new System.Drawing.Size(60, 13);
+            this.lblInsertedFilletFeed.TabIndex = 81;
+            this.lblInsertedFilletFeed.Text = "Fillet speed";
             // 
             // tbxInSpeed_Probe
             // 
@@ -1155,14 +1155,14 @@
             this.tbxInSpeed_Probe.TabIndex = 80;
             this.tbxInSpeed_Probe.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblSlowExit
+            // lblSlowingPercentage_OnExit
             // 
-            this.lblSlowExit.AutoSize = true;
-            this.lblSlowExit.Location = new System.Drawing.Point(135, 270);
-            this.lblSlowExit.Name = "lblSlowExit";
-            this.lblSlowExit.Size = new System.Drawing.Size(55, 13);
-            this.lblSlowExit.TabIndex = 79;
-            this.lblSlowExit.Text = "Slow Exist";
+            this.lblSlowingPercentage_OnExit.AutoSize = true;
+            this.lblSlowingPercentage_OnExit.Location = new System.Drawing.Point(135, 270);
+            this.lblSlowingPercentage_OnExit.Name = "lblSlowingPercentage_OnExit";
+            this.lblSlowingPercentage_OnExit.Size = new System.Drawing.Size(55, 13);
+            this.lblSlowingPercentage_OnExit.TabIndex = 79;
+            this.lblSlowingPercentage_OnExit.Text = "Slow Exist";
             // 
             // tbxSlowingPercentage_OnExit
             // 
@@ -1172,14 +1172,14 @@
             this.tbxSlowingPercentage_OnExit.TabIndex = 78;
             this.tbxSlowingPercentage_OnExit.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMaxRPMBlade
+            // lblMaxRPM_Blade
             // 
-            this.lblMaxRPMBlade.AutoSize = true;
-            this.lblMaxRPMBlade.Location = new System.Drawing.Point(135, 322);
-            this.lblMaxRPMBlade.Name = "lblMaxRPMBlade";
-            this.lblMaxRPMBlade.Size = new System.Drawing.Size(84, 13);
-            this.lblMaxRPMBlade.TabIndex = 77;
-            this.lblMaxRPMBlade.Text = "Max RPM Blade";
+            this.lblMaxRPM_Blade.AutoSize = true;
+            this.lblMaxRPM_Blade.Location = new System.Drawing.Point(135, 322);
+            this.lblMaxRPM_Blade.Name = "lblMaxRPM_Blade";
+            this.lblMaxRPM_Blade.Size = new System.Drawing.Size(84, 13);
+            this.lblMaxRPM_Blade.TabIndex = 77;
+            this.lblMaxRPM_Blade.Text = "Max RPM Blade";
             // 
             // tbxMaxRPM_Router
             // 
@@ -1189,14 +1189,14 @@
             this.tbxMaxRPM_Router.TabIndex = 76;
             this.tbxMaxRPM_Router.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblSpeedVertical
+            // lblInSpeed_VerticalHoles
             // 
-            this.lblSpeedVertical.AutoSize = true;
-            this.lblSpeedVertical.Location = new System.Drawing.Point(135, 88);
-            this.lblSpeedVertical.Name = "lblSpeedVertical";
-            this.lblSpeedVertical.Size = new System.Drawing.Size(76, 13);
-            this.lblSpeedVertical.TabIndex = 75;
-            this.lblSpeedVertical.Text = "Vertical Speed";
+            this.lblInSpeed_VerticalHoles.AutoSize = true;
+            this.lblInSpeed_VerticalHoles.Location = new System.Drawing.Point(135, 88);
+            this.lblInSpeed_VerticalHoles.Name = "lblInSpeed_VerticalHoles";
+            this.lblInSpeed_VerticalHoles.Size = new System.Drawing.Size(76, 13);
+            this.lblInSpeed_VerticalHoles.TabIndex = 75;
+            this.lblInSpeed_VerticalHoles.Text = "Vertical Speed";
             // 
             // tbxInSpeed_VerticalHoles
             // 
@@ -1206,14 +1206,14 @@
             this.tbxInSpeed_VerticalHoles.TabIndex = 74;
             this.tbxInSpeed_VerticalHoles.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblSpeedRouter
+            // lblInSpeed_Routers
             // 
-            this.lblSpeedRouter.AutoSize = true;
-            this.lblSpeedRouter.Location = new System.Drawing.Point(135, 114);
-            this.lblSpeedRouter.Name = "lblSpeedRouter";
-            this.lblSpeedRouter.Size = new System.Drawing.Size(73, 13);
-            this.lblSpeedRouter.TabIndex = 73;
-            this.lblSpeedRouter.Text = "Router Speed";
+            this.lblInSpeed_Routers.AutoSize = true;
+            this.lblInSpeed_Routers.Location = new System.Drawing.Point(135, 114);
+            this.lblInSpeed_Routers.Name = "lblInSpeed_Routers";
+            this.lblInSpeed_Routers.Size = new System.Drawing.Size(73, 13);
+            this.lblInSpeed_Routers.TabIndex = 73;
+            this.lblInSpeed_Routers.Text = "Router Speed";
             // 
             // tbxInSpeed_Blades
             // 
@@ -1223,14 +1223,14 @@
             this.tbxInSpeed_Blades.TabIndex = 72;
             this.tbxInSpeed_Blades.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblSpeedBlade
+            // lblInSpeed_Blades
             // 
-            this.lblSpeedBlade.AutoSize = true;
-            this.lblSpeedBlade.Location = new System.Drawing.Point(135, 140);
-            this.lblSpeedBlade.Name = "lblSpeedBlade";
-            this.lblSpeedBlade.Size = new System.Drawing.Size(68, 13);
-            this.lblSpeedBlade.TabIndex = 71;
-            this.lblSpeedBlade.Text = "Blade Speed";
+            this.lblInSpeed_Blades.AutoSize = true;
+            this.lblInSpeed_Blades.Location = new System.Drawing.Point(135, 140);
+            this.lblInSpeed_Blades.Name = "lblInSpeed_Blades";
+            this.lblInSpeed_Blades.Size = new System.Drawing.Size(68, 13);
+            this.lblInSpeed_Blades.TabIndex = 71;
+            this.lblInSpeed_Blades.Text = "Blade Speed";
             // 
             // tbxInSpeed_Inserters
             // 
@@ -1240,14 +1240,14 @@
             this.tbxInSpeed_Inserters.TabIndex = 70;
             this.tbxInSpeed_Inserters.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblSpeedProbe
+            // lblInSpeed_Probe
             // 
-            this.lblSpeedProbe.AutoSize = true;
-            this.lblSpeedProbe.Location = new System.Drawing.Point(135, 192);
-            this.lblSpeedProbe.Name = "lblSpeedProbe";
-            this.lblSpeedProbe.Size = new System.Drawing.Size(69, 13);
-            this.lblSpeedProbe.TabIndex = 69;
-            this.lblSpeedProbe.Text = "Probe Speed";
+            this.lblInSpeed_Probe.AutoSize = true;
+            this.lblInSpeed_Probe.Location = new System.Drawing.Point(135, 192);
+            this.lblInSpeed_Probe.Name = "lblInSpeed_Probe";
+            this.lblInSpeed_Probe.Size = new System.Drawing.Size(69, 13);
+            this.lblInSpeed_Probe.TabIndex = 69;
+            this.lblInSpeed_Probe.Text = "Probe Speed";
             // 
             // tbxInsertedFilletFeed
             // 
@@ -1257,14 +1257,14 @@
             this.tbxInsertedFilletFeed.TabIndex = 68;
             this.tbxInsertedFilletFeed.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblSlowEntry
+            // lblSlowingPercentage_OnEntry
             // 
-            this.lblSlowEntry.AutoSize = true;
-            this.lblSlowEntry.Location = new System.Drawing.Point(135, 244);
-            this.lblSlowEntry.Name = "lblSlowEntry";
-            this.lblSlowEntry.Size = new System.Drawing.Size(57, 13);
-            this.lblSlowEntry.TabIndex = 67;
-            this.lblSlowEntry.Text = "Slow Entry";
+            this.lblSlowingPercentage_OnEntry.AutoSize = true;
+            this.lblSlowingPercentage_OnEntry.Location = new System.Drawing.Point(135, 244);
+            this.lblSlowingPercentage_OnEntry.Name = "lblSlowingPercentage_OnEntry";
+            this.lblSlowingPercentage_OnEntry.Size = new System.Drawing.Size(57, 13);
+            this.lblSlowingPercentage_OnEntry.TabIndex = 67;
+            this.lblSlowingPercentage_OnEntry.Text = "Slow Entry";
             // 
             // tbxSlowingPercentage_OnEntry
             // 
@@ -1274,14 +1274,14 @@
             this.tbxSlowingPercentage_OnEntry.TabIndex = 66;
             this.tbxSlowingPercentage_OnEntry.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMaxRPMRouter
+            // lblMaxRPM_Router
             // 
-            this.lblMaxRPMRouter.AutoSize = true;
-            this.lblMaxRPMRouter.Location = new System.Drawing.Point(135, 296);
-            this.lblMaxRPMRouter.Name = "lblMaxRPMRouter";
-            this.lblMaxRPMRouter.Size = new System.Drawing.Size(89, 13);
-            this.lblMaxRPMRouter.TabIndex = 65;
-            this.lblMaxRPMRouter.Text = "Max RPM Router";
+            this.lblMaxRPM_Router.AutoSize = true;
+            this.lblMaxRPM_Router.Location = new System.Drawing.Point(135, 296);
+            this.lblMaxRPM_Router.Name = "lblMaxRPM_Router";
+            this.lblMaxRPM_Router.Size = new System.Drawing.Size(89, 13);
+            this.lblMaxRPM_Router.TabIndex = 65;
+            this.lblMaxRPM_Router.Text = "Max RPM Router";
             // 
             // tbxMaxRPM_Blade
             // 
@@ -1291,14 +1291,14 @@
             this.tbxMaxRPM_Blade.TabIndex = 64;
             this.tbxMaxRPM_Blade.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblMaxRPMSpindle
+            // lblMaxRPM_Spindle
             // 
-            this.lblMaxRPMSpindle.AutoSize = true;
-            this.lblMaxRPMSpindle.Location = new System.Drawing.Point(135, 348);
-            this.lblMaxRPMSpindle.Name = "lblMaxRPMSpindle";
-            this.lblMaxRPMSpindle.Size = new System.Drawing.Size(90, 13);
-            this.lblMaxRPMSpindle.TabIndex = 63;
-            this.lblMaxRPMSpindle.Text = "Max Rpm Spindle";
+            this.lblMaxRPM_Spindle.AutoSize = true;
+            this.lblMaxRPM_Spindle.Location = new System.Drawing.Point(135, 348);
+            this.lblMaxRPM_Spindle.Name = "lblMaxRPM_Spindle";
+            this.lblMaxRPM_Spindle.Size = new System.Drawing.Size(90, 13);
+            this.lblMaxRPM_Spindle.TabIndex = 63;
+            this.lblMaxRPM_Spindle.Text = "Max Rpm Spindle";
             // 
             // tbxMaxRPM_Spindle
             // 
@@ -1308,14 +1308,14 @@
             this.tbxMaxRPM_Spindle.TabIndex = 62;
             this.tbxMaxRPM_Spindle.TextChanged += new System.EventHandler(this.GeneralParametersTextbox_TextChanged);
             // 
-            // lblRouterFeed
+            // lblRouters_MaxInterpolationFeed
             // 
-            this.lblRouterFeed.AutoSize = true;
-            this.lblRouterFeed.Location = new System.Drawing.Point(135, 10);
-            this.lblRouterFeed.Name = "lblRouterFeed";
-            this.lblRouterFeed.Size = new System.Drawing.Size(95, 13);
-            this.lblRouterFeed.TabIndex = 61;
-            this.lblRouterFeed.Text = "Interpolition Speed";
+            this.lblRouters_MaxInterpolationFeed.AutoSize = true;
+            this.lblRouters_MaxInterpolationFeed.Location = new System.Drawing.Point(135, 10);
+            this.lblRouters_MaxInterpolationFeed.Name = "lblRouters_MaxInterpolationFeed";
+            this.lblRouters_MaxInterpolationFeed.Size = new System.Drawing.Size(95, 13);
+            this.lblRouters_MaxInterpolationFeed.TabIndex = 61;
+            this.lblRouters_MaxInterpolationFeed.Text = "Interpolition Speed";
             // 
             // tbxRouters_MaxInterpolationFeed
             // 
@@ -2140,123 +2140,14 @@
             this.dgvCorrector.RowHeadersVisible = false;
             this.dgvCorrector.Size = new System.Drawing.Size(1325, 660);
             this.dgvCorrector.TabIndex = 1;
-            // 
-            // tpAggregate
-            // 
-            this.tpAggregate.Controls.Add(this.dgvAggregates);
-            this.tpAggregate.Location = new System.Drawing.Point(4, 22);
-            this.tpAggregate.Name = "tpAggregate";
-            this.tpAggregate.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAggregate.Size = new System.Drawing.Size(1331, 666);
-            this.tpAggregate.TabIndex = 2;
-            this.tpAggregate.Text = "Aggregate";
-            this.tpAggregate.UseVisualStyleBackColor = true;
-            // 
-            // dgvAggregates
-            // 
-            this.dgvAggregates.AllowUserToAddRows = false;
-            this.dgvAggregates.AllowUserToDeleteRows = false;
-            this.dgvAggregates.AllowUserToResizeColumns = false;
-            this.dgvAggregates.AllowUserToResizeRows = false;
-            this.dgvAggregates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAggregates.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.aIndex,
-            this.aCorrectorX,
-            this.aCorrectorY,
-            this.aCorrectorZ,
-            this.aOffsetC,
-            this.aOffsetB,
-            this.aSideMask,
-            this.aCRotationInfo,
-            this.aMaxRPM,
-            this.aDirezionePneumatica,
-            this.aPiston1,
-            this.aPiston2,
-            this.aPiston3,
-            this.aSpindleType,
-            this.aOffset1,
-            this.aOffset2,
-            this.aOffset3,
-            this.aOffset4,
-            this.aOffset5,
-            this.aCustParam1,
-            this.aCustParam2,
-            this.aCustParam3,
-            this.aCustParam4,
-            this.aCustParam5,
-            this.aCustParam6,
-            this.aCustParam7,
-            this.aCustParam8,
-            this.aCustParam9,
-            this.aCustParam10});
-            this.dgvAggregates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAggregates.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvAggregates.Location = new System.Drawing.Point(3, 3);
-            this.dgvAggregates.Name = "dgvAggregates";
-            this.dgvAggregates.RowHeadersVisible = false;
-            this.dgvAggregates.Size = new System.Drawing.Size(1325, 660);
-            this.dgvAggregates.TabIndex = 1;
-            // 
-            // pnlCorButtons
-            // 
-            this.pnlCorButtons.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pnlCorButtons.Controls.Add(this.btnAggregate);
-            this.pnlCorButtons.Controls.Add(this.btnCorrectors);
-            this.pnlCorButtons.Controls.Add(this.btnOffets);
-            this.pnlCorButtons.Controls.Add(this.splitter3);
-            this.pnlCorButtons.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlCorButtons.Location = new System.Drawing.Point(3, 3);
-            this.pnlCorButtons.Name = "pnlCorButtons";
-            this.pnlCorButtons.Size = new System.Drawing.Size(130, 692);
-            this.pnlCorButtons.TabIndex = 0;
-            // 
-            // btnAggregate
-            // 
-            this.btnAggregate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAggregate.Location = new System.Drawing.Point(5, 232);
-            this.btnAggregate.Name = "btnAggregate";
-            this.btnAggregate.Size = new System.Drawing.Size(120, 52);
-            this.btnAggregate.TabIndex = 6;
-            this.btnAggregate.Text = "Aggregate Parameters";
-            this.btnAggregate.UseVisualStyleBackColor = true;
-            this.btnAggregate.Click += new System.EventHandler(this.btnAggregate_Click);
-            // 
-            // btnCorrectors
-            // 
-            this.btnCorrectors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCorrectors.Location = new System.Drawing.Point(5, 189);
-            this.btnCorrectors.Name = "btnCorrectors";
-            this.btnCorrectors.Size = new System.Drawing.Size(120, 37);
-            this.btnCorrectors.TabIndex = 5;
-            this.btnCorrectors.Text = "Correctors";
-            this.btnCorrectors.UseVisualStyleBackColor = true;
-            this.btnCorrectors.Click += new System.EventHandler(this.btnCorrectors_Click);
-            // 
-            // btnOffets
-            // 
-            this.btnOffets.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOffets.Location = new System.Drawing.Point(5, 146);
-            this.btnOffets.Name = "btnOffets";
-            this.btnOffets.Size = new System.Drawing.Size(120, 37);
-            this.btnOffets.TabIndex = 4;
-            this.btnOffets.Text = "Head Offset";
-            this.btnOffets.UseVisualStyleBackColor = true;
-            this.btnOffets.Click += new System.EventHandler(this.btnOffets_Click);
-            // 
-            // splitter3
-            // 
-            this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter3.Location = new System.Drawing.Point(127, 0);
-            this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(3, 692);
-            this.splitter3.TabIndex = 0;
-            this.splitter3.TabStop = false;
+            this.dgvCorrector.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCorrector_CellBeginEdit);
+            this.dgvCorrector.CurrentCellDirtyStateChanged += new System.EventHandler(this.CorrectorGrids_CurrentCellDirtyStateChanged);
             // 
             // cIndex
             // 
             this.cIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.cIndex.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
+            this.cIndex.DefaultCellStyle = dataGridViewCellStyle7;
             this.cIndex.HeaderText = "";
             this.cIndex.Name = "cIndex";
             this.cIndex.ReadOnly = true;
@@ -2431,11 +2322,69 @@
             this.cCustParam10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cCustParam10.Visible = false;
             // 
+            // tpAggregate
+            // 
+            this.tpAggregate.Controls.Add(this.dgvAggregates);
+            this.tpAggregate.Location = new System.Drawing.Point(4, 22);
+            this.tpAggregate.Name = "tpAggregate";
+            this.tpAggregate.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAggregate.Size = new System.Drawing.Size(1331, 666);
+            this.tpAggregate.TabIndex = 2;
+            this.tpAggregate.Text = "Aggregate";
+            this.tpAggregate.UseVisualStyleBackColor = true;
+            // 
+            // dgvAggregates
+            // 
+            this.dgvAggregates.AllowUserToAddRows = false;
+            this.dgvAggregates.AllowUserToDeleteRows = false;
+            this.dgvAggregates.AllowUserToResizeColumns = false;
+            this.dgvAggregates.AllowUserToResizeRows = false;
+            this.dgvAggregates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAggregates.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.aIndex,
+            this.aCorrectorX,
+            this.aCorrectorY,
+            this.aCorrectorZ,
+            this.aOffsetC,
+            this.aOffsetB,
+            this.aSideMask,
+            this.aCRotationInfo,
+            this.aMaxRPM,
+            this.aDirezionePneumatica,
+            this.aPiston1,
+            this.aPiston2,
+            this.aPiston3,
+            this.aSpindleType,
+            this.aOffset1,
+            this.aOffset2,
+            this.aOffset3,
+            this.aOffset4,
+            this.aOffset5,
+            this.aCustParam1,
+            this.aCustParam2,
+            this.aCustParam3,
+            this.aCustParam4,
+            this.aCustParam5,
+            this.aCustParam6,
+            this.aCustParam7,
+            this.aCustParam8,
+            this.aCustParam9,
+            this.aCustParam10});
+            this.dgvAggregates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAggregates.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvAggregates.Location = new System.Drawing.Point(3, 3);
+            this.dgvAggregates.Name = "dgvAggregates";
+            this.dgvAggregates.RowHeadersVisible = false;
+            this.dgvAggregates.Size = new System.Drawing.Size(1325, 660);
+            this.dgvAggregates.TabIndex = 1;
+            this.dgvAggregates.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvAggregates_CellBeginEdit);
+            this.dgvAggregates.CurrentCellDirtyStateChanged += new System.EventHandler(this.CorrectorGrids_CurrentCellDirtyStateChanged);
+            // 
             // aIndex
             // 
             this.aIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            this.aIndex.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
+            this.aIndex.DefaultCellStyle = dataGridViewCellStyle8;
             this.aIndex.HeaderText = "";
             this.aIndex.Name = "aIndex";
             this.aIndex.ReadOnly = true;
@@ -2620,6 +2569,61 @@
             this.aCustParam10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.aCustParam10.Visible = false;
             // 
+            // pnlCorButtons
+            // 
+            this.pnlCorButtons.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnlCorButtons.Controls.Add(this.btnAggregate);
+            this.pnlCorButtons.Controls.Add(this.btnCorrectors);
+            this.pnlCorButtons.Controls.Add(this.btnOffets);
+            this.pnlCorButtons.Controls.Add(this.splitter3);
+            this.pnlCorButtons.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlCorButtons.Location = new System.Drawing.Point(3, 3);
+            this.pnlCorButtons.Name = "pnlCorButtons";
+            this.pnlCorButtons.Size = new System.Drawing.Size(130, 692);
+            this.pnlCorButtons.TabIndex = 0;
+            // 
+            // btnAggregate
+            // 
+            this.btnAggregate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAggregate.Location = new System.Drawing.Point(5, 232);
+            this.btnAggregate.Name = "btnAggregate";
+            this.btnAggregate.Size = new System.Drawing.Size(120, 52);
+            this.btnAggregate.TabIndex = 6;
+            this.btnAggregate.Text = "Aggregate Parameters";
+            this.btnAggregate.UseVisualStyleBackColor = true;
+            this.btnAggregate.Click += new System.EventHandler(this.btnAggregate_Click);
+            // 
+            // btnCorrectors
+            // 
+            this.btnCorrectors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCorrectors.Location = new System.Drawing.Point(5, 189);
+            this.btnCorrectors.Name = "btnCorrectors";
+            this.btnCorrectors.Size = new System.Drawing.Size(120, 37);
+            this.btnCorrectors.TabIndex = 5;
+            this.btnCorrectors.Text = "Correctors";
+            this.btnCorrectors.UseVisualStyleBackColor = true;
+            this.btnCorrectors.Click += new System.EventHandler(this.btnCorrectors_Click);
+            // 
+            // btnOffets
+            // 
+            this.btnOffets.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnOffets.Location = new System.Drawing.Point(5, 146);
+            this.btnOffets.Name = "btnOffets";
+            this.btnOffets.Size = new System.Drawing.Size(120, 37);
+            this.btnOffets.TabIndex = 4;
+            this.btnOffets.Text = "Head Offset";
+            this.btnOffets.UseVisualStyleBackColor = true;
+            this.btnOffets.Click += new System.EventHandler(this.btnOffets_Click);
+            // 
+            // splitter3
+            // 
+            this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter3.Location = new System.Drawing.Point(127, 0);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(3, 692);
+            this.splitter3.TabIndex = 0;
+            this.splitter3.TabStop = false;
+            // 
             // form_TechnologicalParameters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2728,33 +2732,33 @@
         private System.Windows.Forms.Label lblTCType;
         private System.Windows.Forms.ComboBox cbTCType;
         private System.Windows.Forms.Label lblTCIndex;
-        private System.Windows.Forms.Label lblBladeFeed;
+        private System.Windows.Forms.Label lblBlade_MaxInterpolationFeed;
         private System.Windows.Forms.TextBox tbxBlade_MaxInterpolationFeed;
-        private System.Windows.Forms.Label lblSpeedLateral;
+        private System.Windows.Forms.Label lblInSpeed_LateralHoles;
         private System.Windows.Forms.TextBox tbxInSpeed_LateralHoles;
-        private System.Windows.Forms.Label lblSpeedInserterTool;
+        private System.Windows.Forms.Label lblInSpeed_Inserters;
         private System.Windows.Forms.TextBox tbxInSpeed_Routers;
-        private System.Windows.Forms.Label lblFilletFeed;
+        private System.Windows.Forms.Label lblInsertedFilletFeed;
         private System.Windows.Forms.TextBox tbxInSpeed_Probe;
-        private System.Windows.Forms.Label lblSlowExit;
+        private System.Windows.Forms.Label lblSlowingPercentage_OnExit;
         private System.Windows.Forms.TextBox tbxSlowingPercentage_OnExit;
-        private System.Windows.Forms.Label lblMaxRPMBlade;
+        private System.Windows.Forms.Label lblMaxRPM_Blade;
         private System.Windows.Forms.TextBox tbxMaxRPM_Router;
-        private System.Windows.Forms.Label lblSpeedVertical;
+        private System.Windows.Forms.Label lblInSpeed_VerticalHoles;
         private System.Windows.Forms.TextBox tbxInSpeed_VerticalHoles;
-        private System.Windows.Forms.Label lblSpeedRouter;
+        private System.Windows.Forms.Label lblInSpeed_Routers;
         private System.Windows.Forms.TextBox tbxInSpeed_Blades;
-        private System.Windows.Forms.Label lblSpeedBlade;
+        private System.Windows.Forms.Label lblInSpeed_Blades;
         private System.Windows.Forms.TextBox tbxInSpeed_Inserters;
-        private System.Windows.Forms.Label lblSpeedProbe;
+        private System.Windows.Forms.Label lblInSpeed_Probe;
         private System.Windows.Forms.TextBox tbxInsertedFilletFeed;
-        private System.Windows.Forms.Label lblSlowEntry;
+        private System.Windows.Forms.Label lblSlowingPercentage_OnEntry;
         private System.Windows.Forms.TextBox tbxSlowingPercentage_OnEntry;
-        private System.Windows.Forms.Label lblMaxRPMRouter;
+        private System.Windows.Forms.Label lblMaxRPM_Router;
         private System.Windows.Forms.TextBox tbxMaxRPM_Blade;
-        private System.Windows.Forms.Label lblMaxRPMSpindle;
+        private System.Windows.Forms.Label lblMaxRPM_Spindle;
         private System.Windows.Forms.TextBox tbxMaxRPM_Spindle;
-        private System.Windows.Forms.Label lblRouterFeed;
+        private System.Windows.Forms.Label lblRouters_MaxInterpolationFeed;
         private System.Windows.Forms.TextBox tbxRouters_MaxInterpolationFeed;
         private System.Windows.Forms.TabControl tcWorkField;
         private System.Windows.Forms.TabPage tpWF1;
@@ -2815,37 +2819,37 @@
         private System.Windows.Forms.Label lblR4X;
         private System.Windows.Forms.Label lblN3X;
         private System.Windows.Forms.TextBox tbxN3X;
-        private System.Windows.Forms.Label lblBlade;
+        private System.Windows.Forms.Label lblBlades_Clearance;
         private System.Windows.Forms.TextBox tbxBlades_Clearance;
-        private System.Windows.Forms.Label lblHorDrill;
+        private System.Windows.Forms.Label lblHorizontalDrills_Clearance;
         private System.Windows.Forms.TextBox tbxHorizontalDrills_Clearance;
-        private System.Windows.Forms.Label lblMaxVicesHeight;
+        private System.Windows.Forms.Label lblMaxVices_Height;
         private System.Windows.Forms.TextBox tbxInserterTools_Clearance;
         private System.Windows.Forms.Label lblFreeBackSpace;
         private System.Windows.Forms.TextBox tbxMaxPiece_Height;
         private System.Windows.Forms.Label lblFreeSpaceUnderPod;
         private System.Windows.Forms.TextBox tbxFreeSpaceUnderPod;
-        private System.Windows.Forms.Label lblMinZPos;
+        private System.Windows.Forms.Label lblMinZPosition;
         private System.Windows.Forms.TextBox tbxMaxYPosition;
-        private System.Windows.Forms.Label lblVerDrill;
+        private System.Windows.Forms.Label lblVerticalDrills_Clearance;
         private System.Windows.Forms.TextBox tbxVerticalDrills_Clearance;
-        private System.Windows.Forms.Label lblInserterTool;
+        private System.Windows.Forms.Label lblInserterTools_Clearance;
         private System.Windows.Forms.TextBox tbxMaxStops_Height;
-        private System.Windows.Forms.Label lblMaxStopHeight;
+        private System.Windows.Forms.Label lblMaxStops_Height;
         private System.Windows.Forms.TextBox tbxMaxVices_Height;
-        private System.Windows.Forms.Label lblMaxPieceHeight;
+        private System.Windows.Forms.Label lblMaxPiece_Height;
         private System.Windows.Forms.TextBox tbxFreeBackSpace;
         private System.Windows.Forms.Label lblFreeFrontSpace;
         private System.Windows.Forms.TextBox tbxFreeFrontSpace;
-        private System.Windows.Forms.Label lblMaxYPos;
+        private System.Windows.Forms.Label lblMaxYPosition;
         private System.Windows.Forms.TextBox tbxMinZPosition;
-        private System.Windows.Forms.Label lblMinXLeftPos;
+        private System.Windows.Forms.Label lblMinXLeftPosition;
         private System.Windows.Forms.TextBox tbxMinXLeftPosition;
-        private System.Windows.Forms.Label lblMinZLeftPos;
+        private System.Windows.Forms.Label lblMinZLeftPosition;
         private System.Windows.Forms.TextBox tbxMinZLeftPosition;
-        private System.Windows.Forms.Label lblLateralDrill;
+        private System.Windows.Forms.Label lblLateralDrills_Clearance;
         private System.Windows.Forms.TextBox tbxLateralDrills_Clearance;
-        private System.Windows.Forms.Label lblRouter;
+        private System.Windows.Forms.Label lblRouters_Clearance;
         private System.Windows.Forms.TextBox tbxRouters_Clearance;
         private System.Windows.Forms.TextBox tbxMinHeight;
         private System.Windows.Forms.TextBox tbxHeadZ;

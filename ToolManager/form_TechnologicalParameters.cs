@@ -15,6 +15,7 @@ namespace ToolManager
     {
         #region Variables
         bool changedSystemParameters = false;
+        bool changedGeneralParameters = false;
         bool isLoadSystemParameters = false;
         int lastTCId;
 
@@ -74,7 +75,7 @@ namespace ToolManager
                 if (result == DialogResult.Yes)
                 {
                     bool allChanged = SaveChanges();
-                    if(allChanged)
+                    if (allChanged)
                     {
                         Globals.serviceManager.WriteXml(Globals.EntityTecData);
                         this.Close();
@@ -95,11 +96,15 @@ namespace ToolManager
             // -> Seriliaze işleminde direkt xml' e yazılacak
 
             string errorMsg = Globals.serviceManager.ReadMessage("6", Globals.XmlngToolManager);
+            string errorMsg2 = Globals.serviceManager.ReadMessage("9", Globals.XmlngToolManager);
             // General Parameters
+            if (changedGeneralParameters == false) goto ByPassGeneralParameters;
+
             var airCoordinate = Globals.serviceManager.GetDistanceDimensions(1);
             foreach (var prop in airCoordinate.GetType().GetProperties())
             {
                 var textBox = tpDistanceParams.Controls.Find("tbx" + prop.Name, true).FirstOrDefault() as TextBox;
+                var label = tpDistanceParams.Controls.Find("lbl" + prop.Name, true).FirstOrDefault() as Label;
                 if (textBox != null)
                 {
                     try
@@ -109,7 +114,8 @@ namespace ToolManager
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"{errorMsg.Replace("$(1)",prop.Name)} \n{ex.Message}","ToolManager",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show($"{errorMsg.Replace("$(1)", label.Text)} ({errorMsg2}{textBox.Text}) \r\n{ex.Message}", "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox.Text = prop.GetValue(airCoordinate).ToString();
                         return false;
                     }
                 }
@@ -120,6 +126,7 @@ namespace ToolManager
             foreach (var prop in workingFeed.GetType().GetProperties())
             {
                 var textBox = tpWorkParams.Controls.Find("tbx" + prop.Name, true).FirstOrDefault() as TextBox;
+                var label = tpWorkParams.Controls.Find("lbl" + prop.Name, true).FirstOrDefault() as Label;
                 if (textBox != null)
                 {
                     try
@@ -129,7 +136,8 @@ namespace ToolManager
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"{errorMsg.Replace("$(1)", prop.Name)} \n{ex.Message}", "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"{errorMsg.Replace("$(1)", label.Text)} ({errorMsg2}{textBox.Text}) \r\n{ex.Message}", "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox.Text = prop.GetValue(workingFeed).ToString();
                         return false;
                     }
                 }
@@ -139,19 +147,25 @@ namespace ToolManager
             {
                 var field1 = Globals.serviceManager.GetMachineFields(1, 1);
                 // Hata ayıklama için field name'leri kontrol ederek her işlem için log yazdırma
-                void SetOffset(string fieldName, string xText, string yText)
+                void SetOffset(string fieldName, TextBox xText, TextBox yText)
                 {
                     var field = field1.Field.FirstOrDefault(f => f.FieldName == fieldName);
                     if (field != null)
                     {
+                        var changeValue= 0.0;
                         try
                         {
-                            field.OffsetX = Convert.ToDouble(xText); // xText'i double'a dönüştür
-                            field.OffsetY = Convert.ToDouble(yText); // yText'i double'a dönüştür
+                            changeValue = Convert.ToDouble(xText.Text);
+                            field.OffsetX = changeValue; // xText'i double'a dönüştür
+
+                            changeValue = yText != null ? Convert.ToDouble(yText.Text) : 0;
+                            field.OffsetY = changeValue; // yText'i double'a dönüştür
                         }
                         catch (FormatException)
                         {
-                            throw new FormatException($"{errorMsg.Replace("$(1)", fieldName)}");
+                            xText.Text = field.OffsetX.ToString();
+                            yText.Text = field.OffsetY.ToString();
+                            throw new FormatException($"{errorMsg.Replace("$(1)", fieldName)} ({errorMsg2}{changeValue})");
                         }
                     }
                     else
@@ -161,14 +175,14 @@ namespace ToolManager
                 }
 
                 // FieldName'lere göre işlemleri yap
-                SetOffset("N", tbxN1X.Text, tbxN1Y.Text);
-                SetOffset("T", tbxT1X.Text, tbxT1Y.Text);
-                SetOffset("M", tbxM1X.Text, tbxM1Y.Text);
-                SetOffset("A", tbxA1X.Text, tbxA1Y.Text);
-                SetOffset("N2", tbxN2X.Text, "0"); // Örnek olarak yText için '0' kullanıldı
-                SetOffset("T2", tbxT2X.Text, "0");
-                SetOffset("A2", tbxA2X.Text, "0");
-                SetOffset("M2", tbxR2X.Text, "0");
+                SetOffset("N", tbxN1X, tbxN1Y);
+                SetOffset("T", tbxT1X, tbxT1Y);
+                SetOffset("M", tbxM1X, tbxM1Y);
+                SetOffset("A", tbxA1X, tbxA1Y);
+                SetOffset("N2", tbxN2X, null); // Örnek olarak yText için '0' kullanıldı
+                SetOffset("T2", tbxT2X, null);
+                SetOffset("A2", tbxA2X, null);
+                SetOffset("M2", tbxR2X, null);
                 field1.PushingReference = Convert.ToInt32(rBtnPushReff.Checked);
                 field1.MirrorOnNormalFieldReference = Convert.ToInt32(cbxMirrorOnNormalFieldReference.Checked);
                 field1.NormalOnMirrorFieldReference = Convert.ToInt32(cbxNormalOnMirrorFieldReference.Checked);
@@ -190,19 +204,26 @@ namespace ToolManager
             {
                 var field2 = Globals.serviceManager.GetMachineFields(1, 2);
                 // Hata ayıklama için field name'leri kontrol ederek her işlem için log yazdırma
-                void SetOffset(string fieldName, string xText, string yText)
+                void SetOffset(string fieldName, TextBox xText, TextBox yText)
                 {
                     var field = field2.Field.FirstOrDefault(f => f.FieldName == fieldName);
                     if (field != null)
                     {
+                        var changeValue = 0.0;
+
                         try
                         {
-                            field.OffsetX = Convert.ToDouble(xText); // xText'i double'a dönüştür
-                            field.OffsetY = Convert.ToDouble(yText); // yText'i double'a dönüştür
+                            changeValue = Convert.ToDouble(xText.Text);
+                            field.OffsetX = changeValue; // xText'i double'a dönüştür
+
+                            changeValue = yText != null ? Convert.ToDouble(yText.Text) : 0;
+                            field.OffsetY = changeValue; // yText'i double'a dönüştür
                         }
                         catch (FormatException)
                         {
-                            throw new FormatException($"{errorMsg.Replace("$(1)", fieldName)}");
+                            xText.Text = field.OffsetX.ToString();
+                            yText.Text = field.OffsetY.ToString();
+                            throw new FormatException($"{errorMsg.Replace("$(1)", fieldName)} ({errorMsg2}{changeValue})");
                         }
                     }
                     else
@@ -212,14 +233,14 @@ namespace ToolManager
                 }
 
                 // FieldName'lere göre işlemleri yap
-                SetOffset("N", tbxN3X.Text, tbxN3Y.Text);
-                SetOffset("T", tbxT3X.Text, tbxT3Y.Text);
-                SetOffset("M", tbxM3X.Text, tbxM3Y.Text);
-                SetOffset("A", tbxA3X.Text, tbxA3Y.Text);
-                SetOffset("N2", tbxN4X.Text, "0"); // Örnek olarak yText için '0' kullanıldı
-                SetOffset("T2", tbxT4X.Text, "0");
-                SetOffset("A2", tbxA4X.Text, "0");
-                SetOffset("M2", tbxR4X.Text, "0");
+                SetOffset("N", tbxN3X, tbxN3Y);
+                SetOffset("T", tbxT3X, tbxT3Y);
+                SetOffset("M", tbxM3X, tbxM3Y);
+                SetOffset("A", tbxA3X, tbxA3Y);
+                SetOffset("N2", tbxN4X, null); // Örnek olarak yText için '0' kullanıldı
+                SetOffset("T2", tbxT4X, null);
+                SetOffset("A2", tbxA4X, null);
+                SetOffset("M2", tbxR4X, null);
                 field2.PushingReference = Convert.ToInt32(rBtnPushReff2.Checked);
                 field2.MirrorOnNormalFieldReference = Convert.ToInt32(cbxMirrorOnNormalFieldReference2.Checked);
                 field2.NormalOnMirrorFieldReference = Convert.ToInt32(cbxNormalOnMirrorFieldReference2.Checked);
@@ -236,14 +257,26 @@ namespace ToolManager
                 MessageBox.Show($"Beklenmeyen hata: {ex.Message}");
                 return false;
             }
-      
+
+        ByPassGeneralParameters:;
+
             // Correctors
             // -> Offset bilgileri(Head Offset) güncelle
+            headOffsetValueError = false;
             var headOffset = Globals.serviceManager.GetMachineHeadOffsets(1, 1);
-            headOffset.OffsetXHead = Convert.ToDouble(tbxHeadX.Text);
-            headOffset.OffsetYHead = Convert.ToDouble(tbxHeadY.Text);
-            headOffset.OffsetZHead = Convert.ToDouble(tbxHeadZ.Text);
-            headOffset.MinimumHeadHeight = Convert.ToDouble(tbxMinHeight.Text);
+
+            headOffset.OffsetXHead = ConvertToDouble(tbxHeadX.Text, lblHeadX.Text, headOffset.OffsetXHead);
+            if (headOffsetValueError) { tbxHeadX.Text = headOffset.OffsetXHead.ToString(); return false; }
+
+            headOffset.OffsetYHead = ConvertToDouble(tbxHeadY.Text, lblHeadY.Text, headOffset.OffsetYHead);
+            if (headOffsetValueError) { tbxHeadY.Text = headOffset.OffsetYHead.ToString(); return false; }
+
+            headOffset.OffsetZHead = ConvertToDouble(tbxHeadZ.Text, lblHeadZ.Text, headOffset.OffsetZHead);
+            if (headOffsetValueError) { tbxHeadZ.Text = headOffset.OffsetZHead.ToString(); return false; }
+
+            headOffset.MinimumHeadHeight = ConvertToDouble(tbxMinHeight.Text, lblMinHeight.Text, headOffset.MinimumHeadHeight);
+            if (headOffsetValueError) { tbxMinHeight.Text = headOffset.MinimumHeadHeight.ToString(); return false; }
+
 
             // -> Mil Düzelticilerini(Spindle) güncelle
             var spindles = Globals.serviceManager.GetCorrectors();
@@ -263,11 +296,11 @@ namespace ToolManager
                 // Reflection ile propertyleri dinamik olarak güncelle
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    string columnName = dgvCorrector.Columns[cell.ColumnIndex].Name;
+                    string columnName = dgvCorrector.Columns[cell.ColumnIndex].Name.Remove(0, 1);
 
                     // Property adlarını dinamik olarak eşleştir
                     var property = typeof(Spindle).GetProperties()
-                        .FirstOrDefault(p => p.Name.Equals(columnName.Replace("c", ""), StringComparison.OrdinalIgnoreCase));
+                       .FirstOrDefault(p => p.Name.Equals(columnName, StringComparison.OrdinalIgnoreCase));
 
                     if (property != null && cell.Value != null)
                     {
@@ -285,66 +318,38 @@ namespace ToolManager
             }
 
             // 0 değerine sahip spindles'ları kaldır
-            spindles.RemoveAll(spindle => spindle.CorrectorX == 0 &&
-                                          spindle.CorrectorY == 0 &&
-                                          spindle.CorrectorZ == 0 &&
-                                          spindle.ToolChangeNumber == 0 &&
-                                          spindle.RelativeAggregate == 0);
-
+            // Z bilgisi 0 ise veya (Takım Yeri ve Aggrega Numarası) 0 ise Besleme parametrelerinde gösterilmeyecek
+            spindles.RemoveAll(s => s.GetType().GetProperties().All(p => Convert.ToDouble(p.GetValue(s) ?? 0) == 0));
+            
+            
             // -> Aggregate Parametlerini güncelle
             var aggregates = Globals.serviceManager.GetAggregates();
             bool isAddAggregateList = false; // Spindle nesnesi listeye eklensin mi?
-            for (int i = 0; i < changeAggregateIndexes.Count; i++)
+            foreach (int index in changeAggregateIndexes)
             {
-                int index = changeAggregateIndexes[i];
-
                 var existAggregate = aggregates.FirstOrDefault(s => s.Index == index + 1);
                 DataGridViewRow row = dgvAggregates.Rows[index];
 
                 if (existAggregate == null)
                 {
-                    existAggregate = new Aggregate();
-                    existAggregate.Index = index + 1;
-
+                    existAggregate = new Aggregate { Index = index + 1 };
                     isAddAggregateList = true;
                 }
 
+                // Reflection ile propertyleri dinamik olarak güncelle
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    string columnName = dgvAggregates.Columns[cell.ColumnIndex].Name;
+                    string columnName = dgvAggregates.Columns[cell.ColumnIndex].Name.Remove(0, 1);
 
-                    switch (columnName)
+                    // Property adlarını dinamik olarak eşleştir
+                    var property = typeof(Aggregate).GetProperties()
+                       .FirstOrDefault(p => p.Name.Equals(columnName, StringComparison.OrdinalIgnoreCase));
+
+                    if (property != null && cell.Value != null)
                     {
-                        case "aCorrectorX": existAggregate.CorrectorX = (double)cell.Value; break;
-                        case "aCorrectorY": existAggregate.CorrectorY = (double)cell.Value; break;
-                        case "aCorrectorZ": existAggregate.CorrectorZ = (double)cell.Value; break;
-                        case "aOffsetC": existAggregate.OffsetC = (double)cell.Value; break;
-                        case "aOffsetB": existAggregate.OffsetB = (double)cell.Value; break;
-                        case "aSideMask": existAggregate.SideMask = (int)cell.Value; break;
-                        case "aCRotationInfo": existAggregate.CRotationInfo = (int)cell.Value; break;
-                        case "aMaxRpm": existAggregate.MaxRPM = (int)cell.Value; break;
-                        case "aDirPnematic": existAggregate.DirezionePneumatica = (int)cell.Value; break;
-                        case "aPiston1": existAggregate.Piston1 = (double)cell.Value; break;
-                        case "aPiston2": existAggregate.Piston2 = (double)cell.Value; break;
-                        case "aPiston3": existAggregate.Piston3 = (double)cell.Value; break;
-                        case "aSpindleType": existAggregate.SpindleType = (int)cell.Value; break;
-                        case "aOffset1": existAggregate.Offset1 = (double)cell.Value; break;
-                        case "aOffset2": existAggregate.Offset2 = (double)cell.Value; break;
-                        case "aOffset3": existAggregate.Offset3 = (double)cell.Value; break;
-                        case "aOffset4": existAggregate.Offset4 = (double)cell.Value; break;
-                        case "aOffset5": existAggregate.Offset5 = (double)cell.Value; break;
-                        case "cCustParam1": existAggregate.CustParam1 = (double)cell.Value; break;
-                        case "cCustParam2": existAggregate.CustParam2 = (double)cell.Value; break;
-                        case "cCustParam3": existAggregate.CustParam3 = (double)cell.Value; break;
-                        case "cCustParam4": existAggregate.CustParam4 = (double)cell.Value; break;
-                        case "cCustParam5": existAggregate.CustParam5 = (double)cell.Value; break;
-                        case "cCustParam6": existAggregate.CustParam6 = (double)cell.Value; break;
-                        case "cCustParam7": existAggregate.CustParam7 = (double)cell.Value; break;
-                        case "cCustParam8": existAggregate.CustParam8 = (double)cell.Value; break;
-                        case "cCustParam9": existAggregate.CustParam9 = (double)cell.Value; break;
-                        case "cCustParam10": existAggregate.CustParam10 = (double)cell.Value; break;
-                        default:
-                            break;
+                        // Value'yu uygun tipe dönüştür ve property'yi güncelle
+                        var convertedValue = Convert.ChangeType(cell.Value, property.PropertyType);
+                        property.SetValue(existAggregate, convertedValue);
                     }
                 }
 
@@ -355,25 +360,43 @@ namespace ToolManager
                 }
             }
 
-            aggregates.RemoveAll(aggregate => aggregate.CorrectorX == 0 &&
-                                              aggregate.CorrectorY == 0 &&
-                                              aggregate.CorrectorZ == 0 &&
-                                              aggregate.SideMask == 0);
+            // 0 değerine sahip spindles'ları kaldır
+            // Z bilgisi 0 ise veya (Takım Yeri ve Aggrega Numarası) 0 ise Besleme parametrelerinde gösterilmeyecek
+            aggregates.RemoveAll(a =>
+                                 a.GetType() // Aggregate Nesnesini aldı
+                                  .GetProperties() // Ona ait tüm propertylerine ulaştı
+                                  .All(p => Convert.ToDouble(p.GetValue(a) ?? 0) == 0)); // Tüm değerlerin 0 ise true döndürür.
 
             return true;
         }
 
+        bool headOffsetValueError = false;
+        private double ConvertToDouble(string text, string controlName, double exValue)
+        {
+            string errorMsg = Globals.serviceManager.ReadMessage("6", Globals.XmlngToolManager);
+            string errorMsg2 = Globals.serviceManager.ReadMessage("9", Globals.XmlngToolManager);
+            if (double.TryParse(text, out double result))
+            {
+                return result;
+            }
+            else
+            {
+                MessageBox.Show($"{errorMsg.Replace("$(1)", controlName)} ({errorMsg2}{text})", "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                headOffsetValueError = true;
+                return exValue;
+            }
+        }
 
         private void pbSave_Click(object sender, EventArgs e)
         {
             bool allChanged = SaveChanges();
-            if(allChanged)
+            if (allChanged)
             {
                 Globals.serviceManager.WriteXml(Globals.EntityTecData);
                 Globals.serviceManager.BackupChangers();
                 pbSave.Enabled = false;
 
-                MessageBox.Show(Globals.serviceManager.ReadMessage("7",Globals.XmlngToolManager), "ToolManager", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(Globals.serviceManager.ReadMessage("7", Globals.XmlngToolManager), "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         #endregion
@@ -453,6 +476,14 @@ namespace ToolManager
         }
         private void nudTcId_ValueChanged(object sender, EventArgs e)
         {
+            if (nudTcId.Value == lastTCId) return;
+            if(!CheckValuesToolChanger())
+            {
+                MessageBox.Show(Globals.serviceManager.ReadMessage("10",Globals.XmlngToolManager),"ToolManager",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                nudTcId.Value = lastTCId;
+                return;
+            }
+
             if (changedSystemParameters)
             {
                 ChangeValuesToolChanger();
@@ -486,6 +517,22 @@ namespace ToolManager
 
             changedSystemParameters = false;
             pbSave.Enabled = true;
+        }
+
+        private bool CheckValuesToolChanger()
+        {
+            if (string.IsNullOrEmpty(tbxNumberBush.Text)) return false;
+            if (string.IsNullOrEmpty(tbxFulcrumX.Text)) return false;
+            if (string.IsNullOrEmpty(tbxFulcrumY.Text)) return false;
+            if (string.IsNullOrEmpty(tbxDeltaX.Text)) return false;
+            if (string.IsNullOrEmpty(tbxDeltaY.Text)) return false;
+            if (string.IsNullOrEmpty(tbxPosX.Text)) return false;
+            if (string.IsNullOrEmpty(tbxPosY.Text)) return false;
+            if (string.IsNullOrEmpty(tbxPosZ.Text)) return false;
+            if (string.IsNullOrEmpty(tbxLoadTime.Text)) return false;
+            if (string.IsNullOrEmpty(tbxUnloadTime.Text)) return false;
+
+            return true;
         }
 
         private void chkWithBench_CheckedChanged(object sender, EventArgs e)
@@ -536,9 +583,28 @@ namespace ToolManager
         {
             if (isLoadSystemParameters) return;
 
-            ChangeValuesToolChanger();
-    
-            changedSystemParameters = true;        
+            string name = (sender as TextBox).Name;
+            string value = (sender as TextBox).Text;
+
+            if (string.IsNullOrEmpty(value)) return;
+
+            if(double.TryParse(value, out double temp))
+            {
+                ChangeValuesToolChanger();
+
+                changedSystemParameters = true;
+            }
+            else
+            {
+                string errorMsg = Globals.serviceManager.ReadMessage("6", Globals.XmlngToolManager);
+                name = name.Replace("tbx","lbl");
+                Control label = tpSystemParams.Controls.Find(name, true)[0] as Label;
+                MessageBox.Show($"{errorMsg.Replace("$(1)", label.Text)}", "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                (sender as TextBox).Text = value.Remove(value.Length - 1, 1);
+                (sender as TextBox).SelectionStart = (sender as TextBox).Text.Length;
+                (sender as TextBox).SelectionLength = 0;
+            }
+            
         }
 
         private void cbTCType_SelectedIndexChanged(object sender, EventArgs e)
@@ -590,39 +656,39 @@ namespace ToolManager
             btnWorkField.Text = tpWF1.Text = XmlFileRead.LanguageRead("4548", Globals.CurLang, Globals.XmlngTecnoManager);
             tpWF2.Text = XmlFileRead.LanguageRead("4548", Globals.CurLang, Globals.XmlngTecnoManager) + " 1";
 
-            lblRouterFeed.Text = XmlFileRead.LanguageRead("4700", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblBladeFeed.Text = XmlFileRead.LanguageRead("4701", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblSpeedLateral.Text = XmlFileRead.LanguageRead("4702", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblSpeedVertical.Text = XmlFileRead.LanguageRead("4703", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblSpeedRouter.Text = XmlFileRead.LanguageRead("4704", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblSpeedBlade.Text = XmlFileRead.LanguageRead("4705", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblSpeedInserterTool.Text = XmlFileRead.LanguageRead("4706", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblSpeedProbe.Text = XmlFileRead.LanguageRead("4707", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblFilletFeed.Text = XmlFileRead.LanguageRead("4708", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblSlowEntry.Text = XmlFileRead.LanguageRead("4709", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblSlowExit.Text = XmlFileRead.LanguageRead("4710", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMaxRPMRouter.Text = XmlFileRead.LanguageRead("4711", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMaxRPMSpindle.Text = XmlFileRead.LanguageRead("4712", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMaxRPMBlade.Text = XmlFileRead.LanguageRead("4713", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblRouters_MaxInterpolationFeed.Text = XmlFileRead.LanguageRead("4700", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblBlade_MaxInterpolationFeed.Text = XmlFileRead.LanguageRead("4701", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblInSpeed_LateralHoles.Text = XmlFileRead.LanguageRead("4702", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblInSpeed_VerticalHoles.Text = XmlFileRead.LanguageRead("4703", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblInSpeed_Routers.Text = XmlFileRead.LanguageRead("4704", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblInSpeed_Blades.Text = XmlFileRead.LanguageRead("4705", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblInSpeed_Inserters.Text = XmlFileRead.LanguageRead("4706", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblInSpeed_Probe.Text = XmlFileRead.LanguageRead("4707", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblInsertedFilletFeed.Text = XmlFileRead.LanguageRead("4708", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblSlowingPercentage_OnEntry.Text = XmlFileRead.LanguageRead("4709", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblSlowingPercentage_OnExit.Text = XmlFileRead.LanguageRead("4710", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMaxRPM_Router.Text = XmlFileRead.LanguageRead("4711", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMaxRPM_Spindle.Text = XmlFileRead.LanguageRead("4712", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMaxRPM_Blade.Text = XmlFileRead.LanguageRead("4713", Globals.CurLang, Globals.XmlngTecnoManager);
             btnWorkFeed.Text = XmlFileRead.LanguageRead("4714", Globals.CurLang, Globals.XmlngTecnoManager);
 
-            lblRouter.Text = XmlFileRead.LanguageRead("4400", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblBlade.Text = XmlFileRead.LanguageRead("4401", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblHorDrill.Text = XmlFileRead.LanguageRead("4402", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblLateralDrill.Text = XmlFileRead.LanguageRead("4403", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblVerDrill.Text = XmlFileRead.LanguageRead("4404", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblInserterTool.Text = XmlFileRead.LanguageRead("4405", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMaxStopHeight.Text = XmlFileRead.LanguageRead("4406", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMaxVicesHeight.Text = XmlFileRead.LanguageRead("4407", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblRouters_Clearance.Text = XmlFileRead.LanguageRead("4400", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblBlades_Clearance.Text = XmlFileRead.LanguageRead("4401", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblHorizontalDrills_Clearance.Text = XmlFileRead.LanguageRead("4402", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblLateralDrills_Clearance.Text = XmlFileRead.LanguageRead("4403", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblVerticalDrills_Clearance.Text = XmlFileRead.LanguageRead("4404", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblInserterTools_Clearance.Text = XmlFileRead.LanguageRead("4405", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMaxStops_Height.Text = XmlFileRead.LanguageRead("4406", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMaxVices_Height.Text = XmlFileRead.LanguageRead("4407", Globals.CurLang, Globals.XmlngTecnoManager);
             btnDistDim.Text = XmlFileRead.LanguageRead("4410", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMaxPieceHeight.Text = XmlFileRead.LanguageRead("4411", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMaxPiece_Height.Text = XmlFileRead.LanguageRead("4411", Globals.CurLang, Globals.XmlngTecnoManager);
             lblFreeBackSpace.Text = XmlFileRead.LanguageRead("4412", Globals.CurLang, Globals.XmlngTecnoManager);
             lblFreeFrontSpace.Text = XmlFileRead.LanguageRead("4413", Globals.CurLang, Globals.XmlngTecnoManager);
             lblFreeSpaceUnderPod.Text = XmlFileRead.LanguageRead("4414", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMaxYPos.Text = XmlFileRead.LanguageRead("4415", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMinZPos.Text = XmlFileRead.LanguageRead("4416", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMinXLeftPos.Text = XmlFileRead.LanguageRead("4417", Globals.CurLang, Globals.XmlngTecnoManager);
-            lblMinZLeftPos.Text = XmlFileRead.LanguageRead("4418", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMaxYPosition.Text = XmlFileRead.LanguageRead("4415", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMinZPosition.Text = XmlFileRead.LanguageRead("4416", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMinXLeftPosition.Text = XmlFileRead.LanguageRead("4417", Globals.CurLang, Globals.XmlngTecnoManager);
+            lblMinZLeftPosition.Text = XmlFileRead.LanguageRead("4418", Globals.CurLang, Globals.XmlngTecnoManager);
         }
 
         private void LoadGeneralParamValues()
@@ -705,9 +771,10 @@ namespace ToolManager
 
         private void GeneralParametersTextbox_TextChanged(object sender, EventArgs e)
         {
-            if( !isLoadGeneralParameters )
+            if (!isLoadGeneralParameters)
             {
                 pbSave.Enabled = true;
+                changedGeneralParameters = true;
             }
         }
 
@@ -716,6 +783,7 @@ namespace ToolManager
             if (!isLoadGeneralParameters)
             {
                 pbSave.Enabled = true;
+                changedGeneralParameters = true;
             }
         }
 
@@ -724,6 +792,7 @@ namespace ToolManager
             if (!isLoadGeneralParameters)
             {
                 pbSave.Enabled = true;
+                changedGeneralParameters = true;
             }
         }
 
@@ -1012,6 +1081,15 @@ namespace ToolManager
         }
         private void dgvCorrector_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if(!double.TryParse(dgvCorrector.CurrentCell.Value.ToString(), out double temp))
+            {
+                string errorMsg = Globals.serviceManager.ReadMessage("6", Globals.XmlngToolManager);
+                string errorMsg2 = Globals.serviceManager.ReadMessage("9", Globals.XmlngToolManager);
+                MessageBox.Show($"{errorMsg.Replace("$(1)", dgvCorrector.Columns[e.ColumnIndex].HeaderText)} ({errorMsg2} {dgvCorrector.CurrentCell.Value})", "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dgvCorrector.CurrentCell.Value = ExValue;
+                return;
+            }
+
             if (!changeCorrectorIndexes.Contains(e.RowIndex))
             {
                 changeCorrectorIndexes.Add(e.RowIndex);
@@ -1021,6 +1099,15 @@ namespace ToolManager
         }
         private void dgvAggregate_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (!double.TryParse(dgvAggregates.CurrentCell.Value.ToString(), out double temp))
+            {
+                string errorMsg = Globals.serviceManager.ReadMessage("6", Globals.XmlngToolManager);
+                string errorMsg2 = Globals.serviceManager.ReadMessage("9", Globals.XmlngToolManager);
+                MessageBox.Show($"{errorMsg.Replace("$(1)", dgvAggregates.Columns[e.ColumnIndex].HeaderText)} ({errorMsg2}{dgvAggregates.CurrentCell.Value})", "ToolManager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dgvAggregates.CurrentCell.Value = ExValue;
+                return;
+            }
+
             if (!changeAggregateIndexes.Contains(e.RowIndex))
             {
                 changeAggregateIndexes.Add(e.RowIndex);
@@ -1029,13 +1116,49 @@ namespace ToolManager
         }
         private void HeadOffsetTextbox_TextChanged(object sender, EventArgs e)
         {
-            if(!isLoadHeadOffset)
+            if (!isLoadHeadOffset)
             {
                 pbSave.Enabled = true;
             }
         }
+
         #endregion
 
+        string ExValue;
+        private void dgvCorrector_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            ExValue = dgvCorrector.CurrentCell.Value.ToString();
+        }
 
+        private void dgvAggregates_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            ExValue = dgvCorrector.CurrentCell.Value.ToString();
+        }
+
+        private void CorrectorGrids_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            DataGridView dgv = (sender as DataGridView);
+            if (dgv.IsCurrentCellDirty)
+            {
+                dgv.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+                if (dgv.Name == "dgvCorrector")
+                {
+                    if (!changeCorrectorIndexes.Contains(dgv.CurrentRow.Index))
+                    {
+                        changeCorrectorIndexes.Add(dgv.CurrentRow.Index);
+                        pbSave.Enabled = true;
+                    }
+                }
+                else
+                {
+                    if (!changeAggregateIndexes.Contains(dgv.CurrentRow.Index))
+                    {
+                        changeAggregateIndexes.Add(dgv.CurrentRow.Index);
+                        pbSave.Enabled = true;
+                    }
+                }
+            }
+        }
     }
 }

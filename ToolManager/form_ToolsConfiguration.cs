@@ -20,7 +20,7 @@ namespace ToolManager
         List<Node> toolsTree;
         private void form_ToolsConfiguration_Load(object sender, EventArgs e)
         {
-            lblFormTitle.Text = Globals.serviceManager.ReadMessage("1019",Globals.XmlngTecnoManager);
+            lblFormTitle.Text = Globals.serviceManager.ReadMessage("1019", Globals.XmlngTecnoManager);
             toolsTree = Globals.serviceManager.GetToolTree();
             LoadToolTree(toolsTree);
         }
@@ -93,13 +93,18 @@ namespace ToolManager
 
         private void twToolTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (isClickedChekbox) { isClickedChekbox = false; return; }
+            TreeViewHitTestInfo hit = twToolTree.HitTest(e.Location);
 
-            if (e.Node.IsExpanded)
-                e.Node.Collapse();
-            else
-                e.Node.Expand();
+            // Sadece label kısmına tıklanmışsa çalışsın
+            if (hit.Location == TreeViewHitTestLocations.Label)
+            {
+                if (isClickedChekbox) { isClickedChekbox = false; return; }
 
+                if (e.Node.IsExpanded)
+                    e.Node.Collapse();
+                else
+                    e.Node.Expand();
+            }
         }
     }
 }

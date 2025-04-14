@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_ToolManager));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTools = new System.Windows.Forms.Panel();
             this.pnlToolDashBoard = new System.Windows.Forms.Panel();
             this.pbConfigureTools = new System.Windows.Forms.PictureBox();
@@ -51,67 +51,83 @@
             this.Max = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Field = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlToolEdit = new System.Windows.Forms.Panel();
+            this.pbToolInfo = new System.Windows.Forms.PictureBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.pbEditCancel = new System.Windows.Forms.PictureBox();
             this.pbEditOK = new System.Windows.Forms.PictureBox();
             this.pnlFeedUnit = new System.Windows.Forms.Panel();
             this.gbTool15 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool15 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool15 = new System.Windows.Forms.PictureBox();
             this.pbShowTool15 = new System.Windows.Forms.PictureBox();
             this.cbTool15 = new System.Windows.Forms.ComboBox();
             this.gbTool12 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool12 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool12 = new System.Windows.Forms.PictureBox();
             this.pbShowTool12 = new System.Windows.Forms.PictureBox();
             this.cbTool12 = new System.Windows.Forms.ComboBox();
             this.gbTool14 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool14 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool14 = new System.Windows.Forms.PictureBox();
             this.pbShowTool14 = new System.Windows.Forms.PictureBox();
             this.cbTool14 = new System.Windows.Forms.ComboBox();
             this.gbTool9 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool9 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool9 = new System.Windows.Forms.PictureBox();
             this.pbShowTool9 = new System.Windows.Forms.PictureBox();
             this.cbTool9 = new System.Windows.Forms.ComboBox();
             this.gbTool13 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool13 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool13 = new System.Windows.Forms.PictureBox();
             this.pbShowTool13 = new System.Windows.Forms.PictureBox();
             this.cbTool13 = new System.Windows.Forms.ComboBox();
             this.gbTool11 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool11 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool11 = new System.Windows.Forms.PictureBox();
             this.pbShowTool11 = new System.Windows.Forms.PictureBox();
             this.cbTool11 = new System.Windows.Forms.ComboBox();
             this.gbTool6 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool6 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool6 = new System.Windows.Forms.PictureBox();
             this.pbShowTool6 = new System.Windows.Forms.PictureBox();
             this.cbTool6 = new System.Windows.Forms.ComboBox();
             this.gbTool10 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool10 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool10 = new System.Windows.Forms.PictureBox();
             this.pbShowTool10 = new System.Windows.Forms.PictureBox();
             this.cbTool10 = new System.Windows.Forms.ComboBox();
             this.gbTool8 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool8 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool8 = new System.Windows.Forms.PictureBox();
             this.pbShowTool8 = new System.Windows.Forms.PictureBox();
             this.cbTool8 = new System.Windows.Forms.ComboBox();
             this.gbTool3 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool3 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool3 = new System.Windows.Forms.PictureBox();
             this.pbShowTool3 = new System.Windows.Forms.PictureBox();
             this.cbTool3 = new System.Windows.Forms.ComboBox();
             this.gbTool7 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool7 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool7 = new System.Windows.Forms.PictureBox();
             this.pbShowTool7 = new System.Windows.Forms.PictureBox();
             this.cbTool7 = new System.Windows.Forms.ComboBox();
             this.gbTool5 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool5 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool5 = new System.Windows.Forms.PictureBox();
             this.pbShowTool5 = new System.Windows.Forms.PictureBox();
             this.cbTool5 = new System.Windows.Forms.ComboBox();
             this.gbTool2 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool2 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool2 = new System.Windows.Forms.PictureBox();
             this.pbShowTool2 = new System.Windows.Forms.PictureBox();
             this.cbTool2 = new System.Windows.Forms.ComboBox();
             this.gbTool4 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool4 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool4 = new System.Windows.Forms.PictureBox();
             this.pbShowTool4 = new System.Windows.Forms.PictureBox();
             this.cbTool4 = new System.Windows.Forms.ComboBox();
             this.gbTool1 = new System.Windows.Forms.GroupBox();
+            this.pbSideTool1 = new System.Windows.Forms.PictureBox();
             this.pbPlaceTool1 = new System.Windows.Forms.PictureBox();
             this.pbShowTool1 = new System.Windows.Forms.PictureBox();
             this.cbTool1 = new System.Windows.Forms.ComboBox();
@@ -124,7 +140,6 @@
             this.lblAppTitle = new System.Windows.Forms.Label();
             this.pbMinimize = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
-            this.pbToolInfo = new System.Windows.Forms.PictureBox();
             this.pnlTools.SuspendLayout();
             this.pnlToolDashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfigureTools)).BeginInit();
@@ -139,52 +154,68 @@
             this.pnlToolInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvToolInfo)).BeginInit();
             this.pnlToolEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToolInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditOK)).BeginInit();
             this.pnlFeedUnit.SuspendLayout();
             this.gbTool15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool15)).BeginInit();
             this.gbTool12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool12)).BeginInit();
             this.gbTool14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool14)).BeginInit();
             this.gbTool9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool9)).BeginInit();
             this.gbTool13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool13)).BeginInit();
             this.gbTool11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool11)).BeginInit();
             this.gbTool6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool6)).BeginInit();
             this.gbTool10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool10)).BeginInit();
             this.gbTool8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool8)).BeginInit();
             this.gbTool3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool3)).BeginInit();
             this.gbTool7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool7)).BeginInit();
             this.gbTool5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool5)).BeginInit();
             this.gbTool2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool2)).BeginInit();
             this.gbTool4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool4)).BeginInit();
             this.gbTool1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool1)).BeginInit();
             this.pnlFeedUnitHeader.SuspendLayout();
@@ -193,7 +224,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbToolInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTools
@@ -294,6 +324,7 @@
             this.twTools.ShowNodeToolTips = true;
             this.twTools.Size = new System.Drawing.Size(292, 444);
             this.twTools.TabIndex = 0;
+            this.twTools.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.twTools_ItemDrag);
             this.twTools.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.twTools_AfterSelect);
             this.twTools.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.twTools_NodeMouseDoubleClick);
             // 
@@ -380,14 +411,14 @@
             this.Min,
             this.Max,
             this.Field});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvToolInfo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvToolInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvToolInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvToolInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvToolInfo.Location = new System.Drawing.Point(0, 0);
@@ -450,6 +481,18 @@
             this.pnlToolEdit.Size = new System.Drawing.Size(340, 63);
             this.pnlToolEdit.TabIndex = 0;
             // 
+            // pbToolInfo
+            // 
+            this.pbToolInfo.Image = ((System.Drawing.Image)(resources.GetObject("pbToolInfo.Image")));
+            this.pbToolInfo.Location = new System.Drawing.Point(9, 7);
+            this.pbToolInfo.Name = "pbToolInfo";
+            this.pbToolInfo.Size = new System.Drawing.Size(50, 50);
+            this.pbToolInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbToolInfo.TabIndex = 3;
+            this.pbToolInfo.TabStop = false;
+            this.pbToolInfo.Visible = false;
+            this.pbToolInfo.Click += new System.EventHandler(this.pbToolInfo_Click);
+            // 
             // splitter1
             // 
             this.splitter1.Cursor = System.Windows.Forms.Cursors.HSplit;
@@ -511,6 +554,7 @@
             // gbTool15
             // 
             this.gbTool15.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool15.Controls.Add(this.pbSideTool15);
             this.gbTool15.Controls.Add(this.pbPlaceTool15);
             this.gbTool15.Controls.Add(this.pbShowTool15);
             this.gbTool15.Controls.Add(this.cbTool15);
@@ -523,11 +567,21 @@
             this.gbTool15.Text = "Tool 15";
             this.gbTool15.Visible = false;
             // 
+            // pbSideTool15
+            // 
+            this.pbSideTool15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool15.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool15.Name = "pbSideTool15";
+            this.pbSideTool15.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool15.TabIndex = 6;
+            this.pbSideTool15.TabStop = false;
+            // 
             // pbPlaceTool15
             // 
             this.pbPlaceTool15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool15.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool15.Image")));
-            this.pbPlaceTool15.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool15.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool15.Name = "pbPlaceTool15";
             this.pbPlaceTool15.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -539,7 +593,7 @@
             // 
             this.pbShowTool15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool15.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool15.Image")));
-            this.pbShowTool15.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool15.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool15.Name = "pbShowTool15";
             this.pbShowTool15.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -549,6 +603,7 @@
             // 
             // cbTool15
             // 
+            this.cbTool15.AllowDrop = true;
             this.cbTool15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool15.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool15.FormattingEnabled = true;
@@ -558,10 +613,13 @@
             this.cbTool15.TabIndex = 3;
             this.cbTool15.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool15.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool15.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool15.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool12
             // 
             this.gbTool12.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool12.Controls.Add(this.pbSideTool12);
             this.gbTool12.Controls.Add(this.pbPlaceTool12);
             this.gbTool12.Controls.Add(this.pbShowTool12);
             this.gbTool12.Controls.Add(this.cbTool12);
@@ -574,11 +632,21 @@
             this.gbTool12.Text = "Tool 12";
             this.gbTool12.Visible = false;
             // 
+            // pbSideTool12
+            // 
+            this.pbSideTool12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool12.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool12.Name = "pbSideTool12";
+            this.pbSideTool12.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool12.TabIndex = 6;
+            this.pbSideTool12.TabStop = false;
+            // 
             // pbPlaceTool12
             // 
             this.pbPlaceTool12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool12.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool12.Image")));
-            this.pbPlaceTool12.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool12.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool12.Name = "pbPlaceTool12";
             this.pbPlaceTool12.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -590,7 +658,7 @@
             // 
             this.pbShowTool12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool12.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool12.Image")));
-            this.pbShowTool12.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool12.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool12.Name = "pbShowTool12";
             this.pbShowTool12.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -600,6 +668,7 @@
             // 
             // cbTool12
             // 
+            this.cbTool12.AllowDrop = true;
             this.cbTool12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool12.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool12.FormattingEnabled = true;
@@ -609,10 +678,13 @@
             this.cbTool12.TabIndex = 3;
             this.cbTool12.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool12.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool12.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool12.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool14
             // 
             this.gbTool14.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool14.Controls.Add(this.pbSideTool14);
             this.gbTool14.Controls.Add(this.pbPlaceTool14);
             this.gbTool14.Controls.Add(this.pbShowTool14);
             this.gbTool14.Controls.Add(this.cbTool14);
@@ -625,11 +697,21 @@
             this.gbTool14.Text = "Tool 14";
             this.gbTool14.Visible = false;
             // 
+            // pbSideTool14
+            // 
+            this.pbSideTool14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool14.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool14.Name = "pbSideTool14";
+            this.pbSideTool14.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool14.TabIndex = 6;
+            this.pbSideTool14.TabStop = false;
+            // 
             // pbPlaceTool14
             // 
             this.pbPlaceTool14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool14.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool14.Image")));
-            this.pbPlaceTool14.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool14.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool14.Name = "pbPlaceTool14";
             this.pbPlaceTool14.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -641,7 +723,7 @@
             // 
             this.pbShowTool14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool14.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool14.Image")));
-            this.pbShowTool14.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool14.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool14.Name = "pbShowTool14";
             this.pbShowTool14.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -651,6 +733,7 @@
             // 
             // cbTool14
             // 
+            this.cbTool14.AllowDrop = true;
             this.cbTool14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool14.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool14.FormattingEnabled = true;
@@ -660,10 +743,13 @@
             this.cbTool14.TabIndex = 3;
             this.cbTool14.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool14.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool14.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool14.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool9
             // 
             this.gbTool9.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool9.Controls.Add(this.pbSideTool9);
             this.gbTool9.Controls.Add(this.pbPlaceTool9);
             this.gbTool9.Controls.Add(this.pbShowTool9);
             this.gbTool9.Controls.Add(this.cbTool9);
@@ -676,11 +762,21 @@
             this.gbTool9.Text = "Tool 9";
             this.gbTool9.Visible = false;
             // 
+            // pbSideTool9
+            // 
+            this.pbSideTool9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool9.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool9.Name = "pbSideTool9";
+            this.pbSideTool9.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool9.TabIndex = 6;
+            this.pbSideTool9.TabStop = false;
+            // 
             // pbPlaceTool9
             // 
             this.pbPlaceTool9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool9.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool9.Image")));
-            this.pbPlaceTool9.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool9.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool9.Name = "pbPlaceTool9";
             this.pbPlaceTool9.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -692,7 +788,7 @@
             // 
             this.pbShowTool9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool9.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool9.Image")));
-            this.pbShowTool9.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool9.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool9.Name = "pbShowTool9";
             this.pbShowTool9.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -702,6 +798,7 @@
             // 
             // cbTool9
             // 
+            this.cbTool9.AllowDrop = true;
             this.cbTool9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool9.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool9.FormattingEnabled = true;
@@ -711,10 +808,13 @@
             this.cbTool9.TabIndex = 3;
             this.cbTool9.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool9.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool9.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool9.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool13
             // 
             this.gbTool13.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool13.Controls.Add(this.pbSideTool13);
             this.gbTool13.Controls.Add(this.pbPlaceTool13);
             this.gbTool13.Controls.Add(this.pbShowTool13);
             this.gbTool13.Controls.Add(this.cbTool13);
@@ -727,11 +827,21 @@
             this.gbTool13.Text = "Tool 13";
             this.gbTool13.Visible = false;
             // 
+            // pbSideTool13
+            // 
+            this.pbSideTool13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool13.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool13.Name = "pbSideTool13";
+            this.pbSideTool13.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool13.TabIndex = 6;
+            this.pbSideTool13.TabStop = false;
+            // 
             // pbPlaceTool13
             // 
             this.pbPlaceTool13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool13.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool13.Image")));
-            this.pbPlaceTool13.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool13.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool13.Name = "pbPlaceTool13";
             this.pbPlaceTool13.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -743,7 +853,7 @@
             // 
             this.pbShowTool13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool13.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool13.Image")));
-            this.pbShowTool13.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool13.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool13.Name = "pbShowTool13";
             this.pbShowTool13.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -753,6 +863,7 @@
             // 
             // cbTool13
             // 
+            this.cbTool13.AllowDrop = true;
             this.cbTool13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool13.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool13.FormattingEnabled = true;
@@ -762,10 +873,13 @@
             this.cbTool13.TabIndex = 3;
             this.cbTool13.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool13.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool13.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool13.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool11
             // 
             this.gbTool11.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool11.Controls.Add(this.pbSideTool11);
             this.gbTool11.Controls.Add(this.pbPlaceTool11);
             this.gbTool11.Controls.Add(this.pbShowTool11);
             this.gbTool11.Controls.Add(this.cbTool11);
@@ -778,11 +892,21 @@
             this.gbTool11.Text = "Tool 11";
             this.gbTool11.Visible = false;
             // 
+            // pbSideTool11
+            // 
+            this.pbSideTool11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool11.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool11.Name = "pbSideTool11";
+            this.pbSideTool11.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool11.TabIndex = 6;
+            this.pbSideTool11.TabStop = false;
+            // 
             // pbPlaceTool11
             // 
             this.pbPlaceTool11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool11.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool11.Image")));
-            this.pbPlaceTool11.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool11.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool11.Name = "pbPlaceTool11";
             this.pbPlaceTool11.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -794,7 +918,7 @@
             // 
             this.pbShowTool11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool11.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool11.Image")));
-            this.pbShowTool11.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool11.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool11.Name = "pbShowTool11";
             this.pbShowTool11.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -804,6 +928,7 @@
             // 
             // cbTool11
             // 
+            this.cbTool11.AllowDrop = true;
             this.cbTool11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool11.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool11.FormattingEnabled = true;
@@ -813,10 +938,13 @@
             this.cbTool11.TabIndex = 3;
             this.cbTool11.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool11.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool11.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool11.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool6
             // 
             this.gbTool6.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool6.Controls.Add(this.pbSideTool6);
             this.gbTool6.Controls.Add(this.pbPlaceTool6);
             this.gbTool6.Controls.Add(this.pbShowTool6);
             this.gbTool6.Controls.Add(this.cbTool6);
@@ -829,11 +957,21 @@
             this.gbTool6.Text = "Tool 6";
             this.gbTool6.Visible = false;
             // 
+            // pbSideTool6
+            // 
+            this.pbSideTool6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool6.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool6.Name = "pbSideTool6";
+            this.pbSideTool6.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool6.TabIndex = 6;
+            this.pbSideTool6.TabStop = false;
+            // 
             // pbPlaceTool6
             // 
             this.pbPlaceTool6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool6.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool6.Image")));
-            this.pbPlaceTool6.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool6.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool6.Name = "pbPlaceTool6";
             this.pbPlaceTool6.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -845,7 +983,7 @@
             // 
             this.pbShowTool6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool6.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool6.Image")));
-            this.pbShowTool6.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool6.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool6.Name = "pbShowTool6";
             this.pbShowTool6.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -855,6 +993,7 @@
             // 
             // cbTool6
             // 
+            this.cbTool6.AllowDrop = true;
             this.cbTool6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool6.FormattingEnabled = true;
@@ -864,10 +1003,13 @@
             this.cbTool6.TabIndex = 3;
             this.cbTool6.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool6.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool6.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool6.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool10
             // 
             this.gbTool10.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool10.Controls.Add(this.pbSideTool10);
             this.gbTool10.Controls.Add(this.pbPlaceTool10);
             this.gbTool10.Controls.Add(this.pbShowTool10);
             this.gbTool10.Controls.Add(this.cbTool10);
@@ -880,11 +1022,21 @@
             this.gbTool10.Text = "Tool 10";
             this.gbTool10.Visible = false;
             // 
+            // pbSideTool10
+            // 
+            this.pbSideTool10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool10.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool10.Name = "pbSideTool10";
+            this.pbSideTool10.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool10.TabIndex = 6;
+            this.pbSideTool10.TabStop = false;
+            // 
             // pbPlaceTool10
             // 
             this.pbPlaceTool10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool10.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool10.Image")));
-            this.pbPlaceTool10.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool10.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool10.Name = "pbPlaceTool10";
             this.pbPlaceTool10.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -896,7 +1048,7 @@
             // 
             this.pbShowTool10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool10.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool10.Image")));
-            this.pbShowTool10.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool10.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool10.Name = "pbShowTool10";
             this.pbShowTool10.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -906,6 +1058,7 @@
             // 
             // cbTool10
             // 
+            this.cbTool10.AllowDrop = true;
             this.cbTool10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool10.FormattingEnabled = true;
@@ -915,10 +1068,13 @@
             this.cbTool10.TabIndex = 3;
             this.cbTool10.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool10.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool10.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool10.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool8
             // 
             this.gbTool8.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool8.Controls.Add(this.pbSideTool8);
             this.gbTool8.Controls.Add(this.pbPlaceTool8);
             this.gbTool8.Controls.Add(this.pbShowTool8);
             this.gbTool8.Controls.Add(this.cbTool8);
@@ -931,11 +1087,21 @@
             this.gbTool8.Text = "Tool 8";
             this.gbTool8.Visible = false;
             // 
+            // pbSideTool8
+            // 
+            this.pbSideTool8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool8.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool8.Name = "pbSideTool8";
+            this.pbSideTool8.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool8.TabIndex = 6;
+            this.pbSideTool8.TabStop = false;
+            // 
             // pbPlaceTool8
             // 
             this.pbPlaceTool8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool8.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool8.Image")));
-            this.pbPlaceTool8.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool8.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool8.Name = "pbPlaceTool8";
             this.pbPlaceTool8.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -947,7 +1113,7 @@
             // 
             this.pbShowTool8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool8.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool8.Image")));
-            this.pbShowTool8.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool8.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool8.Name = "pbShowTool8";
             this.pbShowTool8.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -957,6 +1123,7 @@
             // 
             // cbTool8
             // 
+            this.cbTool8.AllowDrop = true;
             this.cbTool8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool8.FormattingEnabled = true;
@@ -966,10 +1133,13 @@
             this.cbTool8.TabIndex = 3;
             this.cbTool8.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool8.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool8.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool8.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool3
             // 
             this.gbTool3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool3.Controls.Add(this.pbSideTool3);
             this.gbTool3.Controls.Add(this.pbPlaceTool3);
             this.gbTool3.Controls.Add(this.pbShowTool3);
             this.gbTool3.Controls.Add(this.cbTool3);
@@ -982,11 +1152,21 @@
             this.gbTool3.Text = "Tool 3";
             this.gbTool3.Visible = false;
             // 
+            // pbSideTool3
+            // 
+            this.pbSideTool3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool3.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool3.Name = "pbSideTool3";
+            this.pbSideTool3.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool3.TabIndex = 6;
+            this.pbSideTool3.TabStop = false;
+            // 
             // pbPlaceTool3
             // 
             this.pbPlaceTool3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool3.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool3.Image")));
-            this.pbPlaceTool3.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool3.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool3.Name = "pbPlaceTool3";
             this.pbPlaceTool3.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -998,7 +1178,7 @@
             // 
             this.pbShowTool3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool3.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool3.Image")));
-            this.pbShowTool3.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool3.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool3.Name = "pbShowTool3";
             this.pbShowTool3.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1008,6 +1188,7 @@
             // 
             // cbTool3
             // 
+            this.cbTool3.AllowDrop = true;
             this.cbTool3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool3.FormattingEnabled = true;
@@ -1017,10 +1198,13 @@
             this.cbTool3.TabIndex = 3;
             this.cbTool3.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool3.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool3.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool3.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool7
             // 
             this.gbTool7.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool7.Controls.Add(this.pbSideTool7);
             this.gbTool7.Controls.Add(this.pbPlaceTool7);
             this.gbTool7.Controls.Add(this.pbShowTool7);
             this.gbTool7.Controls.Add(this.cbTool7);
@@ -1033,11 +1217,21 @@
             this.gbTool7.Text = "Tool 7";
             this.gbTool7.Visible = false;
             // 
+            // pbSideTool7
+            // 
+            this.pbSideTool7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool7.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool7.Name = "pbSideTool7";
+            this.pbSideTool7.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool7.TabIndex = 6;
+            this.pbSideTool7.TabStop = false;
+            // 
             // pbPlaceTool7
             // 
             this.pbPlaceTool7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool7.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool7.Image")));
-            this.pbPlaceTool7.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool7.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool7.Name = "pbPlaceTool7";
             this.pbPlaceTool7.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1049,7 +1243,7 @@
             // 
             this.pbShowTool7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool7.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool7.Image")));
-            this.pbShowTool7.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool7.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool7.Name = "pbShowTool7";
             this.pbShowTool7.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1059,6 +1253,7 @@
             // 
             // cbTool7
             // 
+            this.cbTool7.AllowDrop = true;
             this.cbTool7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool7.FormattingEnabled = true;
@@ -1068,10 +1263,13 @@
             this.cbTool7.TabIndex = 3;
             this.cbTool7.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool7.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool7.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool7.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool5
             // 
             this.gbTool5.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool5.Controls.Add(this.pbSideTool5);
             this.gbTool5.Controls.Add(this.pbPlaceTool5);
             this.gbTool5.Controls.Add(this.pbShowTool5);
             this.gbTool5.Controls.Add(this.cbTool5);
@@ -1084,11 +1282,21 @@
             this.gbTool5.Text = "Tool 5";
             this.gbTool5.Visible = false;
             // 
+            // pbSideTool5
+            // 
+            this.pbSideTool5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool5.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool5.Name = "pbSideTool5";
+            this.pbSideTool5.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool5.TabIndex = 6;
+            this.pbSideTool5.TabStop = false;
+            // 
             // pbPlaceTool5
             // 
             this.pbPlaceTool5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool5.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool5.Image")));
-            this.pbPlaceTool5.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool5.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool5.Name = "pbPlaceTool5";
             this.pbPlaceTool5.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1100,7 +1308,7 @@
             // 
             this.pbShowTool5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool5.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool5.Image")));
-            this.pbShowTool5.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool5.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool5.Name = "pbShowTool5";
             this.pbShowTool5.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1110,6 +1318,7 @@
             // 
             // cbTool5
             // 
+            this.cbTool5.AllowDrop = true;
             this.cbTool5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool5.FormattingEnabled = true;
@@ -1119,10 +1328,13 @@
             this.cbTool5.TabIndex = 3;
             this.cbTool5.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool5.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool5.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool5.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool2
             // 
             this.gbTool2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool2.Controls.Add(this.pbSideTool2);
             this.gbTool2.Controls.Add(this.pbPlaceTool2);
             this.gbTool2.Controls.Add(this.pbShowTool2);
             this.gbTool2.Controls.Add(this.cbTool2);
@@ -1135,11 +1347,21 @@
             this.gbTool2.Text = "Tool 2";
             this.gbTool2.Visible = false;
             // 
+            // pbSideTool2
+            // 
+            this.pbSideTool2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool2.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool2.Name = "pbSideTool2";
+            this.pbSideTool2.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSideTool2.TabIndex = 6;
+            this.pbSideTool2.TabStop = false;
+            // 
             // pbPlaceTool2
             // 
             this.pbPlaceTool2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool2.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool2.Image")));
-            this.pbPlaceTool2.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool2.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool2.Name = "pbPlaceTool2";
             this.pbPlaceTool2.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1151,7 +1373,7 @@
             // 
             this.pbShowTool2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool2.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool2.Image")));
-            this.pbShowTool2.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool2.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool2.Name = "pbShowTool2";
             this.pbShowTool2.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1161,6 +1383,7 @@
             // 
             // cbTool2
             // 
+            this.cbTool2.AllowDrop = true;
             this.cbTool2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool2.FormattingEnabled = true;
@@ -1170,10 +1393,13 @@
             this.cbTool2.TabIndex = 3;
             this.cbTool2.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool2.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool2.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool2.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool4
             // 
             this.gbTool4.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool4.Controls.Add(this.pbSideTool4);
             this.gbTool4.Controls.Add(this.pbPlaceTool4);
             this.gbTool4.Controls.Add(this.pbShowTool4);
             this.gbTool4.Controls.Add(this.cbTool4);
@@ -1186,11 +1412,21 @@
             this.gbTool4.Text = "Tool 4";
             this.gbTool4.Visible = false;
             // 
+            // pbSideTool4
+            // 
+            this.pbSideTool4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool4.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool4.Name = "pbSideTool4";
+            this.pbSideTool4.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSideTool4.TabIndex = 6;
+            this.pbSideTool4.TabStop = false;
+            // 
             // pbPlaceTool4
             // 
             this.pbPlaceTool4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool4.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool4.Image")));
-            this.pbPlaceTool4.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool4.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool4.Name = "pbPlaceTool4";
             this.pbPlaceTool4.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1202,7 +1438,7 @@
             // 
             this.pbShowTool4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool4.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool4.Image")));
-            this.pbShowTool4.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool4.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool4.Name = "pbShowTool4";
             this.pbShowTool4.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1212,6 +1448,7 @@
             // 
             // cbTool4
             // 
+            this.cbTool4.AllowDrop = true;
             this.cbTool4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool4.FormattingEnabled = true;
@@ -1221,10 +1458,13 @@
             this.cbTool4.TabIndex = 3;
             this.cbTool4.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool4.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool4.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool4.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // gbTool1
             // 
             this.gbTool1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.gbTool1.Controls.Add(this.pbSideTool1);
             this.gbTool1.Controls.Add(this.pbPlaceTool1);
             this.gbTool1.Controls.Add(this.pbShowTool1);
             this.gbTool1.Controls.Add(this.cbTool1);
@@ -1237,11 +1477,21 @@
             this.gbTool1.Text = "Tool 1";
             this.gbTool1.Visible = false;
             // 
+            // pbSideTool1
+            // 
+            this.pbSideTool1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSideTool1.Location = new System.Drawing.Point(95, 53);
+            this.pbSideTool1.Name = "pbSideTool1";
+            this.pbSideTool1.Size = new System.Drawing.Size(40, 40);
+            this.pbSideTool1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSideTool1.TabIndex = 3;
+            this.pbSideTool1.TabStop = false;
+            // 
             // pbPlaceTool1
             // 
             this.pbPlaceTool1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPlaceTool1.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaceTool1.Image")));
-            this.pbPlaceTool1.Location = new System.Drawing.Point(56, 53);
+            this.pbPlaceTool1.Location = new System.Drawing.Point(51, 53);
             this.pbPlaceTool1.Name = "pbPlaceTool1";
             this.pbPlaceTool1.Size = new System.Drawing.Size(40, 40);
             this.pbPlaceTool1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1253,7 +1503,7 @@
             // 
             this.pbShowTool1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbShowTool1.Image = ((System.Drawing.Image)(resources.GetObject("pbShowTool1.Image")));
-            this.pbShowTool1.Location = new System.Drawing.Point(12, 53);
+            this.pbShowTool1.Location = new System.Drawing.Point(7, 53);
             this.pbShowTool1.Name = "pbShowTool1";
             this.pbShowTool1.Size = new System.Drawing.Size(40, 40);
             this.pbShowTool1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1263,6 +1513,7 @@
             // 
             // cbTool1
             // 
+            this.cbTool1.AllowDrop = true;
             this.cbTool1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTool1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbTool1.FormattingEnabled = true;
@@ -1272,6 +1523,8 @@
             this.cbTool1.TabIndex = 0;
             this.cbTool1.SelectedIndexChanged += new System.EventHandler(this.cbTool_SelectedIndex);
             this.cbTool1.Click += new System.EventHandler(this.cbTool_Click);
+            this.cbTool1.DragDrop += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragDrop);
+            this.cbTool1.DragEnter += new System.Windows.Forms.DragEventHandler(this.ComboBox_DragEnter);
             // 
             // pnlFeedUnitHeader
             // 
@@ -1374,18 +1627,6 @@
             this.pbExit.TabStop = false;
             this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
             // 
-            // pbToolInfo
-            // 
-            this.pbToolInfo.Image = ((System.Drawing.Image)(resources.GetObject("pbToolInfo.Image")));
-            this.pbToolInfo.Location = new System.Drawing.Point(9, 7);
-            this.pbToolInfo.Name = "pbToolInfo";
-            this.pbToolInfo.Size = new System.Drawing.Size(50, 50);
-            this.pbToolInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbToolInfo.TabIndex = 3;
-            this.pbToolInfo.TabStop = false;
-            this.pbToolInfo.Visible = false;
-            this.pbToolInfo.Click += new System.EventHandler(this.pbToolInfo_Click);
-            // 
             // form_ToolManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1416,52 +1657,68 @@
             this.pnlToolInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvToolInfo)).EndInit();
             this.pnlToolEdit.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbToolInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEditOK)).EndInit();
             this.pnlFeedUnit.ResumeLayout(false);
             this.gbTool15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool15)).EndInit();
             this.gbTool12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool12)).EndInit();
             this.gbTool14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool14)).EndInit();
             this.gbTool9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool9)).EndInit();
             this.gbTool13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool13)).EndInit();
             this.gbTool11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool11)).EndInit();
             this.gbTool6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool6)).EndInit();
             this.gbTool10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool10)).EndInit();
             this.gbTool8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool8)).EndInit();
             this.gbTool3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool3)).EndInit();
             this.gbTool7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool7)).EndInit();
             this.gbTool5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool5)).EndInit();
             this.gbTool2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool2)).EndInit();
             this.gbTool4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool4)).EndInit();
             this.gbTool1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSideTool1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlaceTool1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowTool1)).EndInit();
             this.pnlFeedUnitHeader.ResumeLayout(false);
@@ -1472,7 +1729,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbToolInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1574,6 +1830,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Max;
         private System.Windows.Forms.DataGridViewTextBoxColumn Field;
         private System.Windows.Forms.PictureBox pbToolInfo;
+        private System.Windows.Forms.PictureBox pbSideTool2;
+        private System.Windows.Forms.PictureBox pbSideTool1;
+        private System.Windows.Forms.PictureBox pbSideTool15;
+        private System.Windows.Forms.PictureBox pbSideTool12;
+        private System.Windows.Forms.PictureBox pbSideTool14;
+        private System.Windows.Forms.PictureBox pbSideTool9;
+        private System.Windows.Forms.PictureBox pbSideTool13;
+        private System.Windows.Forms.PictureBox pbSideTool11;
+        private System.Windows.Forms.PictureBox pbSideTool6;
+        private System.Windows.Forms.PictureBox pbSideTool10;
+        private System.Windows.Forms.PictureBox pbSideTool8;
+        private System.Windows.Forms.PictureBox pbSideTool3;
+        private System.Windows.Forms.PictureBox pbSideTool7;
+        private System.Windows.Forms.PictureBox pbSideTool5;
+        private System.Windows.Forms.PictureBox pbSideTool4;
     }
 }
 

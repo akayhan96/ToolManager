@@ -11,6 +11,7 @@ namespace ToolManager
     public class Globals
     {
         public static ImageList TreeViewImages = new ImageList();
+        //public static Dictionary<string,string> TreeViewImages = new Dictionary<string, string>();
 
         public static BusinessManager serviceManager; 
 

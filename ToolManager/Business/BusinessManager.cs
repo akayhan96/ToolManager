@@ -70,6 +70,10 @@ namespace ToolManager.Business
 
         public void GetFieldImages()
         {
+            Bitmap emptyBmp = new Bitmap(1, 1);
+            emptyBmp.SetPixel(0, 0, Color.Transparent);
+            Globals.TreeViewImages.Images.Add("Empty", emptyBmp);
+
             AddImages("codWork");
             AddImages("codSide");
             AddImages("codSubWork");
@@ -85,6 +89,8 @@ namespace ToolManager.Business
                 if (File.Exists(imgFile))
                 {
                     Globals.TreeViewImages.Images.Add(sub.Name, Image.FromFile(imgFile));
+                    //Globals.TreeViewImages.Add(sub.Name, imgFile);
+
                 }
             }
         }
